@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>CSS Project</title>
+  </head>
+  <body>
+    <ul class="home__list">
+      <li class="email email__unread">
+        <div class="card">
+          <div class="email__actions">
+            <input
+            id="email-1"
+            type="checkbox"
+            class="email__checkbox"
+            checked
+            />
+            <span class="checkmark"></span>
+            <label for="email-1">JJ</label>
+          </div>
+          <a href="#" class="email__details">
+            <h3>{ email.author }</h3>
+            <p>{ email.msg }</p>
+          </a>
+          <div class="email__priority">
+            <div>
+              <span>starred-icon</span>
+              <span>pinned-icon</span>
+            </div>
+            <div>
+              <span class="email__datetime">6:00PM</span>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="email">
+        <div class="card">
+          <div class="email__actions">
+            <input id="email-2" type="checkbox" class="email__checkbox" />
+            <span class="checkmark"></span>
+            <label for="email-2">DD</label>
+          </div>
+          <a href="#" class="email__details">
+            <h3>{ email.author }</h3>
+            <p>{ email.msg }</p>
+          </a>
+          <div class="email__priority">
+            <div>
+              <span>starred-icon</span>
+              <span>pinned-icon</span>
+            </div>
+            <div>
+              <span class="email___datetime">Sunday</span>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="email">
+        <div class="card">
+          <div class="email__actions">
+            <input id="email-3" type="checkbox" class="email__checkbox" />
+            <span class="checkmark"></span>
+            <label for="email-3">JD</label>
+          </div>
+          <a href="#" class="email__details">
+            <h3>{ email.author }</h3>
+            <p>{ email.msg }</p>
+          </a>
+          <div class="email__priority">
+            <div>
+              <span>starred-icon</span>
+              <span>pinned-icon</span>
+            </div>
+            <div>
+              <span class="email___datetime">Nov. 6</span>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
