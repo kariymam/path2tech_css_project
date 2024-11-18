@@ -7,9 +7,9 @@
     <title>CSS Project</title>
   </head>
   <body>
-    <ul class="home__list">
-      <li class="email email__unread">
-        <div class="card">
+    <ul class="home__pinned">
+      <li class="email">
+        <div class="card email__unread">
           <div class="email__actions">
             <input
               id="email-1"
@@ -26,8 +26,43 @@
           </a>
           <div class="email__priority">
             <div>
-              <span>starred-icon</span>
-              <span>pinned-icon</span>
+              <img src="/assets/svg/star-outline.svg" class="star-icon"/>
+              <img src="pin-illustrative.svg" class="pinned-icon visible"/>
+            </div>
+            <div>
+              <span class="email__datetime">6:00PM</span>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul class="home__list">
+      <li class="email">
+        <div class="card email__unread">
+          <div class="email__actions">
+            <input
+              id="email-2"
+              type="checkbox"
+              class="email__checkbox"
+            />
+            <span class="checkmark"></span>
+            <label for="email-2">JJ</label>
+          </div>
+          <a href="#" class="email__details">
+            <h3>{ email.author }</h3>
+            <p>{ email.msg }</p>
+          </a>
+          <div class="email__priority">
+            <div class="email__star">
+              <input
+                id="star-2"
+                type="checkbox"
+                class="star__checkbox"
+              />
+              <span class="star"></span>
+              <label for="star-2">
+                Star
+              </label>
             </div>
             <div>
               <span class="email__datetime">6:00PM</span>
@@ -38,18 +73,25 @@
       <li class="email">
         <div class="card">
           <div class="email__actions">
-            <input id="email-2" type="checkbox" class="email__checkbox" />
+            <input id="email-3" type="checkbox" class="email__checkbox" />
             <span class="checkmark"></span>
-            <label for="email-2">DD</label>
+            <label for="email-3">DD</label>
           </div>
           <a href="#" class="email__details">
             <h3>{ email.author }</h3>
             <p>{ email.msg }</p>
           </a>
           <div class="email__priority">
-            <div>
-              <span>starred-icon</span>
-              <span>pinned-icon</span>
+            <div class="email__star">
+              <input
+                id="star-2"
+                type="checkbox"
+                class="star__checkbox"
+              />
+              <span class="star"></span>
+              <label for="star-2">
+                Star
+              </label>
             </div>
             <div>
               <span class="email___datetime">Sunday</span>
@@ -60,9 +102,9 @@
       <li class="email">
         <div class="card">
           <div class="email__actions">
-            <input id="email-3" type="checkbox" class="email__checkbox" />
+            <input id="email-4" type="checkbox" class="email__checkbox" />
             <span class="checkmark"></span>
-            <label for="email-3">
+            <label for="email-4">
               <img
                 width="28"
                 alt="Github Invertocat Logo"
@@ -75,9 +117,16 @@
             <p>{ email.msg }</p>
           </a>
           <div class="email__priority">
-            <div>
-              <span>starred-icon</span>
-              <span>pinned-icon</span>
+            <div class="email__star">
+              <input
+                id="star-2"
+                type="checkbox"
+                class="star__checkbox"
+              />
+              <span class="star"></span>
+              <label for="star-2">
+                Star
+              </label>
             </div>
             <div>
               <span class="email___datetime">Nov. 6</span>
