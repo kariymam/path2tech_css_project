@@ -44,7 +44,7 @@
 .email__actions {
   align-items: center;
   justify-content: center;
-  padding: 14px 12px 14px 14px;
+  padding: 14px 10px 14px 14px;
   position: relative;
   & label {
     position: absolute;
@@ -59,6 +59,10 @@
     bottom: 0;
     left: 0;
     right: 0;
+  }
+  & label > img {
+    max-width: 100%;
+    fill: #2e2e38;
   }
   & span::before {
     content: " ";
