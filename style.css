@@ -11,6 +11,11 @@
     sans-serif;
 }
 
+a {
+    color: var(--dark-gray);
+    text-decoration: none;
+}
+
 .card {
   display: flex;
   flex-flow: row nowrap;
