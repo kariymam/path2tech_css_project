@@ -28,6 +28,10 @@ a {
   }
 }
 
+tr.card {
+    border-radius: 0;
+}
+
 .card.email__unread {
     font-weight: 700;
   }
@@ -42,7 +46,7 @@ a {
   grid-template: 1fr / 1fr;
 }
 
-.home__list .email {
+.home__list .email tr.card {
   border-bottom: 1px solid var(--light-gray);
 }
 
@@ -159,7 +163,6 @@ a {
     flex-grow: 1;
   }
   & > * {
-    align-items: center;
     max-height: 2rem;
     height: 100%;
   }
