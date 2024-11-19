@@ -9,6 +9,7 @@
   font-family: "Public Sans", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
+  background-color: #dddeea;
 }
 
 a {
@@ -46,12 +47,15 @@ ul {
 
 .home__pinned {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .home__list {
   display: flex;
   flex-flow: column nowrap;
+  border-top: 1px solid var(--light-gray);
 }
 
 .home__list .email {
@@ -62,10 +66,21 @@ ul {
   border: 1px solid var(--light-gray);
 }
 
-.email {
+.home__list .email {
   flex-grow: 1;
   position: relative;
   letter-spacing: -0.4px;
+  background-color: transparent;
+  transition: background-color 300ms ease-out;
+}
+
+.home__pinned .email {
+  background-color: #eeeeee;
+  border-radius: 1rem;
+}
+
+.email:hover {
+  background-color: #eeeeee;
 }
 
 .email__details,
@@ -78,6 +93,7 @@ ul {
 
 .email__actions,
 .email__priority {
+  margin: 2px;
   & label {
     position: absolute;
     opacity: 0;
@@ -94,7 +110,6 @@ ul {
   }
   & label > img {
     max-width: 100%;
-    fill: #2e2e38;
   }
 }
 
@@ -102,9 +117,6 @@ ul {
   align-items: center;
   justify-content: center;
   width: 2.5rem;
-  & > * {
-    margin: auto;
-  }
   & span.checkmark::before {
     content: " ";
     border-radius: 1rem;
@@ -127,16 +139,6 @@ ul {
 }
 
 .email__priority {
-  flex-flow: column nowrap;
-  align-items: end;
-  justify-content: space-between;
-  & > * {
-    flex-grow: 1;
-    align-items: center;
-    max-height: 2rem;
-    height: 100%;
-    gap: 0.25rem;
-  }
   & span.star {
     width: 1rem;
     height: 1rem;
