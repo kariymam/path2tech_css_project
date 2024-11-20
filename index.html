@@ -7,10 +7,28 @@
     <title>CSS Project</title>
   </head>
   <body>
-    <nav id="primary_nav">Main menu
-      <button>Open menu</button>
+    <nav id="primary_nav">
+      <button id="menu-btn">Open menu</button>
+      <ul class="nav__links">
+        <li class="card nav__link">
+          <a href="#">
+            <span>Inbox</span>
+          </a>
+        </li>
+        <li class="card nav__link">
+          <a href="#">
+            <span>Starred</span>
+          </a>
+        </li>
+        <li class="card nav__link">
+          <a href="#">
+            <span>Trash</span>
+          </a>
+        </li>
+      </ul>
+      <div id="nav__scrim" class="nav__scrim" aria-hidden="true"></div>
     </nav>
-    <header>
+    <header id="main-header">
       <h1>Inbox</h1>
       <form id="search" class="search-bar card">
         <label class="visually-hidden">Search</label>
@@ -23,9 +41,9 @@
     </header>
     <main>
       <section>
-        <div>
+        <header>
           <h2>1 pinned message</h2>
-        </div>
+        </header>
         <ul class="home__pinned" role="group">
           <li class="email" id="email1" role="listitem">
             <div class="card email__unread">
@@ -44,7 +62,7 @@
               </div>
               <a href="#" class="email__details" id="author1">
                 J. Jonah Jameson
-                <p>Re: [URGENT] I need pictures of Spiderman!!!</p>
+                <p>[URGENT] I need pictures of Spiderman!!!</p>
               </a>
               <div class="email__priority">
                 <div>
@@ -63,9 +81,9 @@
         </ul>
       </section>
       <section id="all-emails">
-        <div>
+        <header>
           <h2>3 messages</h2>
-        </div>
+        </header>
         <ul class="home__list">
           <li class="email" id="email2">
             <div class="card email__unread">
@@ -82,7 +100,7 @@
               </div>
               <a href="#" class="email__details" id="author2">
                 <h3>Peter Potamus</h3>
-                <p>Did you get that thing I sent you?</p>
+                <p>Re: Did you get that thing I sent you?</p>
               </a>
               <div class="email__priority">
                 <div>
@@ -184,7 +202,12 @@
         </ul>
       </section>
     </main>
-    <aside class="">Email page</aside>
+    <aside id="email__content">
+      <div id="email__content-view" class="email__content">
+        Email page area
+      </div>
+    </aside>
+    <footer>Footer</footer>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
