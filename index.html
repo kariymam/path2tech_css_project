@@ -7,11 +7,21 @@
     <title>CSS Project</title>
   </head>
   <body>
+    <nav id="primary_nav">Main menu
+      <button>Open menu</button>
+    </nav>
+    <header>
+      <h1>Inbox</h1>
+      <form id="search" class="search-bar card">
+        <label class="visually-hidden">Search</label>
+        <input type="text" id="search-bar" placeholder="Search" />
+        <button>
+          <span class="search-icon"></span>
+          <span class="visually-hidden">Search Icon</span>
+        </button>
+      </form>
+    </header>
     <main>
-      <header>
-        <h1>Title</h1>
-        <h2>Subtitle</h2>
-      </header>
       <section>
         <h2>Pinned mail</h2>
         <ul class="home__pinned" role="group">
@@ -26,7 +36,9 @@
                   name="select_email1"
                 />
                 <span class="checkmark" aria-hidden="true"></span>
-                <label for="select_email1" aria-describedby="author1"> JJ </label>
+                <label for="select_email1" aria-describedby="author1">
+                  JJ
+                </label>
               </div>
               <a href="#" class="email__details" id="author1">
                 J. Jonah Jameson
@@ -48,7 +60,7 @@
           </li>
         </ul>
       </section>
-      <section>
+      <section id="all-emails">
         <h2>All mail</h2>
         <ul class="home__list">
           <li class="email" id="email2">
@@ -128,7 +140,7 @@
               <div class="email__actions" aria-describedby="author4">
                 <span class="email__initials" aria-hidden="true">
                   <img
-                    width="28"
+                    width="24"
                     alt="Github Invertocat Logo"
                     src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg"
                   />
@@ -168,6 +180,7 @@
         </ul>
       </section>
     </main>
+    <aside class="">Email page</aside>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
