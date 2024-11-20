@@ -4,13 +4,16 @@
 :root {
   --whiteish: #eeeeee;
   --gold: #ffa800;
+  --lightest-gray: #dddeea;
   --light-gray: #c8c8d8;
   --dark-gray: #2e2e38;
   --blue: #0164ee;
+  --bg: var(--lightest-gray);
+  --border: var(--light-gray);
   font-family: "Public Sans", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
-  background-color: #dddeea;
+  background-color: var(--bg);
 }
 
 body {
@@ -19,7 +22,7 @@ body {
 }
 
 section > :first-child {
-  padding: 1rem 1.8rem 0.5rem 1.8rem;
+  padding: 1rem 2.4rem 0.5rem 0;
 }
 
 section#all-emails {
@@ -117,7 +120,7 @@ header h1::after {
   width: 20px;
   height: 20px;
   border-radius: 99px;
-  font-size: 14px;
+  font-size: 0.875rem;
   margin-left: 0.25rem;
 }
 
@@ -143,14 +146,14 @@ header h1::after {
 
 .home__pinned .email .card {
   background-color: var(--whiteish);
-  border: 1px solid var(--light-gray);
+  border: 1px solid var(--border);
   height: 64px;
 }
 
 .home__list {
   display: flex;
   flex-flow: column nowrap;
-  border-top: 1px solid var(--light-gray);
+  border-top: 1px solid var(--border);
 }
 
 .home__list .email {
@@ -159,7 +162,7 @@ header h1::after {
   letter-spacing: -0.4px;
   background-color: transparent;
   transition: background-color 300ms ease-out;
-  border-bottom: 1px solid var(--light-gray);
+  border-bottom: 1px solid var(--border);
   padding: 0 0.5rem;
   &:hover {
     background-color: var(--whiteish);
@@ -181,7 +184,7 @@ header h1::after {
 
 .home__list .email .card.email__unread time.email__datetime {
   background-color: var(--light-gray);
-  border: 1px solid var(--light-gray);
+  border: 1px solid var(--border);
 }
 
 .email__details,
@@ -225,7 +228,7 @@ header h1::after {
       #0164ee;
   }
   & input[type="checkbox"].email__checkbox + span {
-    border: 1px solid var(--light-gray);
+    border: 1px solid var(--border);
     background-color: var(--light-gray);
   }
   & > :is(input[type="checkbox"]:checked) ~ label {
@@ -281,14 +284,22 @@ header h1::after {
   }
 }
 
+.email__details h3 {
+  font-size: 0.875rem;
+}
+
+time {
+  font-size: 0.75rem;
+  width: max-content;
+}
+
 .email__priority time.email__datetime {
   background-color: transparent;
   border: 1px solid transparent;
   padding: 0 0.25rem;
   height: 1.125rem;
-  line-height: 1.2;
+  line-height: 1.5;
   text-align: center;
-  font-size: 0.875rem;
   border-radius: 0.625rem;
 }
 
@@ -296,6 +307,10 @@ header h1::after {
   content: "sent\00a0";
   opacity: 0;
   width: 0;
+}
+
+.email__star-container {
+  margin-right: 0.5rem;
 }
 
 .email__priority .star {
