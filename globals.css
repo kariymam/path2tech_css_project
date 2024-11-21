@@ -18,4 +18,27 @@ body {
   font-family: var(--fonts);
   background-color: var(--global-bg);
   color: var(--dark-gray);
+}
+
+.mobile-hidden {
+  visibility: hidden;
+  display: none;
+}
+
+.desktop-hidden {
+  visibility: block;
+  display: visible;
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-hidden {
+    display: block;
+    visibility: visible;
+  }
+}
+@media screen and (min-width: 768px) {
+  .desktop-hidden {
+    visibility: hidden;
+    display: none;
+  }
 }/*# sourceMappingURL=globals.css.map */

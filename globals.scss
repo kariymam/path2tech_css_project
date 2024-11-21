@@ -21,6 +21,31 @@ body {
   color: var(--dark-gray);
 }
 
+.mobile-hidden {
+  visibility: hidden;
+  display: none;
+}
+
+.desktop-hidden {
+  visibility: block;
+  display: visible;
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-hidden {
+    display: block;
+    visibility: visible;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .desktop-hidden {
+    visibility: hidden;
+    display: none;
+  }
+}
+
+
 $breakpoints: (
   'mobile': (min-width: 768px),
   'tablet': (min-width: 1024px),

@@ -8,7 +8,6 @@
   </head>
   <body>
     <nav id="primary_nav">
-      <button id="menu-btn">Open menu</button>
       <ul class="nav__links">
         <li class="card nav__link">
           <a href="#">
@@ -26,13 +25,20 @@
           </a>
         </li>
       </ul>
+      <button id="back-btn" class="desktop-hidden">Close menu</button>
       <div id="nav__scrim" class="nav__scrim" aria-hidden="true"></div>
     </nav>
     <header id="main-header">
+      <button id="menu-btn" class="desktop-hidden">Open menu</button>
       <h1>Inbox</h1>
       <form id="search" class="search-bar card">
         <label class="visually-hidden">Search</label>
-        <input type="text" id="search-bar" placeholder="Search" />
+        <input
+          type="text"
+          id="search-bar"
+          class="mobile-hidden"
+          placeholder="Search"
+        />
         <button>
           <span class="search-icon"></span>
           <span class="visually-hidden">Search Icon</span>
@@ -65,24 +71,24 @@
                   <span class="visually-hidden">Link</span>
                 </a>
                 <h3>Kariyma Murphy</h3>
-                  <p>Click me!</p>
-                  <div class="email__priority">
-                    <div>
-                      <time class="email__datetime" datetime="2024-11-18 19:00">
-                        6:00PM</time
-                      >
-                      <div class="email__star-container">
-                        <input
-                          id="star-email3"
-                          type="checkbox"
-                          class="star__checkbox"
-                          name="star-email3"
-                        />
-                        <span class="star"></span>
-                        <label for="star-email3"> star this email </label>
-                      </div>
+                <p>Click me!</p>
+                <div class="email__priority">
+                  <div>
+                    <time class="email__datetime" datetime="2024-11-18 19:00">
+                      6:00PM</time
+                    >
+                    <div class="email__star-container">
+                      <input
+                        id="star-email3"
+                        type="checkbox"
+                        class="star__checkbox"
+                        name="star-email3"
+                      />
+                      <span class="star"></span>
+                      <label for="star-email3"> star this email </label>
                     </div>
                   </div>
+                </div>
               </div>
             </div>
           </li>
@@ -111,24 +117,24 @@
                   <span class="visually-hidden">Link</span>
                 </a>
                 <h3>Peter Potamus</h3>
-                  <p>Re: Did you get that thing I sent you?</p>
-                  <div class="email__priority">
-                    <div>
-                      <time class="email__datetime" datetime="2024-11-18 19:00">
-                        6:00PM</time
-                      >
-                    </div>
-                    <div class="email__star-container">
-                      <input
-                        id="star-email2"
-                        type="checkbox"
-                        class="star__checkbox"
-                        name="star-email2"
-                      />
-                      <span class="star"></span>
-                      <label for="star-email2"> star this email </label>
-                    </div>
+                <p>Re: Did you get that thing I sent you?</p>
+                <div class="email__priority">
+                  <div>
+                    <time class="email__datetime" datetime="2024-11-18 19:00">
+                      6:00PM</time
+                    >
                   </div>
+                  <div class="email__star-container">
+                    <input
+                      id="star-email2"
+                      type="checkbox"
+                      class="star__checkbox"
+                      name="star-email2"
+                    />
+                    <span class="star"></span>
+                    <label for="star-email2"> star this email </label>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
@@ -152,19 +158,19 @@
                   <span class="visually-hidden">Link</span>
                 </a>
                 <h3>Kariyma Murphy</h3>
-                  <p>Click me!</p>
-                  <div class="email__priority">
-                    <div>
-                      <time class="email__datetime" datetime="2024-11-18 19:00">
-                        6:00PM</time
-                      >
-                      <img
-                        src="/assets/svg/pin-illustrative.svg"
-                        alt="Pin icon"
-                        class="pinned-icon visible"
-                      />
-                    </div>
+                <p>Click me!</p>
+                <div class="email__priority">
+                  <div>
+                    <time class="email__datetime" datetime="2024-11-18 19:00">
+                      6:00PM</time
+                    >
+                    <img
+                      src="/assets/svg/pin-illustrative.svg"
+                      alt="Pin icon"
+                      class="pinned-icon visible"
+                    />
                   </div>
+                </div>
               </div>
             </div>
           </li>
@@ -186,24 +192,28 @@
                   <span class="visually-hidden">Link</span>
                 </a>
                 <h3>Administrative Support</h3>
-                  <p>Volunteer Sign-up for Holiday Potluck! We will be gathering for a holiday celebration on November 16th in conference room B at 3:00PM. </p>
-                  <div class="email__priority">
-                    <div>
-                      <time class="email__datetime" datetime="2024-11-18 19:00">
-                        Nov 5</time
-                      >
-                    </div>
-                    <div class="email__star-container">
-                      <input
-                        id="star-email3"
-                        type="checkbox"
-                        class="star__checkbox"
-                        name="star-email3"
-                      />
-                      <span class="star"></span>
-                      <label for="star-email3"> star this email </label>
-                    </div>
+                <p>
+                  Volunteer Sign-up for Holiday Potluck! We will be gathering
+                  for a holiday celebration on November 16th in conference room
+                  B at 3:00PM.
+                </p>
+                <div class="email__priority">
+                  <div>
+                    <time class="email__datetime" datetime="2024-11-18 19:00">
+                      Nov 5</time
+                    >
                   </div>
+                  <div class="email__star-container">
+                    <input
+                      id="star-email3"
+                      type="checkbox"
+                      class="star__checkbox"
+                      name="star-email3"
+                    />
+                    <span class="star"></span>
+                    <label for="star-email3"> star this email </label>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
@@ -231,24 +241,24 @@
                   <span class="visually-hidden">Link</span>
                 </a>
                 <h3>Github</h3>
-                  <p>Please verify your email address</p>
-                  <div class="email__priority">
-                    <div>
-                      <time class="email__datetime" datetime="2024-11-18 19:00">
-                        Nov 5</time
-                      >
-                    </div>
-                    <div class="email__star-container">
-                      <input
-                        id="star-email4"
-                        type="checkbox"
-                        class="star__checkbox"
-                        name="star-email4"
-                      />
-                      <span class="star"></span>
-                      <label for="star-email4"> star this email </label>
-                    </div>
+                <p>Please verify your email address</p>
+                <div class="email__priority">
+                  <div>
+                    <time class="email__datetime" datetime="2024-11-18 19:00">
+                      Nov 5</time
+                    >
                   </div>
+                  <div class="email__star-container">
+                    <input
+                      id="star-email4"
+                      type="checkbox"
+                      class="star__checkbox"
+                      name="star-email4"
+                    />
+                    <span class="star"></span>
+                    <label for="star-email4"> star this email </label>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
