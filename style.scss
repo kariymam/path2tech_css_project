@@ -1,33 +1,15 @@
 @import url("reset.css");
+@import url("globals.css");
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-
-:root {
-  --offwhite: #e9ecf2;
-  --gold: #ffa800;
-  --lightest-gray: #dddeea;
-  --light-gray: #c8c8d8;
-  --dark-gray: #2e2e38;
-  --blue: #0164ee;
-  --interactive: var(--blue);
-  --global-bg: var(--lightest-gray);
-  --border: var(--light-gray);
-  --bg-card: var(--offwhite);
-  --bg-checkbox: var(--light-gray);
-  --max-screen: 1024px;
-  font-family: "Public Sans", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-    sans-serif;
-  background-color: var(--global-bg);
-  color: var(--dark-gray);
-}
 
 @mixin text-truncate {
   display:inline-block;
-  float:left;
-  overflow: hidden;
+  overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+
 
 body {
   display: grid;
@@ -338,6 +320,7 @@ header h1::after {
 .email__details p {
   @include text-truncate;
   max-width: 900px;
+  line-height: 1.2;
 }
 
 .email__details p, .email__details h3 {
