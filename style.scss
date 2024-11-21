@@ -1,6 +1,6 @@
-@charset "UTF-8";
 @import url("reset.css");
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
 :root {
   --offwhite: #e9ecf2;
   --gold: #ffa800;
@@ -14,7 +14,9 @@
   --bg-card: var(--offwhite);
   --bg-checkbox: var(--light-gray);
   --max-screen: 1024px;
-  font-family: "Public Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Public Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
   background-color: var(--global-bg);
   color: var(--dark-gray);
 }
@@ -22,7 +24,7 @@
 body {
   display: grid;
   height: 100vh;
-  grid-template: auto 1fr/1fr;
+  grid-template: auto 1fr / 1fr;
 }
 
 section > :first-child {
@@ -38,13 +40,13 @@ section#all-emails {
 }
 
 aside {
-  grid-row: 3/span 2;
+  grid-row: 3 / span 2;
   grid-column: 2;
   width: 100%;
 }
 
 footer {
-  grid-column: 1/span 2;
+  grid-column: 1 / span 2;
 }
 
 a {
@@ -85,7 +87,7 @@ main {
 }
 
 nav#primary_nav {
-  grid-row: span 2/2;
+  grid-row: span 2 / 2;
   /* grid-row: span 2 / 1; */
   position: sticky;
   z-index: 1;
@@ -94,15 +96,15 @@ nav#primary_nav {
 }
 
 header#main-header {
-  grid-row: span 2/2;
+  grid-row: span 2 / 2;
   display: flex;
   align-items: center;
   justify-content: center;
   max-width: var(--max-screen);
   gap: 1rem;
-}
-header#main-header > * ~ * {
-  border-radius: 1rem;
+  & > * ~ * {
+    border-radius: 1rem;
+  }
 }
 
 header h1 {
@@ -117,7 +119,7 @@ form.search-bar {
   background-color: #fff;
 }
 
-form.search-bar input[type=text] {
+form.search-bar input[type="text"] {
   width: 100%;
   border: 1px solid transparent;
 }
@@ -156,11 +158,11 @@ header h1::after {
   flex-flow: row nowrap;
   border-radius: 1rem;
   gap: 0.5rem;
-}
-.card * {
-  border-radius: 1rem;
-  display: flex;
-  align-items: flex-start;
+  & * {
+    border-radius: 1rem;
+    display: flex;
+    align-items: flex-start;
+  }
 }
 
 .home__pinned {
@@ -197,9 +199,9 @@ header h1::after {
   border-bottom: 1px solid var(--border);
   padding: 0 0.5rem;
   max-height: 64px;
-}
-.home__list .email:hover {
-  background-color: var(--bg-card);
+  &:hover {
+    background-color: var(--bg-card);
+  }
 }
 
 .home__list .email .card,
@@ -234,25 +236,25 @@ header h1::after {
   margin: auto;
 }
 
-.email__actions label,
-.email__priority label {
-  position: absolute;
-  opacity: 0;
-}
-.email__actions input[type=checkbox],
-.email__priority input[type=checkbox] {
-  position: absolute;
-  opacity: 0;
-  inset: 0;
-  cursor: pointer;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-.email__actions label > img,
-.email__priority label > img {
-  max-width: 100%;
+.email__actions,
+.email__priority {
+  & label {
+    position: absolute;
+    opacity: 0;
+  }
+  & input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  & label > img {
+    max-width: 100%;
+  }
 }
 
 .email__actions {
@@ -260,16 +262,17 @@ header h1::after {
   justify-content: center;
   max-width: 48px;
   width: 100%;
-}
-.email__actions input[type=checkbox].email__checkbox:checked + span::before {
-  background: center/80% no-repeat url(/assets/svg/checkmark-outline.svg) #0164ee;
-}
-.email__actions input[type=checkbox].email__checkbox + span {
-  border: 1px solid var(--border);
-  background-color: var(--bg-checkbox);
-}
-.email__actions > :is(input[type=checkbox]:checked) ~ label {
-  opacity: 0;
+  & input[type="checkbox"].email__checkbox:checked + span::before {
+    background: center / 80% no-repeat url(/assets/svg/checkmark-outline.svg)
+      #0164ee;
+  }
+  & input[type="checkbox"].email__checkbox + span {
+    border: 1px solid var(--border);
+    background-color: var(--bg-checkbox);
+  }
+  & > :is(input[type="checkbox"]:checked) ~ label {
+    opacity: 0;
+  }
 }
 
 .email__actions .checkmark::before {
@@ -288,15 +291,15 @@ header h1::after {
 
 .email__priority {
   max-height: 32px;
-}
-.email__priority input[type=checkbox].star__checkbox:checked + span {
-  background: var(--gold);
-}
-.email__priority input[type=checkbox].star__checkbox + span {
-  background: var(--dark-gray);
-}
-.email__priority > :is(input[type=checkbox]:checked) ~ label {
-  opacity: 0;
+  & input[type="checkbox"].star__checkbox:checked + span {
+    background: var(--gold);
+  }
+  & input[type="checkbox"].star__checkbox + span {
+    background: var(--dark-gray);
+  }
+  & > :is(input[type="checkbox"]:checked) ~ label {
+    opacity: 0;
+  }
 }
 
 .email__details {
@@ -304,21 +307,21 @@ header h1::after {
   justify-content: space-between;
   width: 100%;
   max-height: 32px;
-}
-.email__details > * {
-  align-items: center;
-  max-height: 2rem;
-  height: 100%;
-}
-.email__details::after {
-  content: " ";
-  position: absolute;
-  cursor: pointer;
-  margin: 0;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  & > * {
+    align-items: center;
+    max-height: 2rem;
+    height: 100%;
+  }
+  &::after {
+    content: " ";
+    position: absolute;
+    cursor: pointer;
+    margin: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 
 .email__details p {
@@ -332,7 +335,6 @@ header h1::after {
 
 time {
   font-size: 0.75rem;
-  width: -moz-max-content;
   width: max-content;
 }
 
@@ -347,7 +349,7 @@ time {
 }
 
 .email__priority time.email__datetime::before {
-  content: "sent ";
+  content: "sent\00a0";
   opacity: 0;
   width: 0;
 }
@@ -366,19 +368,19 @@ time {
 
 @media screen and (min-width: 768px) {
   body {
-    grid-template: auto max-content 1fr/min-content auto;
+    grid-template: auto max-content 1fr / min-content auto;
   }
   aside {
-    grid-row: 3/span 4;
-    grid-column: 2/span 2;
+    grid-row: 3 / span 4;
+    grid-column: 2 / span 2;
     width: 100%;
   }
   nav#primary_nav {
     width: 258px;
-    grid-row: 1/span 2;
+    grid-row: 1 / span 2;
   }
   header#main-header {
-    grid-column: 2/span 2;
+    grid-column: 2 / span 2;
     grid-row: 1;
   }
   .home__list p,
@@ -386,6 +388,7 @@ time {
     font-size: 1rem;
   }
 }
+
 nav#primary_nav button {
   position: sticky;
   z-index: 2;
@@ -446,17 +449,19 @@ nav#primary_nav .nav__scrim {
     margin: auto auto auto 0;
   }
 }
+
 /* div#email__content-view {
   position: absolute;
   width: 50%;
   bottom: 0;
   right: 0;
 } */
+
 .email__content {
   position: fixed;
   bottom: 0;
   right: 0;
   height: calc(100% - 55px);
-  aspect-ratio: 3/4;
+  aspect-ratio: 3 / 4;
   background-color: var(--offwhite);
-}/*# sourceMappingURL=style.css.map */
+}
