@@ -42,13 +42,13 @@
     <main>
       <section>
         <header>
-          <h2>1 pinned message</h2>
+          <h2>2 pinned messages</h2>
         </header>
         <ul class="home__pinned" role="group">
           <li class="email" id="email1" role="listitem">
             <div class="card email__unread">
               <div class="email__actions">
-                <span class="email__initials" aria-hidden="true"> JJ </span>
+                <span class="email__initials" aria-hidden="true"> KM </span>
                 <input
                   id="select_email1"
                   type="checkbox"
@@ -64,18 +64,23 @@
                 <a href="#" id="author3">
                   <span class="visually-hidden">Link</span>
                 </a>
-                <h3>J. Jonah Jameson</h3>
-                  <p>[URGENT] I need pictures of Spiderman!!!</p>
+                <h3>Kariyma Murphy</h3>
+                  <p>Click me!</p>
                   <div class="email__priority">
                     <div>
                       <time class="email__datetime" datetime="2024-11-18 19:00">
                         6:00PM</time
                       >
-                      <img
-                        src="/assets/svg/pin-illustrative.svg"
-                        alt="Pin icon"
-                        class="pinned-icon visible"
-                      />
+                      <div class="email__star-container">
+                        <input
+                          id="star-email3"
+                          type="checkbox"
+                          class="star__checkbox"
+                          name="star-email3"
+                        />
+                        <span class="star"></span>
+                        <label for="star-email3"> star this email </label>
+                      </div>
                     </div>
                   </div>
               </div>
@@ -122,6 +127,42 @@
                       />
                       <span class="star"></span>
                       <label for="star-email2"> star this email </label>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </li>
+          <li class="email" id="email1" role="listitem">
+            <div class="card">
+              <div class="email__actions">
+                <span class="email__initials" aria-hidden="true"> KM </span>
+                <input
+                  id="select_email1"
+                  type="checkbox"
+                  class="email__checkbox"
+                  name="select_email1"
+                />
+                <span class="checkmark" aria-hidden="true"></span>
+                <label for="select_email1" aria-describedby="author1">
+                  JJ
+                </label>
+              </div>
+              <div class="email__details">
+                <a href="#" id="author3">
+                  <span class="visually-hidden">Link</span>
+                </a>
+                <h3>Kariyma Murphy</h3>
+                  <p>Click me!</p>
+                  <div class="email__priority">
+                    <div>
+                      <time class="email__datetime" datetime="2024-11-18 19:00">
+                        6:00PM</time
+                      >
+                      <img
+                        src="/assets/svg/pin-illustrative.svg"
+                        alt="Pin icon"
+                        class="pinned-icon visible"
+                      />
                     </div>
                   </div>
               </div>
