@@ -1,3 +1,4 @@
+@use "sass:map";
 :root {
   --offwhite: #e9ecf2;
   --gold: #ffa800;
@@ -18,4 +19,19 @@ body {
   font-family: var(--fonts);
   background-color: var(--global-bg);
   color: var(--dark-gray);
-}/*# sourceMappingURL=globals.css.map */
+}
+
+$breakpoints: (
+  'mobile': (min-width: 768px),
+  'tablet': (min-width: 1024px),
+  'fullPage': (min-width: 1200px),
+);
+
+$star-icon: url(/assets/svg/star-outline.svg);
+$checkmark-icon: url(/assets/svg/checkmark-outline.svg);
+$search-icon: url(/assets/svg/search-icon.svg);
+
+
+@mixin headers($p-lg, $p-base, $p-sml,) {
+  padding: $p-base $p-lg $p-sml 0;
+}

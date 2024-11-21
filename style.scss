@@ -1,5 +1,5 @@
 @import url("reset.css");
-@import url("globals.css");
+@import 'globals';
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 @mixin text-truncate {
@@ -78,7 +78,6 @@ main {
 
 nav#primary_nav {
   grid-row: span 2 / 2;
-  /* grid-row: span 2 / 1; */
   position: sticky;
   z-index: 1;
   max-width: 300px;
@@ -124,8 +123,8 @@ form.search-bar .search-icon {
   width: 1rem;
   height: 1rem;
   pointer-events: none;
-  -webkit-mask: url(/assets/svg/search-icon.svg) no-repeat center;
-  mask: url(/assets/svg/search-icon.svg) no-repeat center;
+  -webkit-mask: $search-icon no-repeat center;
+  mask: $search-icon no-repeat center;
 }
 
 header h1::after {
@@ -252,7 +251,7 @@ header h1::after {
   height: 100%;
   width: 48px;
   & input[type="checkbox"].email__checkbox:checked + span::before {
-    background: center / 80% no-repeat url(/assets/svg/checkmark-outline.svg)
+    background: center / 80% no-repeat $checkmark-icon
       #0164ee;
   }
   & input[type="checkbox"].email__checkbox + span {
@@ -356,8 +355,8 @@ time {
   width: 1rem;
   height: 1rem;
   pointer-events: none;
-  -webkit-mask: url(/assets/svg/star-outline.svg) no-repeat center;
-  mask: url(/assets/svg/star-outline.svg) no-repeat center;
+  -webkit-mask: $star-icon no-repeat center;
+  mask: $star-icon no-repeat center;
 }
 
 @media screen and (min-width: 768px) {
@@ -448,13 +447,6 @@ nav#primary_nav .nav__scrim {
     margin: auto auto auto 0;
   }
 }
-
-/* div#email__content-view {
-  position: absolute;
-  width: 50%;
-  bottom: 0;
-  right: 0;
-} */
 
 .email__content {
   position: fixed;
