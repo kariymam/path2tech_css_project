@@ -7,7 +7,7 @@
     <title>CSS Project</title>
   </head>
   <body>
-    <nav id="primary_nav">
+    <nav id="primary-nav">
       <ul class="nav__links">
         <li class="card nav__link">
           <a href="#">
@@ -273,17 +273,48 @@
 
           </div>
         </div>
-        <iframe src="TBD" title="description"></iframe>
+        <!-- <iframe src="TBD" title="description"></iframe> -->
       </div>
     </aside>
     <footer>Footer</footer>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+    <script>
+      const mq = window.matchMedia('(max-width: 768px)');
+      const mobileMenu = document.getElementById("primary-nav");
+      const menuBtn = document.getElementById("menu-btn");
+      const closeBtn = document.getElementById("back-btn");
+
+      document.addEventListener("DOMContentLoaded", () => {
+        if (mq.matches) {
+          mobileMenu.classList.add('slider');
+        }
+      })
+
+      const toggleMobileMenu = (action) => {
+        if (action == "open") {
+          mobileMenu.classList.add('slide-out');
+        } else if (action == "close") {
+          mobileMenu.classList.replace('slide-out', 'slide-in');
+          if (mobileMenu.classList.contains('slide-in')) {
+              setTimeout(() => {
+                mobileMenu.classList.remove('slide-in');
+              }, 500);
+            }
+        }
+      }
+
+      const handleMq = (e) => {
+        if (mq.matches) {
+          if (e.target === menuBtn){
+            toggleMobileMenu("open")
+          }
+          if (e.target === closeBtn){
+            toggleMobileMenu("close")
+          }
+        }
+      }
+      menuBtn.addEventListener('click', handleMq);
+      closeBtn.addEventListener('click', handleMq)
+
+    </script>
   </body>
 </html>
