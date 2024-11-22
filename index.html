@@ -11,28 +11,39 @@
       <ul class="nav__links">
         <li class="card nav__link">
           <a href="#">
-            <span>Inbox</span>
+            <span>Inbox Icon</span>
+            Inbox
           </a>
         </li>
         <li class="card nav__link">
           <a href="#">
-            <span>Starred</span>
+            <span>Drafts Icon</span>
+            Drafts
           </a>
         </li>
         <li class="card nav__link">
           <a href="#">
-            <span>Trash</span>
+            <span>Starred Icon</span>
+            Starred
+          </a>
+        </li>
+        <li class="card nav__link">
+          <a href="#">
+            <span>Trash Icon</span>
+            Trash
           </a>
         </li>
       </ul>
       <button id="back-btn" class="desktop-hidden">Close menu</button>
-      <div id="nav__scrim" class="nav__scrim" aria-hidden="true"></div>
+      <div id="nav__container" class="nav__container" aria-hidden="true">
+      </div>
     </nav>
+    <div id="scrim" aria-hidden="true"></div>
     <header id="main-header">
       <button id="menu-btn" class="desktop-hidden">Open menu</button>
       <h1>Inbox</h1>
       <form id="search" class="search-bar card">
-        <label class="visually-hidden">Search</label>
+        <label for="search-bar" class="visually-hidden">Search</label>
         <input
           type="text"
           id="search-bar"
@@ -282,6 +293,8 @@
       const mobileMenu = document.getElementById("primary-nav");
       const menuBtn = document.getElementById("menu-btn");
       const closeBtn = document.getElementById("back-btn");
+      const open = ['slide-out', 'fade-in'];
+      const close = ['slide-in', 'fade-out'];
 
       document.addEventListener("DOMContentLoaded", () => {
         if (mq.matches) {
@@ -291,12 +304,13 @@
 
       const toggleMobileMenu = (action) => {
         if (action == "open") {
-          mobileMenu.classList.add('slide-out');
+          mobileMenu.classList.add(...open);
         } else if (action == "close") {
           mobileMenu.classList.replace('slide-out', 'slide-in');
-          if (mobileMenu.classList.contains('slide-in')) {
+          mobileMenu.classList.replace('fade-in', 'fade-out');
+          if (mobileMenu.classList.contains(...close)) {
               setTimeout(() => {
-                mobileMenu.classList.remove('slide-in');
+                mobileMenu.classList.remove(...close);
               }, 500);
             }
         }
