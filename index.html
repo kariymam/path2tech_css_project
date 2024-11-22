@@ -48,7 +48,7 @@
     <main>
       <section>
         <header>
-          <h2>2 pinned messages</h2>
+          <h2>1 pinned message</h2>
         </header>
         <ul class="home__pinned" role="group">
           <li class="email" id="email1" role="listitem">
@@ -67,7 +67,7 @@
                 </label>
               </div>
               <div class="email__details">
-                <a href="#" id="author3">
+                <a href="#" id="author1">
                   <span class="visually-hidden">Link</span>
                 </a>
                 <h3>Kariyma Murphy</h3>
@@ -79,13 +79,13 @@
                     >
                     <div class="email__star-container">
                       <input
-                        id="star-email3"
+                        id="star-email1"
                         type="checkbox"
                         class="star__checkbox"
-                        name="star-email3"
+                        name="star-email1"
                       />
                       <span class="star"></span>
-                      <label for="star-email3"> star this email </label>
+                      <label for="star-email1"> star this email </label>
                     </div>
                   </div>
                 </div>
@@ -96,7 +96,7 @@
       </section>
       <section id="all-emails">
         <header>
-          <h2>3 messages</h2>
+          <h2>4 messages</h2>
         </header>
         <ul class="home__list">
           <li class="email" id="email2">
@@ -117,7 +117,7 @@
                   <span class="visually-hidden">Link</span>
                 </a>
                 <h3>Peter Potamus</h3>
-                <p>Re: Did you get that thing I sent you?</p>
+                <p><span>Re: Did you get that thing I sent you?</span>That thing I sent you was really important</p>
                 <div class="email__priority">
                   <div>
                     <time class="email__datetime" datetime="2024-11-18 19:00">
@@ -138,18 +138,18 @@
               </div>
             </div>
           </li>
-          <li class="email" id="email1" role="listitem">
+          <li class="email" id="email3" role="listitem">
             <div class="card">
               <div class="email__actions">
                 <span class="email__initials" aria-hidden="true"> KM </span>
                 <input
-                  id="select_email1"
+                  id="select_email3"
                   type="checkbox"
                   class="email__checkbox"
-                  name="select_email1"
+                  name="select_email3"
                 />
                 <span class="checkmark" aria-hidden="true"></span>
-                <label for="select_email1" aria-describedby="author1">
+                <label for="select_email3" aria-describedby="author1">
                   JJ
                 </label>
               </div>
@@ -174,59 +174,10 @@
               </div>
             </div>
           </li>
-          <li class="email" id="email3">
+          <li class="email" id="email4">
             <div class="card">
               <div class="email__actions" aria-describedby="author3">
                 <span class="email__initials" aria-hidden="true"> AS </span>
-                <input
-                  id="select_email3"
-                  type="checkbox"
-                  class="email__checkbox"
-                  name="select_email3"
-                />
-                <span class="checkmark" aria-hidden="true"></span>
-                <label for="select_email3"> From </label>
-              </div>
-              <div class="email__details">
-                <a href="#" id="author3">
-                  <span class="visually-hidden">Link</span>
-                </a>
-                <h3>Administrative Support</h3>
-                <p>
-                  Volunteer Sign-up for Holiday Potluck! We will be gathering
-                  for a holiday celebration on November 16th in conference room
-                  B at 3:00PM.
-                </p>
-                <div class="email__priority">
-                  <div>
-                    <time class="email__datetime" datetime="2024-11-18 19:00">
-                      Nov 5</time
-                    >
-                  </div>
-                  <div class="email__star-container">
-                    <input
-                      id="star-email3"
-                      type="checkbox"
-                      class="star__checkbox"
-                      name="star-email3"
-                    />
-                    <span class="star"></span>
-                    <label for="star-email3"> star this email </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="email" id="email4">
-            <div class="card">
-              <div class="email__actions" aria-describedby="author4">
-                <span class="email__initials" aria-hidden="true">
-                  <img
-                    width="24"
-                    alt="Github Invertocat Logo"
-                    src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg"
-                  />
-                </span>
                 <input
                   id="select_email4"
                   type="checkbox"
@@ -237,11 +188,15 @@
                 <label for="select_email4"> From </label>
               </div>
               <div class="email__details">
-                <a href="#" id="author3">
+                <a href="#" id="author4">
                   <span class="visually-hidden">Link</span>
                 </a>
-                <h3>Github</h3>
-                <p>Please verify your email address</p>
+                <h3>Administrative Support</h3>
+                <p>
+                  <span>Volunteer Sign-up for Holiday Potluck!</span> We will be gathering
+                  for a holiday celebration on November 16th in conference room
+                  B at 3:00PM.
+                </p>
                 <div class="email__priority">
                   <div>
                     <time class="email__datetime" datetime="2024-11-18 19:00">
@@ -262,14 +217,65 @@
               </div>
             </div>
           </li>
+          <li class="email" id="email5">
+            <div class="card">
+              <div class="email__actions" aria-describedby="author4">
+                <span class="email__initials" aria-hidden="true">
+                  <img
+                    width="24"
+                    alt="Github Invertocat Logo"
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg"
+                  />
+                </span>
+                <input
+                  id="select_email5"
+                  type="checkbox"
+                  class="email__checkbox"
+                  name="select_email5"
+                />
+                <span class="checkmark" aria-hidden="true"></span>
+                <label for="select_email4"> From </label>
+              </div>
+              <div class="email__details">
+                <a href="#" id="author5">
+                  <span class="visually-hidden">Link</span>
+                </a>
+                <h3>Github</h3>
+                <p><span>[URGENT] I need pictures of Spiderman!</span>Get them on my desk by 8:00AM!!</p>
+                <div class="email__priority">
+                  <div>
+                    <time class="email__datetime" datetime="2024-11-18 19:00">
+                      Nov 5</time
+                    >
+                  </div>
+                  <div class="email__star-container">
+                    <input
+                      id="star-email5"
+                      type="checkbox"
+                      class="star__checkbox"
+                      name="star-email5"
+                    />
+                    <span class="star"></span>
+                    <label for="star-email5"> star this email </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
         </ul>
       </section>
     </main>
-    <!-- <aside id="email__content">
+    <aside id="email__content">
       <div id="email__content-view" class="email__content">
-        Email page area
+        <div class="email__heading">
+          <h4>Click this!</h4>
+          <div>
+
+          </div>
+        </div>
+        <iframe src="TBD" title="description"></iframe>
       </div>
-    </aside> -->
+    </aside>
     <footer>Footer</footer>
     <script
       type="module"

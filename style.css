@@ -6,7 +6,7 @@
   --gold: #ffa800;
   --lightest-gray: #dddeea;
   --light-gray: #c8c8d8;
-  --dark-gray: #2e2e38;
+  --dark-gray: 46, 46, 56;
   --blue: #0164ee;
   --interactive: var(--blue);
   --global-bg: var(--lightest-gray);
@@ -14,13 +14,14 @@
   --bg-card: var(--offwhite);
   --bg-checkbox: var(--light-gray);
   --max-screen: 1024px;
-  --fonts: "Public Sans", system-ui, -apple-system, sans-serif;
+  --fonts: system-ui, -apple-system, sans-serif;
+  --text-color: rgba(var(--dark-gray), 0.8) ;
 }
 
 body {
   font-family: var(--fonts);
   background-color: var(--global-bg);
-  color: var(--dark-gray);
+  color: var(--text-color);
 }
 
 .mobile-hidden {
@@ -45,10 +46,15 @@ body {
     display: none;
   }
 }
+/* Typography */
 body {
   display: grid;
   height: 100vh;
   grid-template: auto 1fr/1fr;
+}
+
+header, main {
+  max-width: 1024px;
 }
 
 section > :first-child {
@@ -67,10 +73,10 @@ aside {
 
 footer {
   grid-column: 1/span 2;
+  background-color: var(--offwhite);
 }
 
 a {
-  color: var(--dark-gray);
   text-decoration: none;
 }
 
@@ -105,6 +111,7 @@ h2 {
 
 main {
   grid-column: span 2;
+  grid-row: span 2;
   display: flex;
   flex-direction: column;
 }
@@ -123,7 +130,7 @@ header#main-header {
   gap: 1rem;
 }
 header#main-header > * ~ * {
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 }
 
 form.search-bar {
@@ -132,13 +139,26 @@ form.search-bar {
   width: 100%;
   flex-grow: 1;
   align-self: self-end;
+  height: 1.5rem;
+  padding: 0.25rem;
 }
 
 form.search-bar input[type=text] {
   border: none;
   margin: 0 0 0 auto;
-  padding: 0 0 0 0.875rem;
+  padding: 0;
   height: 100%;
+  background-color: transparent;
+}
+
+form.search-bar input[type=text]::-moz-placeholder {
+  text-align: right;
+  color: var(--text-color);
+}
+
+form.search-bar input[type=text]::placeholder {
+  text-align: right;
+  color: var(--text-color);
 }
 
 form.search-bar button {
@@ -147,7 +167,7 @@ form.search-bar button {
 }
 
 form.search-bar .search-icon {
-  background: var(--dark-gray);
+  background: rgb(var(--dark-gray));
   width: 1rem;
   height: 1rem;
   pointer-events: none;
@@ -160,7 +180,12 @@ form.search-bar .search-icon {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    background-color: #fff;
+  }
+  form.search-bar:hover {
+    background-color: var(--light-gray);
+  }
+  form.search-bar:focus, form.search-bar :focus-visible, form.search-bar :focus-within {
+    background-color: var(--light-gray);
   }
   form.search-bar input[type=text] {
     width: 100%;
@@ -184,12 +209,12 @@ header h1::after {
 .card {
   display: flex;
   flex-flow: row nowrap;
-  border-radius: 1rem;
-  gap: 0.5rem;
+  border-radius: 0.5rem;
   height: 100%;
+  gap: 0.5rem;
 }
 .card * {
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   display: flex;
   align-items: flex-start;
 }
@@ -199,12 +224,18 @@ header h1::after {
 }
 
 .home__pinned .email {
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 }
 
 .home__pinned .email .card {
-  background-color: var(--bg-card);
   border: 1px solid var(--border);
+}
+
+.home__list .email, .home__pinned .email {
+  transition: background-color 300ms ease-out;
+}
+.home__list .email:hover > .card, .home__pinned .email:hover > .card {
+  background-color: var(--light-gray);
 }
 
 .home__list {
@@ -214,33 +245,33 @@ header h1::after {
   height: 100%;
 }
 
-.home__list .email:first-child {
-  border-top: 1px solid var(--border);
-}
-
 .home__list .email {
   flex-grow: 1;
   position: relative;
   letter-spacing: -0.4px;
   background-color: transparent;
-  transition: background-color 300ms ease-out;
-  border-bottom: 1px solid var(--border);
   padding: 0 0.5rem;
   max-height: 64px;
   height: 100%;
 }
-.home__list .email:hover {
-  background-color: var(--bg-card);
+
+.home__list .email:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.home__list .email:not(:last-child) {
+  border-bottom: 1px solid var(--border);
 }
 
 .home__list .email .card,
 .home__pinned .email .card {
-  height: 64px;
+  height: 48px;
+  margin: 0.5rem 0;
 }
 
 .email__unread {
   font-weight: 700;
-  color: #000;
+  color: rgb(var(--dark-gray));
 }
 
 .home__list .email .card.email__unread time.email__datetime {
@@ -298,7 +329,7 @@ header h1::after {
 
 .email__actions .checkmark::before {
   content: " ";
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   pointer-events: none;
   width: 1.5rem;
   height: 1.5rem;
@@ -310,11 +341,14 @@ header h1::after {
   font-size: 0.75rem;
 }
 
+.email__priority {
+  gap: 0.25rem;
+}
 .email__priority input[type=checkbox].star__checkbox:checked + span {
   background: var(--gold);
 }
 .email__priority input[type=checkbox].star__checkbox + span {
-  background: var(--dark-gray);
+  background: rgb(var(--dark-gray));
 }
 .email__priority > :is(input[type=checkbox]:checked) ~ label {
   opacity: 0;
@@ -347,17 +381,28 @@ header h1::after {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  line-height: 1.2;
   font-size: 0.875rem;
   font-weight: 600;
 }
 
-.email__details p {
+.email__details p, .email__details p > span {
   display: inline-block;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  line-height: 1.2;
   max-width: 900px;
   line-height: 1.2;
+}
+
+.email__details p > span {
+  display: inline-flex;
+  font-weight: 600;
+}
+
+.email__details p > span::after {
+  content: " – ";
 }
 
 .email__details p, .email__details h3 {
@@ -400,19 +445,26 @@ time {
 
 @media screen and (min-width: 768px) {
   body {
-    grid-template: auto max-content 1fr/min-content auto;
+    grid-template: auto max-content 1fr/min-content auto 43.75vw;
+  }
+  main {
+    grid-row: 2/span 2;
+    grid-column: 2/span 1;
   }
   aside {
-    grid-row: 3/span 4;
-    grid-column: 2/span 2;
+    grid-row: 1/span 3;
+    grid-column: 3;
     width: 100%;
   }
+  footer {
+    grid-column: 1/span 3;
+  }
   nav#primary_nav {
-    width: 258px;
+    width: 168px;
     grid-row: 1/span 2;
   }
   header#main-header {
-    grid-column: 2/span 2;
+    grid-column: 2/span 1;
     grid-row: 1;
   }
   .home__list p,
@@ -427,7 +479,7 @@ time {
 }
 nav#primary_nav, header#main-header {
   height: 48px;
-  align-items: center;
+  align-items: end;
 }
 nav#primary_nav > *, header#main-header > * {
   align-items: center;
@@ -497,7 +549,17 @@ nav#primary_nav .nav__scrim {
   position: fixed;
   bottom: 0;
   right: 0;
+  width: 100%;
   height: calc(100% - 55px);
-  aspect-ratio: 3/4;
-  background-color: var(--offwhite);
+  border: 1px solid var(--border);
+  background-color: var(--global-bg);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 768px) {
+  .email__content {
+    border-left: 1px solid var(--border);
+    width: 43.75vw;
+    overflow: hidden;
+  }
 }/*# sourceMappingURL=style.css.map */

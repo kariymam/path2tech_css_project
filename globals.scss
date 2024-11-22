@@ -4,7 +4,7 @@
   --gold: #ffa800;
   --lightest-gray: #dddeea;
   --light-gray: #c8c8d8;
-  --dark-gray: #2e2e38;
+  --dark-gray: 46, 46, 56;
   --blue: #0164ee;
   --interactive: var(--blue);
   --global-bg: var(--lightest-gray);
@@ -12,13 +12,14 @@
   --bg-card: var(--offwhite);
   --bg-checkbox: var(--light-gray);
   --max-screen: 1024px;
-  --fonts: "Public Sans", system-ui, -apple-system, sans-serif;
+  --fonts: system-ui, -apple-system, sans-serif;
+  --text-color: rgba(var(--dark-gray), 0.8)
 }
 
 body {
   font-family: var(--fonts);
   background-color: var(--global-bg);
-  color: var(--dark-gray);
+  color: var(--text-color);
 }
 
 .mobile-hidden {
@@ -45,6 +46,9 @@ body {
   }
 }
 
+/* Typography */
+
+$heading-lg: 1.5rem;
 
 $breakpoints: (
   'mobile': (min-width: 768px),
