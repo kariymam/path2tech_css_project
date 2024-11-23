@@ -59,8 +59,19 @@ $breakpoints: (
 $star-icon: url(/assets/svg/star-outline.svg);
 $checkmark-icon: url(/assets/svg/checkmark-outline.svg);
 $search-icon: url(/assets/svg/search-icon.svg);
+$menu-icon: url(/assets/svg/menu-24px.svg);
 
 
 @mixin headers($p-lg, $p-base, $p-sml,) {
   padding: $p-base $p-lg $p-sml 0;
+}
+
+@mixin icon($path) {
+  display: block;
+  background: rgb(var(--dark-gray));
+  width: 1rem;
+  height: 1rem;
+  pointer-events: none;
+  -webkit-mask: $path no-repeat center;
+  mask: $path no-repeat center;
 }
