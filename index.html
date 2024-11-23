@@ -331,16 +331,6 @@
         }
       };
 
-      document.addEventListener("DOMContentLoaded", () => {
-        if (mq.matches) {
-          mobileMenu.classList.add("slider");
-        } else {
-          document.getElementById("scrim").style.display = "none";
-          menuBtn.style.display = "none";
-          closeBtn.style.display = "none";
-        }
-      });
-
       const handleMq = (e) => {
         if (mq.matches) {
           if (e.target === menuBtn) {
@@ -352,18 +342,27 @@
         }
       };
 
+      document.addEventListener("DOMContentLoaded", () => {
+        if (mq.matches) {
+          mobileMenu.classList.add("slider");
+        } else {
+          document.getElementById("scrim").style.display = "none";
+          menuBtn.style.display = "none";
+          closeBtn.style.display = "none";
+        }
+      });
+
       menuBtn.addEventListener("click", handleMq);
       closeBtn.addEventListener("click", handleMq);
-      emailBtn.addEventListener("click", (e) => {
+
+      const showEmailDialog = () => {
         emailList.classList.toggle("list-resize");
         emailHeader.classList.toggle("list-resize");
         emailDialog.classList.toggle("show");
-      });
-      emailDialogBtn.addEventListener("click", (e) => {
-        emailList.classList.toggle("list-resize");
-        emailHeader.classList.toggle("list-resize");
-        emailDialog.classList.toggle("show");
-      })
+      }
+
+      emailBtn.addEventListener("click", showEmailDialog);
+      emailDialogBtn.addEventListener("click", showEmailDialog);
     </script>
   </body>
 </html>

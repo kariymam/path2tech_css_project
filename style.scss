@@ -554,17 +554,6 @@ nav#primary-nav.slide-in {
   -webkit-animation: slideIn 300ms 1 forwards;
 }
 
-// div#email__content.slider > div.email__content {
-//   transform: translateX(150vw);
-//   -webkit-transform: translateX(150vw);
-// }
-
-// div#email__content.slider.slide-out > div.email__content {
-//   animation: slideOut 300ms 1 forwards;
-//   -webkit-animation: slideOut 300ms 1 forwards;
-// }
-
-
 @keyframes slideOut {
   to { transform: translateX(0); }
 }
