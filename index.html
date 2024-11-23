@@ -34,9 +34,8 @@
           </a>
         </li>
       </ul>
-      <button id="back-btn" class="desktop-hidden">Close menu</button>
-      <div id="nav__container" class="nav__container" aria-hidden="true">
-      </div>
+      <button id="close-btn" class="desktop-hidden">Close menu</button>
+      <div id="nav__container" class="nav__container" aria-hidden="true"></div>
     </nav>
     <div id="scrim" aria-hidden="true"></div>
     <header id="main-header">
@@ -56,7 +55,7 @@
         </button>
       </form>
     </header>
-    <main>
+    <main id="email-list">
       <section>
         <header>
           <h2>1 pinned message</h2>
@@ -78,9 +77,12 @@
                 </label>
               </div>
               <div class="email__details">
-                <a href="#" id="author1">
-                  <span class="visually-hidden">Link</span>
-                </a>
+                <form href="#" id="author1">
+                  <label for="view-email" class="visually-hidden"
+                    >View email</label
+                  >
+                  <input id="view-email" type="submit" />
+                </form>
                 <h3>Kariyma Murphy</h3>
                 <p>Click me!</p>
                 <div class="email__priority">
@@ -128,7 +130,10 @@
                   <span class="visually-hidden">Link</span>
                 </a>
                 <h3>Peter Potamus</h3>
-                <p><span>Re: Did you get that thing I sent you?</span>That thing I sent you was really important</p>
+                <p>
+                  <span>Re: Did you get that thing I sent you?</span>That thing
+                  I sent you was really important
+                </p>
                 <div class="email__priority">
                   <div>
                     <time class="email__datetime" datetime="2024-11-18 19:00">
@@ -204,9 +209,9 @@
                 </a>
                 <h3>Administrative Support</h3>
                 <p>
-                  <span>Volunteer Sign-up for Holiday Potluck!</span> We will be gathering
-                  for a holiday celebration on November 16th in conference room
-                  B at 3:00PM.
+                  <span>Volunteer Sign-up for Holiday Potluck!</span> We will be
+                  gathering for a holiday celebration on November 16th in
+                  conference room B at 3:00PM.
                 </p>
                 <div class="email__priority">
                   <div>
@@ -252,7 +257,10 @@
                   <span class="visually-hidden">Link</span>
                 </a>
                 <h3>Github</h3>
-                <p><span>[URGENT] I need pictures of Spiderman!</span>Get them on my desk by 8:00AM!!</p>
+                <p>
+                  <span>[URGENT] I need pictures of Spiderman!</span>Get them on
+                  my desk by 8:00AM!!
+                </p>
                 <div class="email__priority">
                   <div>
                     <time class="email__datetime" datetime="2024-11-18 19:00">
@@ -278,57 +286,84 @@
     </main>
     <aside id="email__content">
       <div id="email__content-view" class="email__content">
+        <button id="email_exit-btn">Close email</button>
         <div class="email__heading">
           <h4>Click this!</h4>
-          <div>
-
-          </div>
+          <div></div>
         </div>
         <!-- <iframe src="TBD" title="description"></iframe> -->
       </div>
     </aside>
-    <footer>Footer</footer>
+    <footer>
+      <p>Kariyma Murphy</p>
+      <br />
+      <p>NPower Path2Tech</p>
+    </footer>
     <script>
-      const mq = window.matchMedia('(max-width: 768px)');
+      const mq = window.matchMedia("(max-width: 768px)");
       const mobileMenu = document.getElementById("primary-nav");
       const menuBtn = document.getElementById("menu-btn");
-      const closeBtn = document.getElementById("back-btn");
-      const open = ['slide-out', 'fade-in'];
-      const close = ['slide-in', 'fade-out'];
+      const closeBtn = document.getElementById("close-btn");
+      const emailBtn = document.getElementById("view-email");
+      const emailList = document.getElementById("email-list");
+      const emailHeader = document.getElementById("main-header");
+      const emailDialog = document.getElementById("email__content");
+      const emailDialogBtn = document.getElementById("email_exit-btn");
+
+      const toggleEl = (
+        el,
+        action,
+        open = ["slide-out", "fade-in"],
+        close = ["slide-in", "fade-out"]
+      ) => {
+        if (!el) {
+          return;
+        } else if (action == "open") {
+          el.classList.add(...open);
+        } else if (action == "close") {
+          el.classList.replace(open[0], close[0]);
+          el.classList.replace(open[1], close[1]);
+          if (el.classList.contains(...close)) {
+            setTimeout(() => {
+              el.classList.remove(...close);
+            }, 500);
+          }
+        }
+      };
 
       document.addEventListener("DOMContentLoaded", () => {
         if (mq.matches) {
-          mobileMenu.classList.add('slider');
+          mobileMenu.classList.add("slider");
+        } else {
+          document.getElementById("scrim").style.display = "none";
+          menuBtn.style.display = "none";
+          closeBtn.style.display = "none";
         }
-      })
-
-      const toggleMobileMenu = (action) => {
-        if (action == "open") {
-          mobileMenu.classList.add(...open);
-        } else if (action == "close") {
-          mobileMenu.classList.replace('slide-out', 'slide-in');
-          mobileMenu.classList.replace('fade-in', 'fade-out');
-          if (mobileMenu.classList.contains(...close)) {
-              setTimeout(() => {
-                mobileMenu.classList.remove(...close);
-              }, 500);
-            }
-        }
-      }
+      });
 
       const handleMq = (e) => {
         if (mq.matches) {
-          if (e.target === menuBtn){
-            toggleMobileMenu("open")
+          if (e.target === menuBtn) {
+            toggleEl(mobileMenu, "open");
           }
-          if (e.target === closeBtn){
-            toggleMobileMenu("close")
+          if (e.target === closeBtn) {
+            toggleEl(mobileMenu, "close");
           }
         }
-      }
-      menuBtn.addEventListener('click', handleMq);
-      closeBtn.addEventListener('click', handleMq)
+      };
 
+      menuBtn.addEventListener("click", handleMq);
+      closeBtn.addEventListener("click", handleMq);
+      emailBtn.addEventListener("click", (e) => {
+        emailList.classList.toggle("list-resize");
+        emailHeader.classList.toggle("list-resize");
+        emailDialog.classList.toggle("show");
+      });
+      emailDialogBtn.addEventListener("click", (e) => {
+        emailList.classList.toggle("list-resize");
+        emailHeader.classList.toggle("list-resize");
+        emailDialog.classList.toggle("show");
+      })
     </script>
   </body>
 </html>
