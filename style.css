@@ -532,11 +532,20 @@ nav#primary-nav ul.nav__links {
 }
 
 nav#primary-nav .nav__link {
+  display: flex;
+  flex-flow: row nowrap;
+  border-radius: 0.5rem;
+  height: 100%;
   flex-grow: 1;
   height: 48px;
   border-radius: 0;
   border-bottom: 1px solid var(--border);
   width: 100%;
+}
+nav#primary-nav .nav__link * {
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: flex-start;
 }
 
 nav#primary-nav .nav__link > a {

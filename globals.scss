@@ -66,6 +66,26 @@ $menu-icon: url(/assets/svg/menu-24px.svg);
   padding: $p-base $p-lg $p-sml 0;
 }
 
+@mixin text-truncate {
+  display:inline-block;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+@mixin list-item {
+  display: flex;
+  flex-flow: row nowrap;
+  border-radius: 0.5rem;
+  height: 100%;
+  & * {
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
 @mixin icon($path) {
   display: block;
   background: rgb(var(--dark-gray));
