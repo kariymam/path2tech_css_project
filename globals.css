@@ -21,6 +21,8 @@ body {
   color: var(--text-color);
 }
 
+/* ---- Breakpoints ---- */
+/* ---- Mobile / Desktop Hidden ---- */
 .mobile-hidden {
   visibility: hidden;
   display: none;
@@ -36,11 +38,10 @@ body {
     display: block;
     visibility: visible;
   }
-}
-@media screen and (min-width: 768px) {
   .desktop-hidden {
     visibility: hidden;
     display: none;
   }
 }
-/* Typography *//*# sourceMappingURL=globals.css.map */
+/* ---- Icon SVGs ---- */
+/* ---- Usecase specific styling ---- *//*# sourceMappingURL=globals.css.map */

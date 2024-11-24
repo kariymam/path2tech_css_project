@@ -22,6 +22,31 @@ body {
   color: var(--text-color);
 }
 
+/* ---- Breakpoints ---- */
+
+$breakpoints: (
+  "mobile": 375px,
+  "tablet": 768px,
+  "laptop": 1024px,
+);
+
+@mixin responsize($bp) {
+
+  @if map.has-key($breakpoints, $bp) {
+    
+    $breakpoint: map.get($breakpoints, $bp);
+
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+
+  } @else {
+    @warn 'Invalid breakpoint: #{$bp}.';
+  }
+}
+
+/* ---- Mobile / Desktop Hidden ---- */
+
 .mobile-hidden {
   visibility: hidden;
   display: none;
@@ -32,39 +57,25 @@ body {
   display: visible;
 }
 
-@media screen and (min-width: 768px) {
+@include responsize("tablet") {
   .mobile-hidden {
     display: block;
     visibility: visible;
   }
-}
-
-@media screen and (min-width: 768px) {
   .desktop-hidden {
     visibility: hidden;
     display: none;
   }
 }
 
-/* Typography */
-
-$heading-lg: 1.5rem;
-
-$breakpoints: (
-  'mobile': (min-width: 768px),
-  'tablet': (min-width: 1024px),
-  'fullPage': (min-width: 1200px),
-);
+/* ---- Icon SVGs ---- */
 
 $star-icon: url(/assets/svg/star-outline.svg);
 $checkmark-icon: url(/assets/svg/checkmark-outline.svg);
 $search-icon: url(/assets/svg/search-icon.svg);
 $menu-icon: url(/assets/svg/menu-24px.svg);
 
-
-@mixin headers($p-lg, $p-base, $p-sml,) {
-  padding: $p-base $p-lg $p-sml 0;
-}
+/* ---- Usecase specific styling ---- */
 
 @mixin text-truncate {
   display:inline-block;
