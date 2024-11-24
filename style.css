@@ -570,7 +570,7 @@ time.email__datetime::before {
   }
   nav#primary-nav {
     z-index: 1;
-    width: 168px;
+    width: 268px;
   }
   header#main-header {
     gap: 1rem;
@@ -594,6 +594,9 @@ nav#primary-nav ul.nav__links {
   width: 300px;
   display: flex;
   flex-flow: column nowrap;
+  border: none;
+  padding: 0;
+  margin: 1rem 0;
 }
 
 nav#primary-nav .nav__link {
@@ -646,7 +649,10 @@ nav#primary-nav .nav__container {
     position: fixed;
     z-index: auto;
     width: auto;
-    margin-left: 2rem;
+    margin: 1rem 0 1rem 2rem;
+    padding: 0 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
   }
   nav#primary-nav .nav__container {
     display: none;
