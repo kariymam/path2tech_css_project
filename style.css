@@ -106,9 +106,6 @@ body {
     grid-column: 1/span 1;
     grid-row: 3/span 1;
   }
-  section > :first-child {
-    padding: 1rem 0 0.5rem 0;
-  }
 }
 header, main {
   max-width: 1024px;
@@ -132,7 +129,7 @@ h1 {
 
 h2 {
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 p {
@@ -153,6 +150,7 @@ ul {
 
 time {
   font-size: 0.75rem;
+  font-weight: 600;
   line-height: 1.5;
   text-align: center;
 }
@@ -224,10 +222,14 @@ header#main-header > * ~ * {
   border-radius: 0.5rem;
   margin: auto;
 }
+header#main-header h1 {
+  display: inline-flex;
+}
 header#main-header h1::after {
   content: "1";
   display: inline-flex;
-  background-color: var(--light-gray);
+  background-color: var(--blue);
+  color: var(--offwhite);
   font-weight: 700;
   align-items: center;
   justify-content: center;
@@ -248,9 +250,13 @@ footer {
   align-self: end;
 }
 
-@media screen and (min-width: 375px) {
+section > :first-child {
+  padding: 1rem 1rem 0.5rem 1rem;
+}
+
+@media screen and (min-width: 768px) {
   section > :first-child {
-    padding: 1rem 1rem 0.5rem 1rem;
+    padding: 1rem 0 0.5rem 0;
   }
 }
 /*-- Add .list-resize transition to <main> onClick --*/
@@ -470,8 +476,8 @@ time.email__datetime::before {
 }
 
 .home__pinned time.email__datetime {
-  background-color: var(--light-gray);
-  border: 1px solid var(--light-gray);
+  background-color: var(--lightest-gray);
+  border: 1px solid var(--lightest-gray);
 }
 
 .home__list time.email__datetime {
@@ -516,6 +522,7 @@ time.email__datetime::before {
   z-index: 1;
   opacity: 0;
   color: transparent;
+  cursor: pointer;
 }
 
 .email__details a::after, .email__details form::after {
@@ -576,7 +583,7 @@ nav#primary-nav, header#main-header {
   height: 48px;
   align-items: start;
 }
-nav#primary-nav > *:not(#close-btn, #search), header#main-header > *:not(#close-btn, #search) {
+nav#primary-nav > *:not(#close-btn, #search, .nav__links), header#main-header > *:not(#close-btn, #search, .nav__links) {
   align-items: center;
   margin: auto;
 }
@@ -636,7 +643,7 @@ nav#primary-nav .nav__container {
     margin: 1rem 0 1rem 2rem;
   }
   nav#primary-nav ul.nav__links {
-    position: relative;
+    position: fixed;
     z-index: auto;
     width: auto;
     margin-left: 2rem;
