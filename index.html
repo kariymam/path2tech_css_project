@@ -80,7 +80,7 @@
                 </label>
               </div>
               <div class="email__details">
-                <form href="#" id="author1">
+                <form id="author1">
                   <label for="view-email" class="visually-hidden"
                     >View email</label
                   >
@@ -358,10 +358,12 @@
       menuBtn.addEventListener("click", handleMq);
       closeBtn.addEventListener("click", handleMq);
 
-      const showEmailDialog = () => {
+      const showEmailDialog = (e) => {
+        e.preventDefault();
         emailList.classList.toggle("list-resize");
         emailHeader.classList.toggle("list-resize");
         emailDialog.classList.toggle("show");
+        return false;
       }
 
       emailBtn.addEventListener("click", showEmailDialog);
