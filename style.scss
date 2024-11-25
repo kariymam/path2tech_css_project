@@ -78,20 +78,22 @@ h1,
 h2,
 h3 {
   display: inline-flex;
-  font-family: var(--jakarta);
   font-weight: 500;
   color: rgba(var(--dark-gray));
+  flex-grow: 1;
 }
 
 h1 {
   font-size: 1rem;
   white-space: wrap;
-  flex-grow: 1;
+  font-family: var(--jakarta);
 }
 
 h2 {
   align-items: baseline;
   gap: 0.5rem;
+  font-family: var(--body);
+  
 }
 
 h2 > #unread-count {
@@ -104,7 +106,7 @@ h2 > #unread-count {
 
 h3 {
   font-size: 0.75rem;
-  flex-grow: 1;
+  font-family: var(--body);
 }
 
 p {
@@ -160,15 +162,17 @@ span {
 }
 
 @include responsize("tablet") {
-  h1 {
-    font-size: 1.5rem;
+  h1, h2 {
     font-weight: 700;
     width: 100%;
-    flex-flow: column-reverse wrap;
+    align-items: center;
   }
   p {
     font-size: 1rem;
     flex-grow: 1;
+  }
+  .email__details h3 {
+    font-size: 0.875rem;
   }
 }
 
@@ -206,9 +210,9 @@ header#main-header {
 }
 
 h2 > #unread-count {
-  width: fit-content;
+  width: max-content;
   background-color: var(--light-gray);
-  padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+  padding: 0.15rem 0.5rem 0.15rem 0.15rem;
   border-radius: 1rem;
 }
 
@@ -240,6 +244,16 @@ h2, section > :first-child {
 @include responsize("tablet"){
   h2, section > :first-child {
     margin: 1rem 0 0.5rem 0;
+  }
+  #clock {
+    height: 18px;
+    animation: 1s ease-out 1s 1 fadeIn;
+    animation-play-state: running;
+  }
+  #greeting {
+    height: 48px;
+    width: fit-content;
+    margin-left: 1rem;
   }
 }
 
@@ -287,10 +301,6 @@ form.search-bar button {
   border-color: transparent;
   background: transparent;
 }
-
-// form.search-bar .search-icon {
-//   @include icon($search-icon)
-// }
 
 @include responsize("tablet") {
   form.search-bar {
@@ -473,10 +483,6 @@ time.email__datetime::before {
   margin-right: 0.5rem;
 }
 
-// .email__priority .star {
-//   @include icon($star-icon)
-// }
-
 /* EMAIL | Details ------
 */ 
 
@@ -524,9 +530,9 @@ time.email__datetime::before {
     grid-auto-flow: column;
     grid-template: 0 1fr 1fr / 1fr min-content;
   }
-  .email__details h3 {
-    padding-bottom: 0.15rem;
-  }
+  // .email__details h3 {
+  //   padding-bottom: 0.15rem;
+  // }
 }
 
 @include responsize("tablet") {
@@ -561,10 +567,10 @@ time.email__datetime::before {
 nav#primary-nav {
   height: 48px;
   align-items: start;
-  & > *:not(#close-btn, #search, .nav__links) {
-    align-items: center;
-    margin: auto;
-  }
+  // & > *:not(#close-btn, #search, .nav__links) {
+  //   // align-items: center;
+  //   margin: auto;
+  // }
 }
 
 nav#primary-nav ul.nav__links {
@@ -589,6 +595,7 @@ nav#primary-nav .nav__link {
 
 nav#primary-nav .nav__link > a {
   margin: auto auto auto 1rem;
+  gap: 0.5rem;
   padding: 0;
 }
 
@@ -608,21 +615,15 @@ nav#primary-nav .nav__container {
     margin: 1rem 0;
   }
   nav#primary-nav {
+    height: auto;
     position: relative;
     transform: translateX(0);
   }
-  // nav#primary-nav button {
-  //   margin: 1rem 0 1rem 2rem;
-  // }
   nav#primary-nav ul.nav__links {
     position: fixed;
     z-index: auto;
     width: auto;
     margin: 1rem 0 1rem 1rem;
-    // padding: 0 1rem;
-    // border: 1px solid var(--border);
-    // border-radius: 0.5rem;
-    // flex-flow: row nowrap;
   }
   nav#primary-nav .nav__container {
     display: none;
@@ -641,7 +642,6 @@ nav#primary-nav .nav__container {
 */ 
 
 .menu-icon {
-  // @include icon($menu-icon);
   padding: 4px;
   margin: auto;
 }
@@ -701,38 +701,15 @@ nav#primary-nav.slide-in {
   -webkit-animation: slideIn 300ms 1 forwards;
 }
 
-@keyframes slideOut {
-  to { transform: translateX(0); }
-}
-
-@keyframes slideIn {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100vw); }
-}
-
-.fade-in ~ #scrim {
-  animation: fadeIn 1s 1 forwards;
-  -webkit-animation: fadeIn 300ms 1 forwards;
-}
-
-.fade-out ~ #scrim {
-  animation: fadeOut 1s 1 forwards;
-  -webkit-animation: fadeOut 300ms 1 forwards;  
-}
-
-@keyframes fadeIn {
-  0% { visibility: hidden; opacity: 0; }
-  100% { visibility: visible; opacity: 1; }
-}
-
-@keyframes fadeOut {
-  0% { visibility: visible; opacity: 1; }
-  100% { visibility: hidden; opacity: 0; }
-}
-
 /* -----------
   EMAIL CONTENT VIEW
 /----------- */ 
+
+#email__content-view {
+  & > * {
+    padding: 0 0.5rem;
+  }
+}
 
 .email__content {
   position: fixed;
@@ -768,7 +745,6 @@ div#email__sender {
     border-left: 1px solid var(--border);
     width: calc(100vw * 56 / 128.0);
     overflow: hidden;
-    padding: 0 1rem;
   }
 }
 
@@ -786,12 +762,10 @@ div#email__sender {
   display: grid;
   grid-template: 1fr / repeat(4, 68px);
   gap: 1px;
-  // background-color: var(--light-gray);
   & > * {
     text-align: center;
     font-size: 0.75rem;
     padding-top: 0.25rem;
-    // background-color: var(--offwhite);
   }
 }
 

@@ -45,4 +45,48 @@ body {
   }
 }
 /* ---- Icon SVGs ---- */
-/* ---- Usecase specific styling ---- *//*# sourceMappingURL=globals.css.map */
+/* ---- Usecase specific styling ---- */
+/* ---- Animations ---- */
+@keyframes slideOut {
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100vw);
+  }
+}
+.fade-in ~ #scrim {
+  animation: fadeIn 1s 1 forwards;
+  -webkit-animation: fadeIn 300ms 1 forwards;
+}
+
+.fade-out ~ #scrim {
+  animation: fadeOut 1s 1 forwards;
+  -webkit-animation: fadeOut 300ms 1 forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}/*# sourceMappingURL=globals.css.map */

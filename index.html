@@ -8,31 +8,32 @@
   </head>
   <body>
     <nav id="primary-nav">
+      <h1 id="greeting">Hello, Kariyma</h1>
       <ul class="nav__links">
         <li class="compose__link">
           <button id="compose-btn">Compose</button>
         </li>
         <li class="nav__link">
           <a href="#">
-            <span>Inbox Icon</span>
+            <span class="inbox-icon">Inbox Icon</span>
             Inbox
           </a>
         </li>
         <li class="nav__link">
           <a href="#">
-            <span>Drafts Icon</span>
+            <span class="draft-icon">Drafts Icon</span>
             Drafts
           </a>
         </li>
         <li class="nav__link">
           <a href="#">
-            <span>Starred Icon</span>
+            <span class="star-icon">Starred Icon</span>
             Starred
           </a>
         </li>
         <li class="nav__link">
           <a href="#">
-            <span>Trash Icon</span>
+            <span class="trash-icon">Trash Icon</span>
             Trash
           </a>
         </li>
@@ -46,7 +47,8 @@
         <span class="menu-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Open Menu</span>
       </button>
-      <h1 id="greeting">Hello, Kariyma</h1>
+      <!-- <h1 id="greeting">Hello, Kariyma</h1> -->
+      <h2>Inbox <span id="unread-count">unread</span></h2>
       <form id="search" class="search-bar card">
         <label for="search-bar" class="visually-hidden">Search</label>
         <input
@@ -62,7 +64,7 @@
       </form>
     </header>
     <main id="email-list">
-      <h2>Inbox <span id="unread-count">unread</span></h2>
+      <span id="clock"><time id="current-date" class="mobile-hidden"></time></span>
       <section>
         <header>
           <h3>1 pinned message</h3>
@@ -314,37 +316,37 @@
                 <time datetime="2024-11-22T18:00:0">at 6:00PM</time></p
               >
             </div>
-            <div id="sender__actions">
-              <span>Move to...</span>
-              <div>
-                <div class="actions">
-                  <div>
-                    <button class="icon-btn">
-                      <span class="trash-icon">Trash</span>
-                    </button>
-                  </div>
-                  <div>
-                    <button class="icon-btn">
-                      <span class="archive-icon">Trash</span>
-                    </button>
-                  </div>
-                  <div>
-                    <button class="icon-btn">
-                      <span class="flame-icon">Trash</span>
-                    </button>
-                  </div>
-                  <div>
-                    <button class="icon-btn">
-                      <span class="more-icon">Trash</span>
-                    </button>
-                  </div>
+          </div>
+          <div id="sender__actions">
+            <span>Move to...</span>
+            <div>
+              <div class="actions">
+                <div>
+                  <button class="icon-btn">
+                    <span class="trash-icon">Trash</span>
+                  </button>
                 </div>
-                <div class="actions">
-                  <span>Trash</span>
-                  <span>Archive</span>
-                  <span>Spam</span>
-                  <span>More</span>
+                <div>
+                  <button class="icon-btn">
+                    <span class="archive-icon">Trash</span>
+                  </button>
                 </div>
+                <div>
+                  <button class="icon-btn">
+                    <span class="flame-icon">Trash</span>
+                  </button>
+                </div>
+                <div>
+                  <button class="icon-btn">
+                    <span class="more-icon">Trash</span>
+                  </button>
+                </div>
+              </div>
+              <div class="actions">
+                <span>Trash</span>
+                <span>Archive</span>
+                <span>Spam</span>
+                <span>More</span>
               </div>
             </div>
           </div>
@@ -353,7 +355,7 @@
       </aside>
     </main>
     <footer>
-      <time id="current-date" class="mobile-hidden"></time>
+      <!-- <time id="current-date" class="mobile-hidden"></time> -->
     </footer>
     <script type="module">
       document.addEventListener("DOMContentLoaded", () => {
@@ -416,10 +418,10 @@
           },
           realtimeClock: () => {
             const now = new Date();
-            elements["current-date"].innerText = `${now.toLocaleString(
+            elements["current-date"].innerText = `It's ${now.toLocaleString(
               "en-US",
               currentDate.date_options
-            )}\n${now.toLocaleString("en-US", currentDate.time_options)}`;
+            )} ${now.toLocaleString("en-US", currentDate.time_options)}`;
           },
           startClock: () => setInterval(currentDate.realtimeClock, 1000),
         };

@@ -74,6 +74,7 @@ $breakpoints: (
 /* ---- Icon SVGs ---- */
 
 $star-icon: url(/assets/svg/star-outline.svg);
+$search-icon: url(/assets/svg/search-icon.svg);
 $checkmark-icon: url(/assets/svg/checkmark-outline.svg);
 $search-icon: url(/assets/svg/search-icon.svg);
 $menu-icon: url(/assets/svg/menu-24px.svg);
@@ -81,6 +82,22 @@ $trash-icon: url(/assets/svg/trash-icon.svg);
 $archive-icon: url(/assets/svg/all-inboxes-icon.svg);
 $flame-icon: url(/assets/svg/flame-icon.svg);
 $more-icon: url(/assets/svg/more-icon.svg);
+$compose-icon: url(/assets/svg/compose-icon.svg);
+$draft-icon: url(/assets/svg/draft-icon.svg);
+$inbox-icon: url(/assets/svg/inbox-icon.svg);
+
+$icons:
+  "star" $star-icon,
+  "search" $search-icon,
+  "checkmark" $checkmark-icon, 
+  "menu" $menu-icon,
+  "trash" $trash-icon,
+  "archive" $archive-icon,
+  "flame" $flame-icon,
+  "more" $more-icon,
+  "compose" $compose-icon,
+  "draft" $draft-icon,
+  "inbox" $inbox-icon;
 
 /* ---- Usecase specific styling ---- */
 
@@ -95,7 +112,9 @@ $more-icon: url(/assets/svg/more-icon.svg);
 @mixin list-item {
   display: flex;
   flex-flow: row nowrap;
+  justify-content: center;
   border-radius: 0.5rem;
+  gap: 0.5rem;
   height: 100%;
   & * {
     border-radius: 0.5rem;
@@ -104,12 +123,34 @@ $more-icon: url(/assets/svg/more-icon.svg);
   }
 }
 
-$icons:
-  "star" $star-icon, 
-  "checkmark" $checkmark-icon, 
-  "menu" $menu-icon,
-  "trash" $trash-icon,
-  "archive" $archive-icon,
-  "flame" $flame-icon,
-  "more" $more-icon;
+/* ---- Animations ---- */
+  
+@keyframes slideOut {
+  to { transform: translateX(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100vw); }
+}
+
+.fade-in ~ #scrim {
+  animation: fadeIn 1s 1 forwards;
+  -webkit-animation: fadeIn 300ms 1 forwards;
+}
+
+.fade-out ~ #scrim {
+  animation: fadeOut 1s 1 forwards;
+  -webkit-animation: fadeOut 300ms 1 forwards;  
+}
+
+@keyframes fadeIn {
+  0% { visibility: hidden; opacity: 0; }
+  100% { visibility: visible; opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { visibility: visible; opacity: 1; }
+  100% { visibility: hidden; opacity: 0; }
+}
   
