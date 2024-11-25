@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 :root {
   --offwhite: #e9ecf2;
   --gold: #ffa800;
@@ -10,27 +11,27 @@
   --border: var(--light-gray);
   --bg-card: var(--offwhite);
   --bg-checkbox: var(--light-gray);
-  --max-screen: 1024px;
-  --fonts: system-ui, -apple-system, sans-serif;
+  --jakarta: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --body: "Inter", system-ui, -apple-system, sans-serif;
   --text-color: rgba(var(--dark-gray), 0.8) ;
 }
 
 body {
-  font-family: var(--fonts);
   background-color: var(--global-bg);
   color: var(--text-color);
+  font-optical-sizing: auto;
 }
 
 /* ---- Breakpoints ---- */
 /* ---- Mobile / Desktop Hidden ---- */
 .mobile-hidden {
-  visibility: hidden;
   display: none;
+  visibility: hidden;
 }
 
 .desktop-hidden {
-  visibility: block;
-  display: visible;
+  display: block;
+  visibility: visible;
 }
 
 @media screen and (min-width: 768px) {
@@ -39,8 +40,8 @@ body {
     visibility: visible;
   }
   .desktop-hidden {
-    visibility: hidden;
     display: none;
+    visibility: hidden;
   }
 }
 /* ---- Icon SVGs ---- */

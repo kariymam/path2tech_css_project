@@ -1,4 +1,7 @@
 @use "sass:map";
+@use 'sass:color';
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
 :root {
   --offwhite: #e9ecf2;
   --gold: #ffa800;
@@ -11,15 +14,15 @@
   --border: var(--light-gray);
   --bg-card: var(--offwhite);
   --bg-checkbox: var(--light-gray);
-  --max-screen: 1024px;
-  --fonts: system-ui, -apple-system, sans-serif;
+  --jakarta: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --body: "Inter", system-ui, -apple-system, sans-serif;
   --text-color: rgba(var(--dark-gray), 0.8)
 }
 
 body {
-  font-family: var(--fonts);
   background-color: var(--global-bg);
   color: var(--text-color);
+  font-optical-sizing: auto;
 }
 
 /* ---- Breakpoints ---- */
@@ -48,13 +51,13 @@ $breakpoints: (
 /* ---- Mobile / Desktop Hidden ---- */
 
 .mobile-hidden {
-  visibility: hidden;
   display: none;
+  visibility: hidden;
 }
 
 .desktop-hidden {
-  visibility: block;
-  display: visible;
+  display: block;
+  visibility: visible;
 }
 
 @include responsize("tablet") {
@@ -63,8 +66,8 @@ $breakpoints: (
     visibility: visible;
   }
   .desktop-hidden {
-    visibility: hidden;
     display: none;
+    visibility: hidden;
   }
 }
 
@@ -74,6 +77,10 @@ $star-icon: url(/assets/svg/star-outline.svg);
 $checkmark-icon: url(/assets/svg/checkmark-outline.svg);
 $search-icon: url(/assets/svg/search-icon.svg);
 $menu-icon: url(/assets/svg/menu-24px.svg);
+$trash-icon: url(/assets/svg/trash-icon.svg);
+$archive-icon: url(/assets/svg/all-inboxes-icon.svg);
+$flame-icon: url(/assets/svg/flame-icon.svg);
+$more-icon: url(/assets/svg/more-icon.svg);
 
 /* ---- Usecase specific styling ---- */
 
@@ -97,12 +104,12 @@ $menu-icon: url(/assets/svg/menu-24px.svg);
   }
 }
 
-@mixin icon($path) {
-  display: block;
-  background: rgb(var(--dark-gray));
-  width: 1rem;
-  height: 1rem;
-  pointer-events: none;
-  -webkit-mask: $path no-repeat center;
-  mask: $path no-repeat center;
-}
+$icons:
+  "star" $star-icon, 
+  "checkmark" $checkmark-icon, 
+  "menu" $menu-icon,
+  "trash" $trash-icon,
+  "archive" $archive-icon,
+  "flame" $flame-icon,
+  "more" $more-icon;
+  

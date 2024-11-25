@@ -46,7 +46,7 @@
         <span class="menu-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Open Menu</span>
       </button>
-      <h1>Inbox</h1>
+      <h1 id="greeting">Hello, Kariyma</h1>
       <form id="search" class="search-bar card">
         <label for="search-bar" class="visually-hidden">Search</label>
         <input
@@ -62,9 +62,10 @@
       </form>
     </header>
     <main id="email-list">
+      <h2>Inbox <span id="unread-count">unread</span></h2>
       <section>
         <header>
-          <h2>1 pinned message</h2>
+          <h3>1 pinned message</h3>
         </header>
         <ul class="home__pinned" role="group">
           <li class="email" id="email1" role="listitem">
@@ -103,7 +104,7 @@
                         class="star__checkbox"
                         name="star-email1"
                       />
-                      <span class="star"></span>
+                      <span class="star-icon"></span>
                       <label for="star-email1"> star this email </label>
                     </div>
                   </div>
@@ -115,7 +116,7 @@
       </section>
       <section id="all-emails">
         <header>
-          <h2>4 messages</h2>
+          <h3>4 messages</h3>
         </header>
         <ul class="home__list">
           <li class="email" id="email2">
@@ -137,8 +138,8 @@
                 </a>
                 <h3>Peter Potamus</h3>
                 <p>
-                  <span>Re: Did you get that thing I sent you?</span>That thing
-                  I sent you was really important
+                  Re: Did you get that thing I sent you? - That thing I sent you
+                  was really important
                 </p>
                 <div class="email__priority">
                   <div>
@@ -153,7 +154,7 @@
                       class="star__checkbox"
                       name="star-email2"
                     />
-                    <span class="star"></span>
+                    <span class="star-icon"></span>
                     <label for="star-email2"> star this email </label>
                   </div>
                 </div>
@@ -215,9 +216,9 @@
                 </a>
                 <h3>Administrative Support</h3>
                 <p>
-                  <span>Volunteer Sign-up for Holiday Potluck!</span> We will be
-                  gathering for a holiday celebration on November 16th in
-                  conference room B at 3:00PM.
+                  Volunteer Sign-up for Holiday Potluck! - We will be gathering
+                  for a holiday celebration on November 16th in conference room
+                  B at 3:00PM.
                 </p>
                 <div class="email__priority">
                   <div>
@@ -232,7 +233,7 @@
                       class="star__checkbox"
                       name="star-email4"
                     />
-                    <span class="star"></span>
+                    <span class="star-icon"></span>
                     <label for="star-email4"> star this email </label>
                   </div>
                 </div>
@@ -264,8 +265,8 @@
                 </a>
                 <h3>Github</h3>
                 <p>
-                  <span>[URGENT] I need pictures of Spiderman!</span>Get them on
-                  my desk by 8:00AM!!
+                  [URGENT] I need pictures of Spiderman! - Get them on my desk
+                  by 8:00AM!!
                 </p>
                 <div class="email__priority">
                   <div>
@@ -280,7 +281,7 @@
                       class="star__checkbox"
                       name="star-email5"
                     />
-                    <span class="star"></span>
+                    <span class="star-icon"></span>
                     <label for="star-email5"> star this email </label>
                   </div>
                 </div>
@@ -289,88 +290,171 @@
           </li>
         </ul>
       </section>
-    </main>
-    <aside id="email__content">
-      <div id="email__content-view" class="email__content">
-        <button id="email_exit-btn">Close email</button>
-        <div class="email__heading">
-          <h4>Click this!</h4>
-          <div></div>
+      <aside id="email__content">
+        <div id="email__content-view" class="email__content">
+          <button id="email_exit-btn">Close email</button>
+          <div class="email__subject">
+            <h1>Click me!</h1>
+          </div>
+          <div id="email__sender">
+            <div id="sender__icon">
+              <span
+                id="sender__icon"
+                class="email__initials icon-btn"
+                aria-hidden="true"
+              >
+                KM
+              </span>
+            </div>
+            <div id="sender__name" class="home__list">
+              <span>Kariyma Murphy (kariymam@email.me)</span>
+              <p
+                >Sent to me (kariymam@email.me)
+                <time datetime="2024-11-22">Nov 22 2024</time>
+                <time datetime="2024-11-22T18:00:0">at 6:00PM</time></p
+              >
+            </div>
+            <div id="sender__actions">
+              <span>Move to...</span>
+              <div>
+                <div class="actions">
+                  <div>
+                    <button class="icon-btn">
+                      <span class="trash-icon">Trash</span>
+                    </button>
+                  </div>
+                  <div>
+                    <button class="icon-btn">
+                      <span class="archive-icon">Trash</span>
+                    </button>
+                  </div>
+                  <div>
+                    <button class="icon-btn">
+                      <span class="flame-icon">Trash</span>
+                    </button>
+                  </div>
+                  <div>
+                    <button class="icon-btn">
+                      <span class="more-icon">Trash</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="actions">
+                  <span>Trash</span>
+                  <span>Archive</span>
+                  <span>Spam</span>
+                  <span>More</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <iframe src="TBD" title="description"></iframe> -->
         </div>
-        <!-- <iframe src="TBD" title="description"></iframe> -->
-      </div>
-    </aside>
+      </aside>
+    </main>
     <footer>
-      <p>Kariyma Murphy</p>
-      <br />
-      <p>NPower Path2Tech</p>
+      <time id="current-date" class="mobile-hidden"></time>
     </footer>
-    <script>
-      const mq = window.matchMedia("(max-width: 768px)");
-      const mobileMenu = document.getElementById("primary-nav");
-      const menuBtn = document.getElementById("menu-btn");
-      const closeBtn = document.getElementById("close-btn");
-      const emailBtn = document.getElementById("view-email");
-      const emailList = document.getElementById("email-list");
-      const emailHeader = document.getElementById("main-header");
-      const emailDialog = document.getElementById("email__content");
-      const emailDialogBtn = document.getElementById("email_exit-btn");
-
-      const toggleEl = (
-        el,
-        action,
-        open = ["slide-out", "fade-in"],
-        close = ["slide-in", "fade-out"]
-      ) => {
-        if (!el) {
-          return;
-        } else if (action == "open") {
-          el.classList.add(...open);
-        } else if (action == "close") {
-          el.classList.replace(open[0], close[0]);
-          el.classList.replace(open[1], close[1]);
-          if (el.classList.contains(...close)) {
-            setTimeout(() => {
-              el.classList.remove(...close);
-            }, 500);
-          }
-        }
-      };
-
-      const handleMq = (e) => {
-        if (mq.matches) {
-          if (e.target === menuBtn) {
-            toggleEl(mobileMenu, "open");
-          }
-          if (e.target === closeBtn) {
-            toggleEl(mobileMenu, "close");
-          }
-        }
-      };
-
+    <script type="module">
       document.addEventListener("DOMContentLoaded", () => {
+        const getElements = (ids) => {
+          const elements = {};
+          ids.forEach((id) => {
+            elements[id] = document.getElementById(id);
+          });
+          return elements;
+        };
+
+        const elements = getElements([
+          "primary-nav",
+          "menu-btn",
+          "close-btn",
+          "view-email",
+          "email-list",
+          "main-header",
+          "email__content",
+          "email_exit-btn",
+          "greeting",
+          "current-date",
+          "scrim",
+        ]);
+
+        const mq = window.matchMedia("(max-width: 768px)");
+
+        const toggleEl = (
+          el,
+          action,
+          openClasses = ["slide-out", "fade-in"],
+          closeClasses = ["slide-in", "fade-out"]
+        ) => {
+          if (!el) return;
+          const [openMain, openFade] = openClasses;
+          const [closeMain, closeFade] = closeClasses;
+
+          if (action === "open") {
+            el.classList.add(openMain, openFade);
+          } else if (action === "close") {
+            el.classList.replace(openMain, closeMain);
+            el.classList.replace(openFade, closeFade);
+
+            setTimeout(() => el.classList.remove(closeMain, closeFade), 500);
+          }
+        };
+
+        const currentDate = {
+          date_options: {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          },
+          time_options: {
+            hour: "numeric",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true,
+          },
+          realtimeClock: () => {
+            const now = new Date();
+            elements["current-date"].innerText = `${now.toLocaleString(
+              "en-US",
+              currentDate.date_options
+            )}\n${now.toLocaleString("en-US", currentDate.time_options)}`;
+          },
+          startClock: () => setInterval(currentDate.realtimeClock, 1000),
+        };
+
+        const showEmailDialog = (e) => {
+          e.preventDefault();
+          elements["email-list"].classList.toggle("list-resize");
+          elements["main-header"].classList.toggle("list-resize");
+          elements["email__content"].classList.toggle("show");
+        };
+
+        const handleMq = (e) => {
+          if (mq.matches) {
+            if (e.target === elements["menu-btn"])
+              toggleEl(elements["primary-nav"], "open");
+            if (e.target === elements["close-btn"])
+              toggleEl(elements["primary-nav"], "close");
+          }
+        };
+
+        // Main initialization
         if (mq.matches) {
-          mobileMenu.classList.add("slider");
+          elements["primary-nav"].classList.add("slider");
         } else {
-          document.getElementById("scrim").style.display = "none";
-          menuBtn.style.display = "none";
-          closeBtn.style.display = "none";
+          currentDate.startClock();
+          elements["scrim"].style.display = "none";
+          elements["menu-btn"].style.display = "none";
+          elements["close-btn"].style.display = "none";
         }
+
+        elements["menu-btn"].addEventListener("click", handleMq);
+        elements["close-btn"].addEventListener("click", handleMq);
+        elements["view-email"].addEventListener("click", showEmailDialog);
+        elements["email_exit-btn"].addEventListener("click", showEmailDialog);
       });
-
-      menuBtn.addEventListener("click", handleMq);
-      closeBtn.addEventListener("click", handleMq);
-
-      const showEmailDialog = (e) => {
-        e.preventDefault();
-        emailList.classList.toggle("list-resize");
-        emailHeader.classList.toggle("list-resize");
-        emailDialog.classList.toggle("show");
-        return false;
-      }
-
-      emailBtn.addEventListener("click", showEmailDialog);
-      emailDialogBtn.addEventListener("click", showEmailDialog);
     </script>
   </body>
 </html>
