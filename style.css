@@ -19,7 +19,7 @@
 }
 
 body {
-  background-color: var(--global-bg);
+  background-color: var(--offwhite);
   color: var(--text-color);
   font-optical-sizing: auto;
 }
@@ -306,6 +306,7 @@ nav#primary-nav {
   max-width: 300px;
   width: 100%;
   border: none;
+  background-color: var(--lightest-gray);
 }
 
 header#main-header {
@@ -369,6 +370,10 @@ h2, section > :first-child {
   }
   h2, section > :first-child {
     margin: 1rem 0 0.5rem 1rem;
+  }
+  .card * {
+    align-items: center;
+    justify-content: center;
   }
   #clock {
     height: 18px;
@@ -538,24 +543,25 @@ form.search-bar button {
   height: 100%;
   width: 68px;
 }
+.email__actions .checkmark::before {
+  content: " ";
+  border-radius: 0.5rem;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
 .email__actions input[type=checkbox].email__checkbox:checked + span::before {
   background: center/80% no-repeat url(/assets/svg/checkmark-outline.svg) #0164ee;
 }
 .email__actions input[type=checkbox].email__checkbox + span {
   border: 1px solid var(--border);
   background-color: var(--bg-checkbox);
+  width: 1.8rem;
+  height: 1.8rem;
 }
 .email__actions > :is(input[type=checkbox]:checked) ~ label {
   opacity: 0;
-}
-
-.email__actions .checkmark::before {
-  content: " ";
-  border-radius: 0.5rem;
-  pointer-events: none;
-  width: 1.5rem;
-  height: 1.5rem;
-  z-index: 2;
 }
 
 .email__actions .email__initials {
@@ -915,6 +921,7 @@ div#email__sender #sender__actions {
   pointer-events: none;
   -webkit-mask: url(/assets/svg/star-outline.svg) no-repeat center/24px;
   mask: url(/assets/svg/star-outline.svg) no-repeat center/24px;
+  color: transparent;
 }
 
 .search-icon {
@@ -925,6 +932,7 @@ div#email__sender #sender__actions {
   pointer-events: none;
   -webkit-mask: url(/assets/svg/search-icon.svg) no-repeat center/24px;
   mask: url(/assets/svg/search-icon.svg) no-repeat center/24px;
+  color: transparent;
 }
 
 .checkmark-icon {
@@ -935,6 +943,7 @@ div#email__sender #sender__actions {
   pointer-events: none;
   -webkit-mask: url(/assets/svg/checkmark-outline.svg) no-repeat center/24px;
   mask: url(/assets/svg/checkmark-outline.svg) no-repeat center/24px;
+  color: transparent;
 }
 
 .menu-icon {
@@ -945,6 +954,7 @@ div#email__sender #sender__actions {
   pointer-events: none;
   -webkit-mask: url(/assets/svg/menu-24px.svg) no-repeat center/24px;
   mask: url(/assets/svg/menu-24px.svg) no-repeat center/24px;
+  color: transparent;
 }
 
 .trash-icon {
@@ -955,6 +965,7 @@ div#email__sender #sender__actions {
   pointer-events: none;
   -webkit-mask: url(/assets/svg/trash-icon.svg) no-repeat center/24px;
   mask: url(/assets/svg/trash-icon.svg) no-repeat center/24px;
+  color: transparent;
 }
 
 .archive-icon {
@@ -965,6 +976,7 @@ div#email__sender #sender__actions {
   pointer-events: none;
   -webkit-mask: url(/assets/svg/all-inboxes-icon.svg) no-repeat center/24px;
   mask: url(/assets/svg/all-inboxes-icon.svg) no-repeat center/24px;
+  color: transparent;
 }
 
 .flame-icon {
@@ -975,6 +987,7 @@ div#email__sender #sender__actions {
   pointer-events: none;
   -webkit-mask: url(/assets/svg/flame-icon.svg) no-repeat center/24px;
   mask: url(/assets/svg/flame-icon.svg) no-repeat center/24px;
+  color: transparent;
 }
 
 .more-icon {
@@ -985,6 +998,7 @@ div#email__sender #sender__actions {
   pointer-events: none;
   -webkit-mask: url(/assets/svg/more-icon.svg) no-repeat center/24px;
   mask: url(/assets/svg/more-icon.svg) no-repeat center/24px;
+  color: transparent;
 }
 
 .compose-icon {
@@ -995,6 +1009,7 @@ div#email__sender #sender__actions {
   pointer-events: none;
   -webkit-mask: url(/assets/svg/compose-icon.svg) no-repeat center/24px;
   mask: url(/assets/svg/compose-icon.svg) no-repeat center/24px;
+  color: transparent;
 }
 
 .draft-icon {
@@ -1005,6 +1020,7 @@ div#email__sender #sender__actions {
   pointer-events: none;
   -webkit-mask: url(/assets/svg/draft-icon.svg) no-repeat center/24px;
   mask: url(/assets/svg/draft-icon.svg) no-repeat center/24px;
+  color: transparent;
 }
 
 .inbox-icon {
@@ -1015,6 +1031,7 @@ div#email__sender #sender__actions {
   pointer-events: none;
   -webkit-mask: url(/assets/svg/inbox-icon.svg) no-repeat center/24px;
   mask: url(/assets/svg/inbox-icon.svg) no-repeat center/24px;
+  color: transparent;
 }
 
 .icon-btn {

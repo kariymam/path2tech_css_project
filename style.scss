@@ -202,6 +202,7 @@ nav#primary-nav {
   max-width: 300px;
   width: 100%;
   border: none;
+  background-color: var(--lightest-gray);
 }
 
 header#main-header {
@@ -264,6 +265,10 @@ h2, section > :first-child {
   }
   h2, section > :first-child {
     margin: 1rem 0 0.5rem 1rem;
+  }
+  .card * {
+    align-items: center;
+    justify-content: center;
   }
   #clock {
     height: 18px;
@@ -433,6 +438,14 @@ form.search-bar button {
   justify-content: center;
   height: 100%;
   width: $card-h;
+  & .checkmark::before {
+    content: " ";
+    border-radius: 0.5rem;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
   & input[type="checkbox"].email__checkbox:checked + span::before {
     background: center / 80% no-repeat $checkmark-icon
       #0164ee;
@@ -440,20 +453,22 @@ form.search-bar button {
   & input[type="checkbox"].email__checkbox + span {
     border: 1px solid var(--border);
     background-color: var(--bg-checkbox);
+    width: 1.8rem;
+    height: 1.8rem;
   }
   & > :is(input[type="checkbox"]:checked) ~ label {
     opacity: 0;
   }
 }
 
-.email__actions .checkmark::before {
-  content: " ";
-  border-radius: 0.5rem;
-  pointer-events: none;
-  width: 1.5rem;
-  height: 1.5rem;
-  z-index: 2;
-}
+// .email__actions .checkmark::before {
+//   content: " ";
+//   border-radius: 0.5rem;
+//   pointer-events: none;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 2;
+// }
 
 .email__actions .email__initials {
   position: absolute;
@@ -666,10 +681,6 @@ nav#primary-nav .nav__container {
 }
 
 @include responsize("tablet") {
-  // nav#primary-nav, header#main-header {
-  //   align-items: end;
-  //   margin: 1rem 0;
-  // }
   nav#primary-nav {
     height: auto;
     position: relative;
@@ -836,6 +847,7 @@ div#email__sender {
     pointer-events: none;
     -webkit-mask: $svg no-repeat center / 24px;
     mask: $svg no-repeat center / 24px;
+    color: transparent;
   }
 }
 
