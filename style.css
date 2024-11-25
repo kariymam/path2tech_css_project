@@ -618,6 +618,9 @@ time.email__datetime::before {
   letter-spacing: -0.3px;
 }
 
+/**
+TODO: Instead of a breakpoint this could be a theme switch from compact to condensed
+*/
 @media screen and (min-width: 375px) {
   .email__details {
     grid-auto-flow: column;

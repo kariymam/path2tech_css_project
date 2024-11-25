@@ -525,14 +525,15 @@ time.email__datetime::before {
   letter-spacing: -0.3px;
 }
 
+/**
+TODO: Instead of a breakpoint this could be a theme switch from compact to condensed
+*/
+
 @include responsize("mobile") {
   .email__details {
     grid-auto-flow: column;
     grid-template: 0 1fr 1fr / 1fr min-content;
   }
-  // .email__details h3 {
-  //   padding-bottom: 0.15rem;
-  // }
 }
 
 @include responsize("tablet") {
