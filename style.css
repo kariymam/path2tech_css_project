@@ -910,111 +910,111 @@ div#email__sender #sender__actions {
 .star-icon {
   display: block;
   background: rgb(var(--dark-gray));
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
   pointer-events: none;
-  -webkit-mask: url(/assets/svg/star-outline.svg) no-repeat center;
-  mask: url(/assets/svg/star-outline.svg) no-repeat center;
+  -webkit-mask: url(/assets/svg/star-outline.svg) no-repeat center/24px;
+  mask: url(/assets/svg/star-outline.svg) no-repeat center/24px;
 }
 
 .search-icon {
   display: block;
   background: rgb(var(--dark-gray));
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
   pointer-events: none;
-  -webkit-mask: url(/assets/svg/search-icon.svg) no-repeat center;
-  mask: url(/assets/svg/search-icon.svg) no-repeat center;
+  -webkit-mask: url(/assets/svg/search-icon.svg) no-repeat center/24px;
+  mask: url(/assets/svg/search-icon.svg) no-repeat center/24px;
 }
 
 .checkmark-icon {
   display: block;
   background: rgb(var(--dark-gray));
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
   pointer-events: none;
-  -webkit-mask: url(/assets/svg/checkmark-outline.svg) no-repeat center;
-  mask: url(/assets/svg/checkmark-outline.svg) no-repeat center;
+  -webkit-mask: url(/assets/svg/checkmark-outline.svg) no-repeat center/24px;
+  mask: url(/assets/svg/checkmark-outline.svg) no-repeat center/24px;
 }
 
 .menu-icon {
   display: block;
   background: rgb(var(--dark-gray));
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
   pointer-events: none;
-  -webkit-mask: url(/assets/svg/menu-24px.svg) no-repeat center;
-  mask: url(/assets/svg/menu-24px.svg) no-repeat center;
+  -webkit-mask: url(/assets/svg/menu-24px.svg) no-repeat center/24px;
+  mask: url(/assets/svg/menu-24px.svg) no-repeat center/24px;
 }
 
 .trash-icon {
   display: block;
   background: rgb(var(--dark-gray));
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
   pointer-events: none;
-  -webkit-mask: url(/assets/svg/trash-icon.svg) no-repeat center;
-  mask: url(/assets/svg/trash-icon.svg) no-repeat center;
+  -webkit-mask: url(/assets/svg/trash-icon.svg) no-repeat center/24px;
+  mask: url(/assets/svg/trash-icon.svg) no-repeat center/24px;
 }
 
 .archive-icon {
   display: block;
   background: rgb(var(--dark-gray));
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
   pointer-events: none;
-  -webkit-mask: url(/assets/svg/all-inboxes-icon.svg) no-repeat center;
-  mask: url(/assets/svg/all-inboxes-icon.svg) no-repeat center;
+  -webkit-mask: url(/assets/svg/all-inboxes-icon.svg) no-repeat center/24px;
+  mask: url(/assets/svg/all-inboxes-icon.svg) no-repeat center/24px;
 }
 
 .flame-icon {
   display: block;
   background: rgb(var(--dark-gray));
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
   pointer-events: none;
-  -webkit-mask: url(/assets/svg/flame-icon.svg) no-repeat center;
-  mask: url(/assets/svg/flame-icon.svg) no-repeat center;
+  -webkit-mask: url(/assets/svg/flame-icon.svg) no-repeat center/24px;
+  mask: url(/assets/svg/flame-icon.svg) no-repeat center/24px;
 }
 
 .more-icon {
   display: block;
   background: rgb(var(--dark-gray));
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
   pointer-events: none;
-  -webkit-mask: url(/assets/svg/more-icon.svg) no-repeat center;
-  mask: url(/assets/svg/more-icon.svg) no-repeat center;
+  -webkit-mask: url(/assets/svg/more-icon.svg) no-repeat center/24px;
+  mask: url(/assets/svg/more-icon.svg) no-repeat center/24px;
 }
 
 .compose-icon {
   display: block;
   background: rgb(var(--dark-gray));
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
   pointer-events: none;
-  -webkit-mask: url(/assets/svg/compose-icon.svg) no-repeat center;
-  mask: url(/assets/svg/compose-icon.svg) no-repeat center;
+  -webkit-mask: url(/assets/svg/compose-icon.svg) no-repeat center/24px;
+  mask: url(/assets/svg/compose-icon.svg) no-repeat center/24px;
 }
 
 .draft-icon {
   display: block;
   background: rgb(var(--dark-gray));
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
   pointer-events: none;
-  -webkit-mask: url(/assets/svg/draft-icon.svg) no-repeat center;
-  mask: url(/assets/svg/draft-icon.svg) no-repeat center;
+  -webkit-mask: url(/assets/svg/draft-icon.svg) no-repeat center/24px;
+  mask: url(/assets/svg/draft-icon.svg) no-repeat center/24px;
 }
 
 .inbox-icon {
   display: block;
   background: rgb(var(--dark-gray));
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
   pointer-events: none;
-  -webkit-mask: url(/assets/svg/inbox-icon.svg) no-repeat center;
-  mask: url(/assets/svg/inbox-icon.svg) no-repeat center;
+  -webkit-mask: url(/assets/svg/inbox-icon.svg) no-repeat center/24px;
+  mask: url(/assets/svg/inbox-icon.svg) no-repeat center/24px;
 }
 
 .icon-btn {
