@@ -135,6 +135,8 @@ $icons:
   line-height: 1.2;
 }
 
+$card-h: 68px;
+
 @mixin list-item {
   display: flex;
   flex-flow: row nowrap;

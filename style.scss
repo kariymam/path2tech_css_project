@@ -184,7 +184,7 @@ span {
 .card {
   @include list-item;
   gap: 0.5rem;
-  height: 48px;
+  height: $card-h;
   margin: 0.5rem 0;
 }
 
@@ -202,7 +202,7 @@ nav#primary-nav {
 
 header#main-header {
   display: flex;
-  height: 48px;
+  height: $card-h;
   & > * ~ * {
     border-radius: 0.5rem;
     margin: auto;
@@ -251,7 +251,7 @@ h2, section > :first-child {
     animation-play-state: running;
   }
   #greeting {
-    height: 48px;
+    height: $card-h;
     width: fit-content;
     margin-left: 1rem;
   }
@@ -327,8 +327,8 @@ form.search-bar button {
   flex-grow: 1;
   position: relative;
   padding: 0 0.5rem;
-  max-height: 64px;
-  height: 100%;
+  // max-height: 64px;
+  max-height: fit-content;
   &:hover > .card {
     transition: background-color 300ms ease-out;
     background-color: var(--light-gray);
@@ -369,7 +369,7 @@ form.search-bar button {
 .email__priority,
 .email__actions {
   position: relative;
-  max-height: 48px;
+  max-height: $card-h;
   margin: auto 0;
 }
 
@@ -388,8 +388,8 @@ form.search-bar button {
     bottom: 0;
     left: 0;
     right: 0;
-    width: 48px;
-    height: 48px;
+    width: $card-h;
+    height: $card-h;
   }
   & label > img {
     max-width: 100%;
@@ -403,7 +403,7 @@ form.search-bar button {
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 48px;
+  width: $card-h;
   & input[type="checkbox"].email__checkbox:checked + span::before {
     background: center / 80% no-repeat $checkmark-icon
       #0164ee;
@@ -576,7 +576,7 @@ TODO: Instead of a breakpoint this could be a theme switch from compact to conde
 /----------- */ 
 
 nav#primary-nav {
-  height: 48px;
+  height: $card-h;
   align-items: start;
   // & > *:not(#close-btn, #search, .nav__links) {
   //   // align-items: center;
@@ -598,7 +598,7 @@ nav#primary-nav ul.nav__links {
 nav#primary-nav .nav__link {
   @include list-item;
   flex-grow: 1;
-  height: 48px;
+  height: $card-h;
   border-radius: 0;
   border-bottom: 1px solid var(--border);
   width: 100%;

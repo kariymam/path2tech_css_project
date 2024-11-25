@@ -288,7 +288,7 @@ span {
   gap: 0.5rem;
   height: 100%;
   gap: 0.5rem;
-  height: 48px;
+  height: 68px;
   margin: 0.5rem 0;
 }
 .card * {
@@ -311,7 +311,7 @@ nav#primary-nav {
 
 header#main-header {
   display: flex;
-  height: 48px;
+  height: 68px;
 }
 header#main-header > * ~ * {
   border-radius: 0.5rem;
@@ -361,7 +361,7 @@ h2, section > :first-child {
     animation-play-state: running;
   }
   #greeting {
-    height: 48px;
+    height: 68px;
     width: -moz-fit-content;
     width: fit-content;
     margin-left: 1rem;
@@ -441,8 +441,8 @@ form.search-bar button {
   flex-grow: 1;
   position: relative;
   padding: 0 0.5rem;
-  max-height: 64px;
-  height: 100%;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
 }
 .email:hover > .card {
   transition: background-color 300ms ease-out;
@@ -480,7 +480,7 @@ form.search-bar button {
 .email__priority,
 .email__actions {
   position: relative;
-  max-height: 48px;
+  max-height: 68px;
   margin: auto 0;
 }
 
@@ -499,8 +499,8 @@ form.search-bar button {
   bottom: 0;
   left: 0;
   right: 0;
-  width: 48px;
-  height: 48px;
+  width: 68px;
+  height: 68px;
 }
 .email__actions label > img,
 .email__priority label > img {
@@ -513,7 +513,7 @@ form.search-bar button {
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 48px;
+  width: 68px;
 }
 .email__actions input[type=checkbox].email__checkbox:checked + span::before {
   background: center/80% no-repeat url(/assets/svg/checkmark-outline.svg) #0164ee;
@@ -657,7 +657,7 @@ TODO: Instead of a breakpoint this could be a theme switch from compact to conde
   NAVIGATION
 /----------- */
 nav#primary-nav {
-  height: 48px;
+  height: 68px;
   align-items: start;
 }
 
@@ -680,7 +680,7 @@ nav#primary-nav .nav__link {
   gap: 0.5rem;
   height: 100%;
   flex-grow: 1;
-  height: 48px;
+  height: 68px;
   border-radius: 0;
   border-bottom: 1px solid var(--border);
   width: 100%;
