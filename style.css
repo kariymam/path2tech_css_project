@@ -4,7 +4,7 @@
 :root {
   --offwhite: #e9ecf2;
   --gold: #ffa800;
-  --lightest-gray: #dddeea;
+  --lightest-gray: rgb(221, 222, 234);
   --light-gray: #c8c8d8;
   --dark-gray: 46, 46, 56;
   --blue: #0164ee;
@@ -145,7 +145,7 @@ body {
     grid-column: 2/span 2;
   }
   nav#primary-nav {
-    grid-row: 1/span 2;
+    grid-row: 1/span 3;
     grid-column: 1;
   }
   header#main-header {
@@ -161,10 +161,6 @@ body {
     grid-row: 3/span 1;
   }
 }
-header, main {
-  max-width: 1024px;
-}
-
 /* -----------
   TYPOGRAPHY
 /----------- */
@@ -173,8 +169,6 @@ h2,
 h3 {
   display: inline-flex;
   font-weight: 500;
-  color: rgba(var(--dark-gray));
-  flex-grow: 1;
 }
 
 h1 {
@@ -200,6 +194,7 @@ h2 > #unread-count {
 h3 {
   font-size: 0.75rem;
   font-family: var(--body);
+  flex-grow: 1;
 }
 
 p {
@@ -265,7 +260,6 @@ span {
 @media screen and (min-width: 768px) {
   h1, h2 {
     font-weight: 700;
-    width: 100%;
     align-items: center;
   }
   p {
@@ -297,6 +291,10 @@ span {
   align-items: flex-start;
 }
 
+header#main-header, main {
+  background-color: transparent;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -307,6 +305,7 @@ nav#primary-nav {
   z-index: 2;
   max-width: 300px;
   width: 100%;
+  border: none;
 }
 
 header#main-header {
@@ -315,10 +314,10 @@ header#main-header {
 }
 header#main-header > * ~ * {
   border-radius: 0.5rem;
-  margin: auto;
+  margin: auto 0;
 }
 
-h2 > #unread-count {
+#unread-count {
   width: -moz-max-content;
   width: max-content;
   background-color: var(--light-gray);
@@ -326,7 +325,7 @@ h2 > #unread-count {
   border-radius: 1rem;
 }
 
-h2 > #unread-count::before {
+#unread-count::before {
   content: "1";
   display: inline-flex;
   font-weight: 700;
@@ -335,6 +334,16 @@ h2 > #unread-count::before {
   text-align: center;
   margin: 0 0.25rem;
   font-size: 0.75rem;
+}
+
+#greeting {
+  display: flex;
+  flex-grow: 1;
+}
+
+#greeting > h1::after {
+  flex-grow: 1;
+  content: "Inbox";
 }
 
 aside {
@@ -352,19 +361,33 @@ h2, section > :first-child {
 }
 
 @media screen and (min-width: 768px) {
+  header#main-header, main {
+    background-color: var(--offwhite);
+  }
+  nav#primary-nav {
+    border-right: 1px solid var(--border);
+  }
   h2, section > :first-child {
-    margin: 1rem 0 0.5rem 0;
+    margin: 1rem 0 0.5rem 1rem;
   }
   #clock {
     height: 18px;
     animation: 1s ease-out 1s 1 fadeIn;
     animation-play-state: running;
   }
-  #greeting {
-    height: 68px;
-    width: -moz-fit-content;
-    width: fit-content;
+  #greeting > h1::after {
+    content: "Inbox";
+  }
+  #greeting > * {
     margin-left: 1rem;
+  }
+  #greeting {
+    flex-flow: column;
+    height: 2rem;
+  }
+  #logo {
+    margin: 0 0 0.8rem 1rem;
+    height: 68px;
   }
 }
 /*-- Add .list-resize transition to <main> onClick --*/
@@ -387,7 +410,7 @@ header#main-header, main {
 form.search-bar {
   margin: 0 0.5rem 0 0;
   align-self: self-end;
-  height: 1rem;
+  height: 1.5rem;
   padding: 0.25rem;
 }
 
@@ -425,7 +448,7 @@ form.search-bar button {
     flex-grow: 1;
   }
   form.search-bar:hover {
-    background-color: var(--light-gray);
+    background-color: var(--lightest-gray);
   }
   form.search-bar:focus, form.search-bar :focus-visible, form.search-bar :focus-within {
     background-color: var(--light-gray);
@@ -446,7 +469,7 @@ form.search-bar button {
 }
 .email:hover > .card {
   transition: background-color 300ms ease-out;
-  background-color: var(--light-gray);
+  background-color: var(--lightest-gray);
 }
 
 /* EMAIL | List ------
@@ -656,6 +679,17 @@ TODO: Instead of a breakpoint this could be a theme switch from compact to conde
 /* -----------
   NAVIGATION
 /----------- */
+.compose-btn {
+  height: 2rem;
+}
+
+.compose__link {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
 nav#primary-nav {
   height: 68px;
   align-items: start;
@@ -670,6 +704,7 @@ nav#primary-nav ul.nav__links {
   border: none;
   padding: 0;
   margin: 1rem 0;
+  gap: 0.5rem;
 }
 
 nav#primary-nav .nav__link {
@@ -690,6 +725,9 @@ nav#primary-nav .nav__link * {
   display: flex;
   align-items: flex-start;
 }
+nav#primary-nav .nav__link:not(:first-child) {
+  opacity: 0.5;
+}
 
 nav#primary-nav .nav__link > a {
   margin: auto auto auto 1rem;
@@ -708,10 +746,6 @@ nav#primary-nav .nav__container {
 }
 
 @media screen and (min-width: 768px) {
-  nav#primary-nav, header#main-header {
-    align-items: end;
-    margin: 1rem 0;
-  }
   nav#primary-nav {
     height: auto;
     position: relative;
@@ -721,18 +755,20 @@ nav#primary-nav .nav__container {
     position: fixed;
     z-index: auto;
     width: auto;
-    margin: 1rem 0 1rem 1rem;
+    margin: 0 0 1rem 1rem;
   }
   nav#primary-nav .nav__container {
     display: none;
     visibility: hidden;
   }
   nav#primary-nav .nav__link {
+    height: auto;
     flex-grow: 1;
     border: none;
   }
   nav#primary-nav .nav__link > a {
     margin: auto auto auto 0;
+    align-items: center;
   }
 }
 /* NAVIGATION | Slider Interaction ------

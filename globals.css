@@ -2,7 +2,7 @@
 :root {
   --offwhite: #e9ecf2;
   --gold: #ffa800;
-  --lightest-gray: #dddeea;
+  --lightest-gray: rgb(221, 222, 234);
   --light-gray: #c8c8d8;
   --dark-gray: 46, 46, 56;
   --blue: #0164ee;
