@@ -63,7 +63,7 @@
         </button>
       </form>
     </header>
-    <main id="email-list">
+    <main id="email-list" data-theme='long'>
       <span id="clock"><time id="current-date" class="mobile-hidden"></time></span>
       <section>
         <header>
@@ -428,6 +428,17 @@
 
         const showEmailDialog = (e) => {
           e.preventDefault();
+
+          if (!mq.matches) {
+            let currentTheme = elements["email-list"].getAttribute("data-theme");
+            let targetTheme = "compact"
+  
+            if (currentTheme === "compact") {
+              targetTheme = "long";
+            }
+            elements["email-list"].setAttribute('data-theme', targetTheme)
+          }
+
           elements["email-list"].classList.toggle("list-resize");
           elements["main-header"].classList.toggle("list-resize");
           elements["email__content"].classList.toggle("show");
@@ -445,6 +456,7 @@
         // Main initialization
         if (mq.matches) {
           elements["primary-nav"].classList.add("slider");
+          elements["email-list"].setAttribute('data-theme', "compact")
         } else {
           currentDate.startClock();
           elements["scrim"].style.display = "none";

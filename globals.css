@@ -22,6 +22,16 @@ body {
   font-optical-sizing: auto;
 }
 
+main[data-theme=long] .email__details {
+  --compact-grid: 1fr / 0 25% minmax(auto, 948px) min-content;
+  --compact-flow: row;
+}
+
+main[data-theme=compact] .email__details {
+  --compact-grid: 0 1fr 1fr / 1fr min-content;
+  --compact-flow: column;
+}
+
 /* ---- Breakpoints ---- */
 /* ---- Mobile / Desktop Hidden ---- */
 .mobile-hidden {

@@ -489,7 +489,8 @@ time.email__datetime::before {
 .email__details {
   display: grid;
   width: 100%;
-  padding: 0.5rem 0;
+  height: 60%;
+  padding: 0.25rem 0;
   & > * {
     border-radius: 0;
   }
@@ -504,6 +505,10 @@ time.email__datetime::before {
     color: transparent;
     cursor: pointer;
   }
+  // & :last-child {
+  //   grid-column: 2 / span 1;
+  //   grid-row: 1 / span 2;
+  // }
 }
 
 .email__details a::after, .email__details form::after {
@@ -529,18 +534,23 @@ time.email__datetime::before {
 TODO: Instead of a breakpoint this could be a theme switch from compact to condensed
 */
 
-@include responsize("mobile") {
-  .email__details {
-    grid-auto-flow: column;
-    grid-template: 0 1fr 1fr / 1fr min-content;
-  }
-}
+// @include responsize("mobile") {
+//   .email__details {
+//     grid-auto-flow: column;
+//     grid-template: 0 1fr 1fr / 1fr min-content;
+//   }
+// }
 
-@include responsize("tablet") {
-  .email__details {
-    grid-auto-flow: row;
-    grid-template: 1fr / 0 25% minmax(auto, 948px) min-content;
-  }
+// @include responsize("tablet") {
+//   .email__details {
+//     grid-auto-flow: row;
+//     grid-template: 1fr / 0 25% minmax(auto, 948px) min-content;
+//   }
+// }
+
+.email__details {
+  grid-template: var(--compact-grid);
+  grid-auto-flow: var(--compact-flow);
 }
 
 /* -----------
