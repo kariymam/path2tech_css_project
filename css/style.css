@@ -865,7 +865,8 @@ nav#primary-nav.slide-in {
   border-radius: 0.5rem;
   gap: 0.5rem;
   height: 100%;
-  height: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 #email__subject * {
   border-radius: 0.5rem;
@@ -891,6 +892,11 @@ div#email__sender #sender__actions {
   display: flex;
   flex-flow: column wrap;
   align-content: center;
+}
+
+#email__sender, #email__subject {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
 @media screen and (min-width: 768px) {

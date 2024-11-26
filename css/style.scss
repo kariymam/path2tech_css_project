@@ -799,7 +799,7 @@ nav#primary-nav.slide-in {
 
 #email__subject {
   @include list-item;
-  height: 100%;
+  height: fit-content;
 }
 
 div#email__sender {
@@ -820,6 +820,11 @@ div#email__sender {
   display: flex;
   flex-flow: column wrap;
   align-content: center;
+}
+
+#email__sender, #email__subject {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
 @media screen and (min-width: 768px) {
