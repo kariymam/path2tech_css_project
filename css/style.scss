@@ -214,6 +214,14 @@ header#main-header {
   }
 }
 
+iframe {
+  width: 100%;
+  height: 1800px;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
 #unread-count {
   width: max-content;
   background-color: var(--light-gray);
@@ -252,10 +260,6 @@ footer {
   padding: 1rem;
 }
 
-iframe {
-  flex-grow: 1;
-}
-
 h2, section > :first-child {
   margin: 1rem 1rem 0.5rem 1rem;
 }
@@ -276,8 +280,6 @@ h2, section > :first-child {
   }
   #clock {
     height: 18px;
-    animation: 1s ease-out 1s 1 fadeIn;
-    animation-play-state: running;
   }
   #greeting > h1::after {
     content: "Inbox";
@@ -778,12 +780,6 @@ nav#primary-nav.slide-in {
   EMAIL CONTENT VIEW
 /----------- */ 
 
-// #email__content-view {
-//   & > * {
-//     padding: 0 0.5rem;
-//   }
-// }
-
 .email__content {
   position: fixed;
   bottom: 0;
@@ -822,8 +818,9 @@ div#email__sender {
   right: 0;
   left: 0;
   display: flex;
-  flex-flow: column wrap;
-  align-content: end;
+  flex-flow: row-reverse wrap;
+  align-content: center;
+  justify-content: center;
 }
 
 #email__sender, #email__subject {
@@ -843,12 +840,30 @@ div#email__sender {
   display: inline-flex;
 }
 
-#sender__actions > div {
+#sender__actions > #sender__actions--more {
   width: fit-content;
   border: 1px solid var(--border);
-  border-radius: 0.5rem 0rem 0 0;
+  border-radius: 0.5rem;
   background-color: var(--offwhite);
   padding: 0.25rem 0.25rem 1rem 0.25rem;
+}
+
+#sender__actions--main {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+
+@include responsize("tablet") {
+  #sender__actions > #sender__actions--more {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    padding: 0.25rem 0.25rem 1rem 0.25rem; 
+  }
+  #sender__actions--labels {
+    display: none;
+  }
 }
 
 .actions {
@@ -859,8 +874,32 @@ div#email__sender {
     text-align: center;
     font-size: 0.75rem;
     padding-top: 0.25rem;
+    position: relative;
+  }
+  & .action > div::backdrop {
+    position: relative;
+    display: block;
   }
 }
+
+#reply {
+  flex-grow: 1;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+#reply__actions {
+  display: block;
+  position: relative;
+  height: 164px;
+  width: 100%;
+}
+
+
+
+/* -----------
+  ICON
+/----------- */ 
 
 @each $name, $svg in $icons {
   .#{$name}-icon {
@@ -880,7 +919,12 @@ div#email__sender {
   width: fit-content;
   margin: auto;
   padding: 0.25rem;
-  background-color: var(--light-gray);
+  cursor: pointer;
+  background-color: var(--offwhite);
   border: 1px solid var(--border);
-  border-radius: 0.25rem;
+  border-radius: 1rem;
+  transition: background-color 300ms ease-out;
+  &:hover {
+    background-color: var(--light-gray);
+  }
 }

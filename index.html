@@ -319,33 +319,42 @@
               >
             </div>
           </div>
-          <iframe src="email-template.html" title="description"></iframe>
-          <!--TODO: Reply section-->
+          <div id="reply">
+            <iframe src="email-template.html" title="description" scrolling="no"></iframe>
+            <!--TODO: Reply section-->
+            <div id="reply__actions">
+              
+              <div id="sender__actions--main">
+                <button>Reply</button>
+                <button>Forward</button>
+              </div>
+            </div>
+          </div>
           <div id="sender__actions">
-            <div>
+            <div id="sender__actions--more">
               <div class="actions">
-                <div>
+                <div class="action">
                   <button class="icon-btn">
                     <span class="trash-icon">Trash</span>
                   </button>
                 </div>
-                <div>
+                <div class="action">
                   <button class="icon-btn">
                     <span class="archive-icon">Trash</span>
                   </button>
                 </div>
-                <div>
+                <div class="action">
                   <button class="icon-btn">
                     <span class="flame-icon">Trash</span>
                   </button>
                 </div>
-                <div>
+                <div class="action">
                   <button class="icon-btn">
                     <span class="more-icon">Trash</span>
                   </button>
                 </div>
               </div>
-              <div class="actions">
+              <div id="sender__actions--labels" class="actions">
                 <span>Trash</span>
                 <span>Archive</span>
                 <span>Spam</span>
@@ -412,20 +421,20 @@
             month: "long",
             day: "numeric",
           },
-          time_options: {
-            hour: "numeric",
-            minute: "2-digit",
-            second: "2-digit",
-            hour12: true,
-          },
+          // time_options: {
+          //   hour: "numeric",
+          //   minute: "2-digit",
+          //   second: "2-digit",
+          //   hour12: true,
+          // },
           realtimeClock: () => {
             const now = new Date();
-            elements["current-date"].innerText = `${now.toLocaleString(
+            elements["current-date"].innerText = `Good news! ${now.toLocaleString(
               "en-US",
               currentDate.date_options
-            )} ${now.toLocaleString("en-US", currentDate.time_options)}`;
+            )}`;
           },
-          startClock: () => setInterval(currentDate.realtimeClock, 1000),
+          // startClock: () => setInterval(currentDate.realtimeClock, 1000),
         };
 
         const showEmailDialog = (e) => {
@@ -460,7 +469,7 @@
           elements["primary-nav"].classList.add("slider");
           elements["email-list"].setAttribute('data-theme', "compact")
         } else {
-          currentDate.startClock();
+          currentDate.realtimeClock();
           elements["scrim"].style.display = "none";
           elements["menu-btn"].style.display = "none";
           elements["close-btn"].style.display = "none";

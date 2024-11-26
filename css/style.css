@@ -318,6 +318,14 @@ header#main-header > * ~ * {
   margin: auto 0;
 }
 
+iframe {
+  width: 100%;
+  height: 1800px;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
 #unread-count {
   width: -moz-max-content;
   width: max-content;
@@ -357,10 +365,6 @@ footer {
   padding: 1rem;
 }
 
-iframe {
-  flex-grow: 1;
-}
-
 h2, section > :first-child {
   margin: 1rem 1rem 0.5rem 1rem;
 }
@@ -381,8 +385,6 @@ h2, section > :first-child {
   }
   #clock {
     height: 18px;
-    animation: 1s ease-out 1s 1 fadeIn;
-    animation-play-state: running;
   }
   #greeting > h1::after {
     content: "Inbox";
@@ -883,8 +885,9 @@ div#email__sender #sender__actions {
   right: 0;
   left: 0;
   display: flex;
-  flex-flow: column wrap;
-  align-content: end;
+  flex-flow: row-reverse wrap;
+  align-content: center;
+  justify-content: center;
 }
 
 #email__sender, #email__subject {
@@ -903,15 +906,32 @@ div#email__sender #sender__actions {
   display: inline-flex;
 }
 
-#sender__actions > div {
+#sender__actions > #sender__actions--more {
   width: -moz-fit-content;
   width: fit-content;
   border: 1px solid var(--border);
-  border-radius: 0.5rem 0rem 0 0;
+  border-radius: 0.5rem;
   background-color: var(--offwhite);
   padding: 0.25rem 0.25rem 1rem 0.25rem;
 }
 
+#sender__actions--main {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  #sender__actions > #sender__actions--more {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    padding: 0.25rem 0.25rem 1rem 0.25rem;
+  }
+  #sender__actions--labels {
+    display: none;
+  }
+}
 .actions {
   display: grid;
   grid-template: 1fr/repeat(4, 68px);
@@ -921,8 +941,29 @@ div#email__sender #sender__actions {
   text-align: center;
   font-size: 0.75rem;
   padding-top: 0.25rem;
+  position: relative;
+}
+.actions .action > div::backdrop {
+  position: relative;
+  display: block;
 }
 
+#reply {
+  flex-grow: 1;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+#reply__actions {
+  display: block;
+  position: relative;
+  height: 164px;
+  width: 100%;
+}
+
+/* -----------
+  ICON
+/----------- */
 .star-icon {
   display: block;
   background: rgb(var(--dark-gray));
@@ -1050,7 +1091,12 @@ div#email__sender #sender__actions {
   width: fit-content;
   margin: auto;
   padding: 0.25rem;
-  background-color: var(--light-gray);
+  cursor: pointer;
+  background-color: var(--offwhite);
   border: 1px solid var(--border);
-  border-radius: 0.25rem;
+  border-radius: 1rem;
+  transition: background-color 300ms ease-out;
+}
+.icon-btn:hover {
+  background-color: var(--light-gray);
 }/*# sourceMappingURL=style.css.map */
