@@ -15,7 +15,7 @@
   --bg-checkbox: var(--light-gray);
   --jakarta: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   --body: "Inter", system-ui, -apple-system, sans-serif;
-  --text-color: rgba(var(--dark-gray), 0.8) ;
+  --text-color: rgba(var(--dark-gray), 0.8);
 }
 
 body {
@@ -105,6 +105,7 @@ main[data-theme=compact] .email__details {
 body {
   display: grid;
   height: 100vh;
+  text-wrap: balance;
 }
 
 /* -----------
@@ -197,13 +198,13 @@ h3 {
   flex-grow: 1;
 }
 
-::-moz-placeholder {
+textarea::-moz-placeholder {
   font-size: 0.875rem;
   flex-grow: 1;
   font-family: var(--body);
 }
 
-p, ::placeholder {
+p, textarea::placeholder {
   font-size: 0.875rem;
   flex-grow: 1;
   font-family: var(--body);
@@ -222,7 +223,14 @@ ul {
   overflow: hidden;
 }
 
-time, .label, span {
+input::-moz-placeholder {
+  font-size: 0.75rem;
+  font-family: var(--body);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+time, .label, span, input::placeholder {
   font-size: 0.75rem;
   font-family: var(--body);
   font-weight: 600;
@@ -367,6 +375,10 @@ textarea {
   content: "Inbox";
 }
 
+#current-date {
+  white-space: nowrap;
+}
+
 aside {
   width: 100%;
   visibility: hidden;
@@ -399,7 +411,7 @@ h2, section > :first-child {
     height: 18px;
   }
   #greeting > h1::after {
-    content: "Inbox";
+    content: "Hi Kariyma!";
   }
   #greeting > * {
     margin-left: 1rem;
@@ -407,6 +419,7 @@ h2, section > :first-child {
   #greeting {
     flex-flow: column;
     height: 2rem;
+    gap: 0.25rem;
   }
   #logo {
     margin: 0 0 0.8rem 1rem;
@@ -872,6 +885,22 @@ nav#primary-nav.slide-in {
   flex-direction: column;
 }
 
+#email__exit-btn {
+  display: flex;
+  padding: 0.5rem;
+  align-items: center;
+  background-color: transparent;
+  max-height: 68px;
+  height: 100%;
+  border: none;
+  color: rgb(var(--dark-gray), 0.5);
+  cursor: pointer;
+}
+#email__exit-btn :first-child {
+  flex-grow: 1;
+  text-align: left;
+}
+
 #email__subject {
   height: -moz-fit-content;
   height: fit-content;
@@ -1129,6 +1158,17 @@ nav#primary-nav.slide-in {
   pointer-events: none;
   -webkit-mask: url(/assets/svg/forward-icon.svg) no-repeat center/24px;
   mask: url(/assets/svg/forward-icon.svg) no-repeat center/24px;
+  color: transparent;
+}
+
+.back-icon {
+  display: block;
+  background: rgb(var(--dark-gray));
+  width: 1.5rem;
+  height: 1.5rem;
+  pointer-events: none;
+  -webkit-mask: url(/assets/svg/back-icon.svg) no-repeat center/24px;
+  mask: url(/assets/svg/back-icon.svg) no-repeat center/24px;
   color: transparent;
 }
 

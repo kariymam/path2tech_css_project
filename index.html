@@ -299,7 +299,10 @@
       </section>
       <aside id="email__content">
         <div id="email__content-view" class="email__content">
-          <button id="email_exit-btn">Close email</button>
+          <button id="email__exit-btn">
+            <span>Close email</span>
+            <span class="back-icon">Back</span>
+          </button>
           <div id="email__subject">
             <h1>Click me!</h1>
           </div>
@@ -410,7 +413,7 @@
           "email-list",
           "main-header",
           "email__content",
-          "email_exit-btn",
+          "email__exit-btn",
           "greeting",
           "current-date",
           "scrim",
@@ -454,7 +457,7 @@
           // },
           realtimeClock: () => {
             const now = new Date();
-            elements["current-date"].innerText = `Good news! ${now.toLocaleString(
+            elements["current-date"].innerText = `It's ${now.toLocaleString(
               "en-US",
               currentDate.date_options
             )}`;
@@ -504,7 +507,7 @@
         elements["menu-btn"].addEventListener("click", handleMq);
         elements["close-btn"].addEventListener("click", handleMq);
         elements["view-email"].addEventListener("click", showEmailDialog);
-        elements["email_exit-btn"].addEventListener("click", showEmailDialog);
+        elements["email__exit-btn"].addEventListener("click", showEmailDialog);
       });
     </script>
   </body>

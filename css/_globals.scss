@@ -1,6 +1,6 @@
 @use "sass:map";
-@use 'sass:color';
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@use "sass:color";
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 
 :root {
   --offwhite: #e9ecf2;
@@ -16,7 +16,7 @@
   --bg-checkbox: var(--light-gray);
   --jakarta: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   --body: "Inter", system-ui, -apple-system, sans-serif;
-  --text-color: rgba(var(--dark-gray), 0.8)
+  --text-color: rgba(var(--dark-gray), 0.8);
 }
 
 body {
@@ -25,16 +25,15 @@ body {
   font-optical-sizing: auto;
 }
 
-main[data-theme='long'] .email__details {
+main[data-theme="long"] .email__details {
   --compact-grid: 1fr / 0 25% minmax(auto, 948px) min-content;
   --compact-flow: row;
 }
 
-main[data-theme='compact'] .email__details {
+main[data-theme="compact"] .email__details {
   --compact-grid: 0 1fr 1fr / 1fr min-content;
   --compact-flow: column;
 }
-
 
 // @include responsize("mobile") {
 //   .email__details {
@@ -50,7 +49,6 @@ main[data-theme='compact'] .email__details {
 //   }
 // }
 
-
 /* ---- Breakpoints ---- */
 
 $breakpoints: (
@@ -60,15 +58,12 @@ $breakpoints: (
 );
 
 @mixin responsize($bp) {
-
   @if map.has-key($breakpoints, $bp) {
-    
     $breakpoint: map.get($breakpoints, $bp);
 
     @media screen and (min-width: $breakpoint) {
       @content;
     }
-
   } @else {
     @warn 'Invalid breakpoint: #{$bp}.';
   }
@@ -113,26 +108,18 @@ $draft-icon: url(/assets/svg/draft-icon.svg);
 $inbox-icon: url(/assets/svg/inbox-icon.svg);
 $forward-icon: url(/assets/svg/forward-icon.svg);
 $reply-icon: url(/assets/svg/reply-icon.svg);
+$back-icon: url(/assets/svg/back-icon.svg);
 
-$icons:
-  "star" $star-icon,
-  "search" $search-icon,
-  "checkmark" $checkmark-icon, 
-  "menu" $menu-icon,
-  "trash" $trash-icon,
-  "archive" $archive-icon,
-  "flame" $flame-icon,
-  "more" $more-icon,
-  "compose" $compose-icon,
-  "draft" $draft-icon,
-  "inbox" $inbox-icon,
-  "forward" $forward-icon,
-  "reply" $reply-icon;
+$icons: "star" $star-icon, "search" $search-icon, "checkmark" $checkmark-icon,
+  "menu" $menu-icon, "trash" $trash-icon, "archive" $archive-icon,
+  "flame" $flame-icon, "more" $more-icon, "compose" $compose-icon,
+  "draft" $draft-icon, "inbox" $inbox-icon, "forward" $forward-icon,
+  "back" $back-icon, "reply" $reply-icon;
 
 /* ---- Usecase specific styling ---- */
 
 @mixin text-truncate {
-  display:inline-block;
+  display: inline-block;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -156,14 +143,20 @@ $card-h: 68px;
 }
 
 /* ---- Animations ---- */
-  
+
 @keyframes slideOut {
-  to { transform: translateX(0); }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideIn {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100vw); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100vw);
+  }
 }
 
 .fade-in ~ #scrim {
@@ -173,16 +166,27 @@ $card-h: 68px;
 
 .fade-out ~ #scrim {
   animation: fadeOut 1s 1 forwards;
-  -webkit-animation: fadeOut 300ms 1 forwards;  
+  -webkit-animation: fadeOut 300ms 1 forwards;
 }
 
 @keyframes fadeIn {
-  0% { visibility: hidden; opacity: 0; }
-  100% { visibility: visible; opacity: 1; }
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 @keyframes fadeOut {
-  0% { visibility: visible; opacity: 1; }
-  100% { visibility: hidden; opacity: 0; }
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
-  
