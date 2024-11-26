@@ -1,6 +1,6 @@
 @use "sass:map";
-@import url("reset.css");
-@import 'globals';
+@import url("css/reset.css");
+@import 'css/_globals';
 
 body {
   display: grid;

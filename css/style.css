@@ -15,7 +15,7 @@
   --bg-checkbox: var(--light-gray);
   --jakarta: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   --body: "Inter", system-ui, -apple-system, sans-serif;
-  --text-color: rgba(var(--dark-gray), 0.8) ;
+  --text-color: rgba(var(--dark-gray), 0.8);
 }
 
 body {
@@ -24,12 +24,12 @@ body {
   font-optical-sizing: auto;
 }
 
-main[data-theme=long] .email__details {
+main[data-theme="long"] .email__details {
   --compact-grid: 1fr / 0 25% minmax(auto, 948px) min-content;
   --compact-flow: row;
 }
 
-main[data-theme=compact] .email__details {
+main[data-theme="compact"] .email__details {
   --compact-grid: 0 1fr 1fr / 1fr min-content;
   --compact-flow: column;
 }
@@ -116,7 +116,7 @@ body {
     grid-template: auto 1fr/0 1fr;
   }
   main {
-    grid-column: 2/span 2;
+    grid-column: 2 / span 2;
     grid-row: span 1;
   }
   nav#primary-nav {
@@ -127,7 +127,7 @@ body {
     grid-column: 2;
   }
   aside {
-    grid-row: 3/span 2;
+    grid-row: 3 / span 2;
     grid-column: 2;
   }
   footer {
@@ -141,24 +141,24 @@ body {
     grid-template: min-content max-content/min-content auto 43.75vw;
   }
   main {
-    grid-row: 2/span 2;
-    grid-column: 2/span 2;
+    grid-row: 2 / span 2;
+    grid-column: 2 / span 2;
   }
   nav#primary-nav {
-    grid-row: 1/span 3;
+    grid-row: 1 / span 3;
     grid-column: 1;
   }
   header#main-header {
-    grid-column: 2/span 2;
+    grid-column: 2 / span 2;
     grid-row: 1;
   }
   aside {
-    grid-row: 1/span 3;
+    grid-row: 1 / span 3;
     grid-column: 3;
   }
   footer {
-    grid-column: 1/span 3;
-    grid-row: 3/span 1;
+    grid-column: 1 / span 3;
+    grid-row: 3 / span 1;
   }
 }
 /* -----------
@@ -216,7 +216,9 @@ ul {
   overflow: hidden;
 }
 
-time, .label, span {
+time,
+.label,
+span {
   font-size: 0.75rem;
   font-family: var(--body);
   font-weight: 600;
@@ -246,7 +248,8 @@ span {
   font-weight: 600;
 }
 
-.email__details p, .email__details p > span {
+.email__details p,
+.email__details p > span {
   display: inline-block;
   overflow-x: hidden;
   text-overflow: ellipsis;
@@ -258,7 +261,8 @@ span {
 }
 
 @media screen and (min-width: 768px) {
-  h1, h2 {
+  h1,
+  h2 {
     font-weight: 700;
     align-items: center;
   }
@@ -291,7 +295,8 @@ span {
   align-items: flex-start;
 }
 
-header#main-header, main {
+header#main-header,
+main {
   background-color: transparent;
 }
 
@@ -357,18 +362,21 @@ footer {
   padding: 1rem;
 }
 
-h2, section > :first-child {
+h2,
+section > :first-child {
   margin: 1rem 1rem 0.5rem 1rem;
 }
 
 @media screen and (min-width: 768px) {
-  header#main-header, main {
+  header#main-header,
+  main {
     background-color: var(--offwhite);
   }
   nav#primary-nav {
     border-right: 1px solid var(--border);
   }
-  h2, section > :first-child {
+  h2,
+  section > :first-child {
     margin: 1rem 0 0.5rem 1rem;
   }
   .card * {
@@ -396,13 +404,14 @@ h2, section > :first-child {
   }
 }
 /*-- Add .list-resize transition to <main> onClick --*/
-header#main-header, main {
+header#main-header,
+main {
   transition: grid-column 0.5s;
   transition-behavior: allow-discrete;
 }
 
 .list-resize {
-  grid-column: 2/span 1 !important;
+  grid-column: 2 / span 1 !important;
 }
 
 .show {
@@ -419,7 +428,7 @@ form.search-bar {
   padding: 0.25rem;
 }
 
-form.search-bar input[type=text] {
+form.search-bar input[type="text"] {
   border: none;
   margin: 0 0 0 auto;
   padding: 0;
@@ -427,12 +436,12 @@ form.search-bar input[type=text] {
   background-color: transparent;
 }
 
-form.search-bar input[type=text]::-moz-placeholder {
+form.search-bar input[type="text"]::-moz-placeholder {
   text-align: right;
   color: var(--text-color);
 }
 
-form.search-bar input[type=text]::placeholder {
+form.search-bar input[type="text"]::placeholder {
   text-align: right;
   color: var(--text-color);
 }
@@ -455,10 +464,12 @@ form.search-bar button {
   form.search-bar:hover {
     background-color: var(--lightest-gray);
   }
-  form.search-bar:focus, form.search-bar :focus-visible, form.search-bar :focus-within {
+  form.search-bar:focus,
+  form.search-bar :focus-visible,
+  form.search-bar :focus-within {
     background-color: var(--light-gray);
   }
-  form.search-bar input[type=text] {
+  form.search-bar input[type="text"] {
     width: 100%;
   }
 }
@@ -517,8 +528,8 @@ form.search-bar button {
   position: absolute;
   opacity: 0;
 }
-.email__actions input[type=checkbox],
-.email__priority input[type=checkbox] {
+.email__actions input[type="checkbox"],
+.email__priority input[type="checkbox"] {
   position: absolute;
   opacity: 0;
   inset: 0;
@@ -551,16 +562,17 @@ form.search-bar button {
   height: 100%;
   z-index: 2;
 }
-.email__actions input[type=checkbox].email__checkbox:checked + span::before {
-  background: center/80% no-repeat url(/assets/svg/checkmark-outline.svg) #0164ee;
+.email__actions input[type="checkbox"].email__checkbox:checked + span::before {
+  background: center/80% no-repeat url(/assets/svg/checkmark-outline.svg)
+    #0164ee;
 }
-.email__actions input[type=checkbox].email__checkbox + span {
+.email__actions input[type="checkbox"].email__checkbox + span {
   border: 1px solid var(--border);
   background-color: var(--bg-checkbox);
   width: 1.8rem;
   height: 1.8rem;
 }
-.email__actions > :is(input[type=checkbox]:checked) ~ label {
+.email__actions > :is(input[type="checkbox"]:checked) ~ label {
   opacity: 0;
 }
 
@@ -570,13 +582,13 @@ form.search-bar button {
 
 /* EMAIL | Priority ------
 */
-.email__priority input[type=checkbox].star__checkbox:checked + span {
+.email__priority input[type="checkbox"].star__checkbox:checked + span {
   background: var(--blue);
 }
-.email__priority input[type=checkbox].star__checkbox + span {
+.email__priority input[type="checkbox"].star__checkbox + span {
   background: rgb(var(--dark-gray));
 }
-.email__priority > :is(input[type=checkbox]:checked) ~ label {
+.email__priority > :is(input[type="checkbox"]:checked) ~ label {
   opacity: 0;
 }
 
@@ -639,7 +651,8 @@ time.email__datetime::before {
   cursor: pointer;
 }
 
-.email__details a::after, .email__details form::after {
+.email__details a::after,
+.email__details form::after {
   content: " ";
   position: absolute;
   cursor: pointer;
@@ -650,7 +663,8 @@ time.email__datetime::before {
   right: 0;
 }
 
-.email__details p, .email__details h3 {
+.email__details p,
+.email__details h3 {
   margin: auto 0;
 }
 
@@ -853,7 +867,8 @@ nav#primary-nav.slide-in {
   height: 100%;
   border: 1px solid var(--border);
   background-color: var(--offwhite);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -881,7 +896,7 @@ div#email__sender {
   gap: 0.5rem;
 }
 div#email__sender #sender__actions {
-  grid-column: 2/span 1;
+  grid-column: 2 / span 1;
 }
 
 @media screen and (min-width: 768px) {
@@ -904,7 +919,7 @@ div#email__sender #sender__actions {
 
 .actions {
   display: grid;
-  grid-template: 1fr/repeat(4, 68px);
+  grid-template: 1fr / repeat(4, 68px);
   gap: 1px;
 }
 .actions > * {
@@ -1043,4 +1058,4 @@ div#email__sender #sender__actions {
   background-color: var(--light-gray);
   border: 1px solid var(--border);
   border-radius: 0.25rem;
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
