@@ -798,8 +798,12 @@ nav#primary-nav.slide-in {
 }
 
 #email__subject {
-  @include list-item;
+  // @include list-item;
   height: fit-content;
+  & h1 {
+    font-size: 1.5rem;
+    color: rgb(var(--dark-gray));
+  }
 }
 
 div#email__sender {
@@ -819,7 +823,7 @@ div#email__sender {
   left: 0;
   display: flex;
   flex-flow: column wrap;
-  align-content: center;
+  align-content: end;
 }
 
 #email__sender, #email__subject {
@@ -842,8 +846,9 @@ div#email__sender {
 #sender__actions > div {
   width: fit-content;
   border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  border-radius: 0.5rem 0rem 0 0;
   background-color: var(--offwhite);
+  padding: 0.25rem 0.25rem 1rem 0.25rem;
 }
 
 .actions {

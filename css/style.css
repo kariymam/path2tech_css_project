@@ -859,19 +859,12 @@ nav#primary-nav.slide-in {
 }
 
 #email__subject {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  border-radius: 0.5rem;
-  gap: 0.5rem;
-  height: 100%;
   height: -moz-fit-content;
   height: fit-content;
 }
-#email__subject * {
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: flex-start;
+#email__subject h1 {
+  font-size: 1.5rem;
+  color: rgb(var(--dark-gray));
 }
 
 div#email__sender {
@@ -891,7 +884,7 @@ div#email__sender #sender__actions {
   left: 0;
   display: flex;
   flex-flow: column wrap;
-  align-content: center;
+  align-content: end;
 }
 
 #email__sender, #email__subject {
@@ -914,8 +907,9 @@ div#email__sender #sender__actions {
   width: -moz-fit-content;
   width: fit-content;
   border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  border-radius: 0.5rem 0rem 0 0;
   background-color: var(--offwhite);
+  padding: 0.25rem 0.25rem 1rem 0.25rem;
 }
 
 .actions {
