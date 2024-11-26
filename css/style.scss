@@ -108,7 +108,7 @@ h3 {
   flex-grow: 1;
 }
 
-p {
+p, ::placeholder {
   font-size: 0.875rem;
   flex-grow: 1;
   font-family: var(--body);
@@ -187,6 +187,10 @@ span {
   margin: 0.5rem 0;
 }
 
+// .card .active {
+
+// }
+
 header#main-header, main{
   background-color: transparent;
 }
@@ -220,6 +224,12 @@ iframe {
   position: relative;
   overflow: hidden;
   border: none;
+}
+
+textarea {
+  resize: none;
+  border: none;
+  padding: 1rem;
 }
 
 #unread-count {
@@ -371,6 +381,9 @@ form.search-bar button {
   max-height: fit-content;
   &:hover > .card {
     transition: background-color 300ms ease-out;
+    background-color: var(--lightest-gray);
+  }
+  & > .card.active {
     background-color: var(--lightest-gray);
   }
 }
@@ -580,24 +593,6 @@ time.email__datetime::before {
   letter-spacing: -0.3px;
 }
 
-/**
-TODO: Instead of a breakpoint this could be a theme switch from compact to condensed
-*/
-
-// @include responsize("mobile") {
-//   .email__details {
-//     grid-auto-flow: column;
-//     grid-template: 0 1fr 1fr / 1fr min-content;
-//   }
-// }
-
-// @include responsize("tablet") {
-//   .email__details {
-//     grid-auto-flow: row;
-//     grid-template: 1fr / 0 25% minmax(auto, 948px) min-content;
-//   }
-// }
-
 .email__details {
   grid-template: var(--compact-grid);
   grid-auto-flow: var(--compact-flow);
@@ -640,10 +635,6 @@ TODO: Instead of a breakpoint this could be a theme switch from compact to conde
 nav#primary-nav {
   height: $card-h;
   align-items: start;
-  // & > *:not(#close-btn, #search, .nav__links) {
-  //   // align-items: center;
-  //   margin: auto;
-  // }
 }
 
 nav#primary-nav ul.nav__links {
@@ -794,7 +785,6 @@ nav#primary-nav.slide-in {
 }
 
 #email__subject {
-  // @include list-item;
   height: fit-content;
   & h1 {
     font-size: 1.5rem;
@@ -802,11 +792,11 @@ nav#primary-nav.slide-in {
   }
 }
 
-div#email__sender {
+#email__sender {
   display: grid;
   grid-template: auto 1fr / 32px auto;
   grid-auto-flow: row;
-  gap: 0.5rem;
+  align-items: center;
   & #sender__actions {
     grid-column: 2 / span 1;
   }
@@ -852,6 +842,9 @@ div#email__sender {
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
+  margin: 1rem auto 1rem auto;
+  gap: 1rem;
+  justify-content: start;
 }
 
 @include responsize("tablet") {
@@ -863,6 +856,15 @@ div#email__sender {
   }
   #sender__actions--labels {
     display: none;
+  }
+  #sender__actions {
+    align-content: start;
+    justify-content: start;
+  }
+  #sender__actions--main {
+    margin: 1rem 0 1rem 0.5rem;
+    gap: 1rem;
+    justify-content: start;
   }
 }
 
@@ -889,12 +891,24 @@ div#email__sender {
 }
 
 #reply__actions {
-  display: block;
+  display: flex;
+  flex-flow: column nowrap;
   position: relative;
-  height: 164px;
   width: 100%;
+  margin: 0 0 94px 0;
+  border: 1px solid var(--border);
 }
 
+#reply__field {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+@include responsize("tablet") {
+  #reply__actions {
+    margin: 0 0 60px 0;
+  }
+}
 
 
 /* -----------
@@ -914,12 +928,35 @@ div#email__sender {
   }
 }
 
-.icon-btn {
+button.icon-btn {
   display: block;
   width: fit-content;
   margin: auto;
   padding: 0.25rem;
   cursor: pointer;
+  background-color: var(--offwhite);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  transition: background-color 300ms ease-out;
+  &:hover {
+    background-color: var(--light-gray);
+  }
+}
+
+button.primary-btn {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 0.5rem;
+  max-height: 32px;
+  height: 100%;
+  flex-grow: 1;
+  cursor: pointer;
+  margin: auto 0;
+  justify-content: center;
+  max-width: 200px;
+  min-height: 28px;
+  height: 100%;
   background-color: var(--offwhite);
   border: 1px solid var(--border);
   border-radius: 1rem;

@@ -197,7 +197,13 @@ h3 {
   flex-grow: 1;
 }
 
-p {
+::-moz-placeholder {
+  font-size: 0.875rem;
+  flex-grow: 1;
+  font-family: var(--body);
+}
+
+p, ::placeholder {
   font-size: 0.875rem;
   flex-grow: 1;
   font-family: var(--body);
@@ -324,6 +330,12 @@ iframe {
   position: relative;
   overflow: hidden;
   border: none;
+}
+
+textarea {
+  resize: none;
+  border: none;
+  padding: 1rem;
 }
 
 #unread-count {
@@ -480,6 +492,9 @@ form.search-bar button {
 }
 .email:hover > .card {
   transition: background-color 300ms ease-out;
+  background-color: var(--lightest-gray);
+}
+.email > .card.active {
   background-color: var(--lightest-gray);
 }
 
@@ -664,9 +679,6 @@ time.email__datetime::before {
   letter-spacing: -0.3px;
 }
 
-/**
-TODO: Instead of a breakpoint this could be a theme switch from compact to condensed
-*/
 .email__details {
   grid-template: var(--compact-grid);
   grid-auto-flow: var(--compact-flow);
@@ -869,13 +881,13 @@ nav#primary-nav.slide-in {
   color: rgb(var(--dark-gray));
 }
 
-div#email__sender {
+#email__sender {
   display: grid;
   grid-template: auto 1fr/32px auto;
   grid-auto-flow: row;
-  gap: 0.5rem;
+  align-items: center;
 }
-div#email__sender #sender__actions {
+#email__sender #sender__actions {
   grid-column: 2/span 1;
 }
 
@@ -919,6 +931,9 @@ div#email__sender #sender__actions {
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
+  margin: 1rem auto 1rem auto;
+  gap: 1rem;
+  justify-content: start;
 }
 
 @media screen and (min-width: 768px) {
@@ -930,6 +945,15 @@ div#email__sender #sender__actions {
   }
   #sender__actions--labels {
     display: none;
+  }
+  #sender__actions {
+    align-content: start;
+    justify-content: start;
+  }
+  #sender__actions--main {
+    margin: 1rem 0 1rem 0.5rem;
+    gap: 1rem;
+    justify-content: start;
   }
 }
 .actions {
@@ -955,12 +979,24 @@ div#email__sender #sender__actions {
 }
 
 #reply__actions {
-  display: block;
+  display: flex;
+  flex-flow: column nowrap;
   position: relative;
-  height: 164px;
   width: 100%;
+  margin: 0 0 94px 0;
+  border: 1px solid var(--border);
 }
 
+#reply__field {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+@media screen and (min-width: 768px) {
+  #reply__actions {
+    margin: 0 0 60px 0;
+  }
+}
 /* -----------
   ICON
 /----------- */
@@ -1085,7 +1121,29 @@ div#email__sender #sender__actions {
   color: transparent;
 }
 
-.icon-btn {
+.forward-icon {
+  display: block;
+  background: rgb(var(--dark-gray));
+  width: 1.5rem;
+  height: 1.5rem;
+  pointer-events: none;
+  -webkit-mask: url(/assets/svg/forward-icon.svg) no-repeat center/24px;
+  mask: url(/assets/svg/forward-icon.svg) no-repeat center/24px;
+  color: transparent;
+}
+
+.reply-icon {
+  display: block;
+  background: rgb(var(--dark-gray));
+  width: 1.5rem;
+  height: 1.5rem;
+  pointer-events: none;
+  -webkit-mask: url(/assets/svg/reply-icon.svg) no-repeat center/24px;
+  mask: url(/assets/svg/reply-icon.svg) no-repeat center/24px;
+  color: transparent;
+}
+
+button.icon-btn {
   display: block;
   width: -moz-fit-content;
   width: fit-content;
@@ -1097,6 +1155,29 @@ div#email__sender #sender__actions {
   border-radius: 1rem;
   transition: background-color 300ms ease-out;
 }
-.icon-btn:hover {
+button.icon-btn:hover {
+  background-color: var(--light-gray);
+}
+
+button.primary-btn {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 0.5rem;
+  max-height: 32px;
+  height: 100%;
+  flex-grow: 1;
+  cursor: pointer;
+  margin: auto 0;
+  justify-content: center;
+  max-width: 200px;
+  min-height: 28px;
+  height: 100%;
+  background-color: var(--offwhite);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  transition: background-color 300ms ease-out;
+}
+button.primary-btn:hover {
   background-color: var(--light-gray);
 }/*# sourceMappingURL=style.css.map */

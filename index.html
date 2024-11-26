@@ -10,7 +10,10 @@
     <nav id="primary-nav">
       <div id="logo">
         <div class="compose__link">
-          <button id="compose-btn">Compose</button>
+          <button id="compose-btn" class="primary-btn">
+            <span class="compose-icon"></span>
+            Compose
+          </button>
         </div>
       </div>
       <ul class="nav__links">
@@ -323,11 +326,32 @@
             <iframe src="email-template.html" title="description" scrolling="no"></iframe>
             <!--TODO: Reply section-->
             <div id="reply__actions">
-              
-              <div id="sender__actions--main">
-                <button>Reply</button>
-                <button>Forward</button>
-              </div>
+              <form action="" method="get" id="reply__field">
+                <div id="email__sender">
+                  <div id="sender__icon">
+                    <span
+                      id="sender__icon"
+                      class="email__initials icon-btn"
+                      aria-hidden="true"
+                    >
+                      <span class="reply-icon"></span>
+                    </span>
+                  </div>
+                  <div id="sender__name">
+                    <span>Replying to Kariyma Murphy </span>
+                  </div>
+                  </div>
+                <textarea name="reply-field" rows="5" cols="33" placeholder="Reply to this email"></textarea>
+                <div id="sender__actions--main">
+                  <button class="primary-btn">
+                    Send reply
+                  </button>
+                  <button class="primary-btn">
+                    <span class="forward-icon"></span>
+                    Forward
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
           <div id="sender__actions">
@@ -390,6 +414,7 @@
           "greeting",
           "current-date",
           "scrim",
+          "email1"
         ]);
 
         const mq = window.matchMedia("(max-width: 768px)");
@@ -453,6 +478,7 @@
           elements["email-list"].classList.toggle("list-resize");
           elements["main-header"].classList.toggle("list-resize");
           elements["email__content"].classList.toggle("show");
+          elements["email1"].querySelector('.card').classList.toggle("active");
         };
 
         const handleMq = (e) => {
