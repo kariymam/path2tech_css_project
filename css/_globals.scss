@@ -1,6 +1,6 @@
 @use "sass:map";
 @use "sass:color";
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
   --offwhite: #f5f5f4;
@@ -15,8 +15,8 @@
   --bg-card: var(--offwhite);
   --badge: #c8c8d8;
   --bg-checkbox: var(--light-gray);
-  --display: "DM Sans", system-ui, -apple-system, sans-serif;
-  --body: "DM Sans", system-ui, -apple-system, sans-serif;
+  --display: "Bricolage Grotesque", system-ui, -apple-system, sans-serif;
+  --body: "Inter", system-ui, -apple-system, sans-serif;
   --text-color: rgba(var(--dark-gray), 0.8);
   --hover-bg: #dddeea;
 }
@@ -24,17 +24,32 @@
 body {
   background-color: var(--offwhite);
   color: var(--text-color);
+  font-family: var(--body);
   font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.display-font {
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: rgba(var(--dark-gray));
 }
 
 main[data-theme="long"] .email__details {
   --compact-grid: 1fr / 0 25% minmax(auto, 948px) min-content;
   --compact-flow: row;
+  --theme-h3: 0.875rem;
 }
 
 main[data-theme="compact"] .email__details {
   --compact-grid: 0 1fr 1fr / 1fr min-content;
   --compact-flow: column;
+  --theme-h3: 0.75rem;
 }
 
 @debug color.mix(#eaecf2, #fff6e7);
