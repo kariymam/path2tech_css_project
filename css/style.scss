@@ -48,6 +48,8 @@ body {
   main {
     grid-row: 2 / span 2;
     grid-column: 2 / span 2;
+    height: calc(100vh - 68px);
+    overflow-y: scroll;
   }
   nav#primary-nav {
     grid-row: 1 / span 3;
@@ -85,7 +87,7 @@ h3 {
 h1 {
   font-size: 1rem;
   white-space: wrap;
-  font-family: var(--jakarta);
+  font-family: var(--display);
 }
 
 h2 {
@@ -128,7 +130,7 @@ ul {
   overflow: hidden;
 }
 
-time, .label, span, input::placeholder {
+time.email__datetime, .label, span#unread-count, input::placeholder {
   font-size: 0.75rem;
   font-family: var(--body);
   font-weight: 600;
@@ -140,7 +142,7 @@ span {
 }
 
 .email__unread {
-  font-weight: 700;
+  font-weight: 700!important;
   color: rgb(var(--dark-gray));
 }
 
@@ -154,11 +156,19 @@ span {
   font-weight: 600;
 }
 
+.home__list .email__details p > span {
+  font-weight: 500;
+}
+
 .email__details p, .email__details p > span {
   @include text-truncate;
   max-width: 900px;
   line-height: 1.2;
   border-radius: 0;
+}
+
+.email__details p > span {
+  transform: translateY(4px)
 }
 
 @include responsize("tablet") {
@@ -187,10 +197,6 @@ span {
   height: $card-h;
   margin: 0.5rem 0;
 }
-
-// .card .active {
-
-// }
 
 header#main-header, main{
   background-color: transparent;
@@ -280,9 +286,9 @@ h2, section > :first-child {
 }
 
 @include responsize("tablet"){
-  header#main-header, main{
-    background-color: var(--offwhite);
-  }
+  // header#main-header, main{
+  //   background-color: var(--offwhite);
+  // }
   nav#primary-nav {
     border-right: 1px solid var(--border);
   }
@@ -297,7 +303,7 @@ h2, section > :first-child {
     height: 18px;
   }
   #greeting > h1::after {
-    content: "Hi Kariyma!";
+    content: "Welcome Kariyma!";
   }
   #greeting > * {
     margin-left: 1rem;
@@ -307,10 +313,6 @@ h2, section > :first-child {
     height: 2rem;
     gap: 0.25rem;
   }
-  #logo {
-    margin: 0 0 0.8rem 1rem;
-    height: $card-h;
-  }
 }
 
 
@@ -318,7 +320,7 @@ h2, section > :first-child {
 
 header#main-header, main {
   transition: grid-column 0.5s;
-  transition-behavior: allow-discrete;
+  // transition-behavior: allow-discrete;
 }
 
 .list-resize {
@@ -356,19 +358,21 @@ form.search-bar input[type="text"]::placeholder {
 form.search-bar button {
   border-color: transparent;
   background: transparent;
+  margin-right: 0.5rem;
 }
 
 @include responsize("tablet") {
   form.search-bar {
     display: flex;
     margin: 0 0.5rem 0 0.5rem;
+    transform: translateX(-1rem);
     flex-flow: row nowrap;
     align-items: center;
     max-width: 300px;
     width: 100%;
     flex-grow: 1;
-      &:hover{background-color: var(--lightest-gray);}
-      &:focus, :focus-visible, :focus-within{background-color: var(--light-gray);}
+      &:hover{background-color: var(--hover-bg);}
+      &:focus, :focus-visible, :focus-within{background-color: var(--hover-bg);}
   }
   form.search-bar input[type="text"] {
     width: 100%;
@@ -382,15 +386,15 @@ form.search-bar button {
 .email {
   flex-grow: 1;
   position: relative;
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   // max-height: 64px;
   max-height: fit-content;
   &:hover > .card {
     transition: background-color 300ms ease-out;
-    background-color: var(--lightest-gray);
+    background-color: var(--hover-bg);
   }
   & > .card.active {
-    background-color: var(--lightest-gray);
+    background-color: var(--hover-bg);
   }
 }
 
@@ -473,7 +477,7 @@ form.search-bar button {
   }
   & input[type="checkbox"].email__checkbox:checked + span::before {
     background: center / 80% no-repeat $checkmark-icon
-      #0164ee;
+      var(--active);
   }
   & input[type="checkbox"].email__checkbox + span {
     border: 1px solid var(--border);
@@ -486,17 +490,24 @@ form.search-bar button {
   }
 }
 
-// .email__actions .checkmark::before {
-//   content: " ";
-//   border-radius: 0.5rem;
-//   pointer-events: none;
-//   width: 100%;
-//   height: 100%;
-//   z-index: 2;
-// }
+.email__initials {
+  overflow: hidden;
+  width: 28px;
+  height: 28px;
+}
+
+.email__initials > img {
+ height: 100%;
+ width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
 
 .email__actions .email__initials {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* EMAIL | Priority ------
@@ -504,7 +515,7 @@ form.search-bar button {
 
 .email__priority {
   & input[type="checkbox"].star__checkbox:checked + span {
-    background: var(--blue);
+    background: var(--active);
   }
   & input[type="checkbox"].star__checkbox + span {
     background: rgb(var(--dark-gray));
@@ -534,8 +545,8 @@ time.email__datetime::before {
 }
 
 .home__pinned time.email__datetime {
-  background-color: var(--lightest-gray);
-  border: 1px solid var(--lightest-gray);
+  background-color: var(--badge);
+  border: 1px solid var(--badge);
 }
 
 .home__list time.email__datetime {
@@ -628,14 +639,24 @@ time.email__datetime::before {
 
 .compose-btn {
   height: 2rem;
-
 } 
+
+#logo {
+  display: flex;
+  width: 300px;
+  height: 100%;
+  position: relative;
+}
 
 .compose__link {
   display: flex;
   height: 100%;
-  width: 100%;
   align-items: center;
+  position: absolute;
+  z-index: 2;
+  flex-grow: 1;
+  width: 100%;
+  justify-content: center;
 }
 
 nav#primary-nav {
@@ -651,7 +672,7 @@ nav#primary-nav ul.nav__links {
   flex-flow: column nowrap;
   border: none;
   padding: 0;
-  margin: 1rem 0;
+  margin: 1rem 0 0 0;
   gap: 0.5rem
 }
 
@@ -671,6 +692,8 @@ nav#primary-nav .nav__link > a {
   margin: auto auto auto 1rem;
   gap: 0.5rem;
   padding: 0;
+  max-width: 200px;
+  align-items: center;
 }
 
 nav#primary-nav .nav__container {
@@ -684,6 +707,18 @@ nav#primary-nav .nav__container {
 }
 
 @include responsize("tablet") {
+  #logo {
+    width: auto;
+    margin: 0 1rem 0 1rem;
+    height: $card-h;
+  }
+  .compose__link {
+    position: relative;
+    width: 100%;
+  }
+  .compose-btn {
+    margin: 0 1rem;
+  }
   nav#primary-nav {
     height: auto;
     position: relative;
@@ -703,6 +738,8 @@ nav#primary-nav .nav__container {
     height: auto;
     flex-grow: 1;
     border: none;
+    padding: 0.5rem;
+    width: fit-content;
   }
   nav#primary-nav .nav__link > a {
     margin: auto auto auto 0;
@@ -784,7 +821,7 @@ nav#primary-nav.slide-in {
   width: 100%;
   height: calc(100%);
   border: 1px solid var(--border);
-  background-color: var(--offwhite);
+  background-color: #ffffff;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   display: flex;
   flex-direction: column;
@@ -869,6 +906,11 @@ nav#primary-nav.slide-in {
   justify-content: start;
 }
 
+#sender__info {
+  font-size: 0.875rem;
+  gap: 0.25rem;
+}
+
 @include responsize("tablet") {
   #sender__actions > #sender__actions--more {
     border: none;
@@ -892,7 +934,7 @@ nav#primary-nav.slide-in {
 
 .actions {
   display: grid;
-  grid-template: 1fr / repeat(4, 68px);
+  grid-template: 1fr / repeat(4, 48px);
   gap: 1px;
   & > * {
     text-align: center;
@@ -961,11 +1003,12 @@ button.icon-btn {
   border-radius: 1rem;
   transition: background-color 300ms ease-out;
   &:hover {
-    background-color: var(--light-gray);
+    background-color: var(--hover-bg);
   }
 }
 
 button.primary-btn {
+  font-family: var(--body);
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -976,14 +1019,19 @@ button.primary-btn {
   cursor: pointer;
   margin: auto 0;
   justify-content: center;
+  font-weight: 600;
   max-width: 200px;
   min-height: 28px;
   height: 100%;
-  background-color: var(--offwhite);
+  color: var(--offwhite);
+  background-color: #1d2939;
   border: 1px solid var(--border);
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   transition: background-color 300ms ease-out;
   &:hover {
-    background-color: var(--light-gray);
+    background-color: #000;
+  }
+  & span {
+    background-color: var(--offwhite);
   }
 }

@@ -1,22 +1,24 @@
 @use "sass:map";
 @use "sass:color";
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 :root {
-  --offwhite: #e9ecf2;
+  --offwhite: #f5f5f4;
   --gold: #ffa800;
-  --lightest-gray: rgb(221, 222, 234);
-  --light-gray: #c8c8d8;
+  --lightest-gray: #f5f1ed;
+  --light-gray: #ffcf74;
   --dark-gray: 46, 46, 56;
-  --blue: #0164ee;
-  --interactive: var(--blue);
+  --active: rgb(46, 46, 56);
+  --interactive: var(--active);
   --global-bg: var(--lightest-gray);
-  --border: var(--light-gray);
+  --border: #dddeea;
   --bg-card: var(--offwhite);
+  --badge: #c8c8d8;
   --bg-checkbox: var(--light-gray);
-  --jakarta: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-  --body: "Inter", system-ui, -apple-system, sans-serif;
+  --display: "DM Sans", system-ui, -apple-system, sans-serif;
+  --body: "DM Sans", system-ui, -apple-system, sans-serif;
   --text-color: rgba(var(--dark-gray), 0.8);
+  --hover-bg: #dddeea;
 }
 
 body {
@@ -35,24 +37,12 @@ main[data-theme="compact"] .email__details {
   --compact-flow: column;
 }
 
-// @include responsize("mobile") {
-//   .email__details {
-//     grid-auto-flow: column;
-//     grid-template: 0 1fr 1fr / 1fr min-content;
-//   }
-// }
-
-// @include responsize("tablet") {
-//   .email__details {
-//     grid-auto-flow: row;
-//     grid-template: 1fr / 0 25% minmax(auto, 948px) min-content;
-//   }
-// }
+@debug color.mix(#eaecf2, #fff6e7);
 
 /* ---- Breakpoints ---- */
 
 $breakpoints: (
-  "mobile": 375px,
+  "mobile": 320px,
   "tablet": 768px,
   "laptop": 1024px,
 );
