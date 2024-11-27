@@ -418,12 +418,12 @@ h2, section > :first-child {
 
 @media screen and (min-width: 768px) {
   main {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 108px);
     overflow-y: scroll;
   }
   header#main-header {
     gap: 1rem;
-    padding-bottom: 2rem;
+    padding-bottom: 39px;
     border-bottom: 1px solid var(--border);
   }
   nav#primary-nav {
