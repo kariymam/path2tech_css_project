@@ -1,0 +1,50 @@
+<li class="email" id="email2">
+    {% for email in emails %}
+    <div class="card">
+      <div class="email__actions" aria-describedby="author2">
+        <span class="email__initials" aria-hidden="true">
+          <img
+          alt="Peter Potamus profile picture"
+          src="https://cdn.hanna-barberawiki.com/thumb/7/7f/HBAAL_Peter_Potamus.png/600px-HBAAL_Peter_Potamus.png"
+        /> 
+           </span>
+        <input
+          id="select_email2"
+          type="checkbox"
+          class="email__checkbox"
+          name="select_email2"
+        />
+        <span class="checkmark" aria-hidden="true"></span>
+        <label for="select_email2"> From </label>
+      </div>
+      <div class="email__details">
+        <a href="#" id="author3">
+          <span class="visually-hidden">Link</span>
+        </a>
+        {% for name in email.sender %}
+        <h3>{{ name.fullname }}</h3>
+        {% endfor %}
+        <p>
+          <span>Did you get that thing I sent you?</span> - Did you get that thing I sent you? - Potamus
+        </p>
+        <div class="email__priority">
+          <div>
+            <time class="email__datetime" datetime="2024-11-18 19:00">
+                6:00PM</time
+            >
+          </div>
+          <div class="email__star-container">
+            <input
+              id="star-email2"
+              type="checkbox"
+              class="star__checkbox"
+              name="star-email2"
+            />
+            <span class="star-icon"></span>
+            <label for="star-email2"> star this email </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </li>

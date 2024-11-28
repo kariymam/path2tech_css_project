@@ -1,0 +1,16 @@
+{
+  "name": "path2tech_css_project",
+  "version": "1.0.0",
+  "description": "Welcome to the Email Template Webpage project, a meticulously designed interface aimed at enhancing the user's email viewing experience. This project showcases a dynamic and user-friendly email template, perfect for displaying emails in a structured and intuitive manner.",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
