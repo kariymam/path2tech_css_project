@@ -528,7 +528,7 @@ form.search-bar button {
 
 .email__priority {
   & input[type="checkbox"].star__checkbox:checked + span {
-    background: var(--active);
+    background: var(--gold);
   }
   & input[type="checkbox"].star__checkbox + span {
     background: rgb(var(--dark-gray));
