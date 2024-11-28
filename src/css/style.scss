@@ -1,6 +1,6 @@
+@use "components/globals" as *;
 @use "sass:map";
 @import url("reset.css");
-@import '_globals';
 
 body {
   display: grid;
@@ -162,10 +162,10 @@ span {
 }
 
 .email__details p, .email__details p > span {
-  @include text-truncate;
   max-width: 900px;
   line-height: 1.2;
   border-radius: 0;
+  @include text-truncate;
 }
 
 .email__details p > span {
@@ -189,10 +189,10 @@ span {
 /----------- */ 
 
 .card {
-  @include list-item;
   gap: 0.5rem;
   height: $card-h;
-  margin: 0.5rem 0;
+  margin: auto 0;
+  @include list-item;
 }
 
 header#main-header, main{
@@ -398,9 +398,9 @@ form.search-bar button {
 .email {
   flex-grow: 1;
   position: relative;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   // max-height: 64px;
-  max-height: fit-content;
+  max-height: $card-h;
   &:hover > .card {
     transition: background-color 300ms ease-out;
     background-color: var(--hover-bg);
@@ -941,15 +941,15 @@ nav#primary-nav.slide-in {
   display: grid;
   grid-template: 1fr / repeat(4, 48px);
   gap: 1px;
+  & .action > div::backdrop {
+    position: relative;
+    display: block;
+  }
   & > * {
     text-align: center;
     font-size: 0.75rem;
     padding-top: 0.25rem;
     position: relative;
-  }
-  & .action > div::backdrop {
-    position: relative;
-    display: block;
   }
 }
 
