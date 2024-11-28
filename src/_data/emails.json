@@ -4,13 +4,23 @@
 		"sender": [{"initials":"EX", "fullname":"Example"}],
 		"subject": "Subject",
 		"body": "Body",
-		"timestamp": "6:00PM"
+		"timestamp": "6:00PM",
+		"pinned": false
 	},
 	{
 		"profileImg": "https://cdn.hanna-barberawiki.com/thumb/7/7f/HBAAL_Peter_Potamus.png/600px-HBAAL_Peter_Potamus.png",
 		"sender": [{"initials":"PP", "fullname":"Peter Potamus"}],
 	    "subject": "Did you get that thing I sent you?",
 		"body": "Did you get that thing I sent you? - Potamus",
-		"timestamp": "6:00PM"
+		"timestamp": "6:00PM",
+		"pinned": false
+	},
+	{
+		"profileImg": "https://mir-s3-cdn-cf.behance.net/user/276/5e23674548351.5eae0a14a6ea0.jpg",
+		"sender": [{"initials":"KM", "fullname":"Kariyma"}],
+	    "subject": "Click me!",
+		"body": "Example Newsletter But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and",
+		"timestamp": "6:00PM",
+		"pinned": true
 	}
 ]
