@@ -1,12 +1,18 @@
+{% for email in emails %}
 <li class="email" id="email2">
-    {% for email in emails %}
     <div class="card">
       <div class="email__actions" aria-describedby="author2">
         <span class="email__initials" aria-hidden="true">
-          <img
-          alt="Peter Potamus profile picture"
-          src="https://cdn.hanna-barberawiki.com/thumb/7/7f/HBAAL_Peter_Potamus.png/600px-HBAAL_Peter_Potamus.png"
-        /> 
+          {% if email.profileImg == "" %}
+          {% for name in email.sender %}
+            {{ name.initials }}</h3>
+          {% endfor %}
+          {% else %}
+            <img
+            alt="Peter Potamus profile picture"
+            src={{ email.profileImg }}
+          /> 
+        {% endif %}
            </span>
         <input
           id="select_email2"
@@ -25,12 +31,12 @@
         <h3>{{ name.fullname }}</h3>
         {% endfor %}
         <p>
-          <span>Did you get that thing I sent you?</span> - Did you get that thing I sent you? - Potamus
+          <span>{{ email.subject }}</span> - {{ email.body }}
         </p>
         <div class="email__priority">
           <div>
             <time class="email__datetime" datetime="2024-11-18 19:00">
-                6:00PM</time
+              {{ email.timestamp }}</time
             >
           </div>
           <div class="email__star-container">
@@ -46,5 +52,5 @@
         </div>
       </div>
     </div>
-    {% endfor %}
   </li>
+  {% endfor %}

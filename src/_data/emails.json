@@ -1,8 +1,16 @@
 [
 	{
-		"sender": [{"initials":"EX", "fullname":"Example"}]
+		"profileImg": "",
+		"sender": [{"initials":"EX", "fullname":"Example"}],
+		"subject": "Subject",
+		"body": "Body",
+		"timestamp": "6:00PM"
 	},
 	{
-		"sender": [{"initials":"PP", "fullname":"Peter Potamus"}]
+		"profileImg": "https://cdn.hanna-barberawiki.com/thumb/7/7f/HBAAL_Peter_Potamus.png/600px-HBAAL_Peter_Potamus.png",
+		"sender": [{"initials":"PP", "fullname":"Peter Potamus"}],
+	    "subject": "Did you get that thing I sent you?",
+		"body": "Did you get that thing I sent you? - Potamus",
+		"timestamp": "6:00PM"
 	}
 ]
