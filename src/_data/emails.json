@@ -1,26 +1,147 @@
-[
-	{
-		"profileImg": "",
-		"sender": [{"initials":"EX", "fullname":"Example"}],
-		"subject": "Subject",
-		"body": "Body",
-		"timestamp": "6:00PM",
-		"pinned": false
-	},
-	{
-		"profileImg": "https://cdn.hanna-barberawiki.com/thumb/7/7f/HBAAL_Peter_Potamus.png/600px-HBAAL_Peter_Potamus.png",
-		"sender": [{"initials":"PP", "fullname":"Peter Potamus"}],
-	    "subject": "Did you get that thing I sent you?",
-		"body": "Did you get that thing I sent you? - Potamus",
-		"timestamp": "6:00PM",
-		"pinned": false
-	},
-	{
-		"profileImg": "https://mir-s3-cdn-cf.behance.net/user/276/5e23674548351.5eae0a14a6ea0.jpg",
-		"sender": [{"initials":"KM", "fullname":"Kariyma"}],
-	    "subject": "Click me!",
-		"body": "Example Newsletter But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and",
-		"timestamp": "6:00PM",
-		"pinned": true
-	}
-]
+{
+    "emails": [
+            {
+                "sender_img": "",
+                "sender_name": [
+                    {
+                        "initials": "EX",
+                        "fullname": "Example"
+                    }
+                ],
+                "email_subject": "Meeting Agenda for Q4 2025",
+                "email_body": "Please find the attached meeting agenda outlining our plans and objectives for Q4.",
+                "timestamp": "2024-11-30T12:02:14+00:00",
+                "pinned": false
+            },
+            {
+                "sender_img": "",
+                "sender_name": [
+                    {
+                        "initials": "JD",
+                        "fullname": "John Doe"
+                    }
+                ],
+                "email_subject": "Project Update - Phase 2 Completion",
+                "email_body": "We are pleased to announce the successful completion of phase two in our project.",
+                "timestamp": "2024-11-30T15:47:29+00:00",
+                "pinned": false
+            },
+            {
+                "sender_img": "",
+                "sender_name": [
+                    {
+                        "initials": "SJ",
+                        "fullname": "Samantha Johnson"
+                    }
+                ],
+                "email_subject": "Budget Review Meeting Reminder",
+                "email_body": "A reminder for our upcoming budget review meeting scheduled on December 5th.",
+                "timestamp": "2024-11-30T17:58:36+00:00",
+                "pinned": false
+            },
+            {
+                "sender_img": "",
+                "sender_name": [
+                    {
+                        "initials": "AJ",
+                        "fullname": "Andrew James"
+                    }
+                ],
+                "email_subject": "Quarterly Sales Report",
+                "email_body": "Our sales report for Q4 shows a promising increase in revenue.",
+                "timestamp": "2024-11-30T19:25:48+00:00",
+                "pinned": false
+            },
+            {
+                "sender_img": "",
+                "sender_name": [
+                    {
+                        "initials": "RM",
+                        "fullname": "Rebecca Miller"
+                    }
+                ],
+                "email_subject": "New Employee Onboarding Process",
+                "email_body": "We've updated our onboarding process to better welcome new team members.",
+                "timestamp": "2024-11-30T21:56:13+00:00",
+                "pinned": false
+            },
+            {
+                "sender_img": "",
+                "sender_name": [
+                    {
+                        "initials": "LK",
+                        "fullname": "Laura King"
+                    }
+                ],
+                "email_subject": "Office Hours Reminder",
+                "email_body": "A reminder that our office hours are Monday to Friday from 9 AM - 5 PM.",
+                "timestamp": "2024-11-30T23:47:56+00:00",
+                "pinned": false
+            },
+            {
+                "sender_img": "",
+                "sender_name": [
+                    {
+                        "initials": "CZ",
+                        "fullname": "Charles Zimmerman"
+                    }
+                ],
+                "email_subject": "Annual Performance Reviews Scheduled",
+                "email_body": "Performance reviews will be conducted in the coming weeks. Please prepare your reports.",
+                "timestamp": "2024-12-02T10:37:59+00:00",
+                "pinned": false
+            },
+            {
+                "sender_img": "",
+                "sender_name": [
+                    {
+                        "initials": "MK",
+                        "fullname": "Michael Knight"
+                    }
+                ],
+                "email_subject": "Upcoming Team Building Event",
+                "email_body": "Save the date for our team building event on January 15th.",
+                "timestamp": "2025-01-15T14:30:48+00:00",
+                "pinned": false
+            },
+            {
+                "sender_img": "",
+                "sender_name": [
+                    {
+                        "initials": "JD",
+                        "fullname": "Julia Davis"
+                    }
+                ],
+                "email_subject": "New IT Support Policies",
+                "email_body": "We are rolling out new IT support policies effective from February 1st.",
+                "timestamp": "2025-02-01T08:46:37+00:00",
+                "pinned": false
+            },
+            {
+                "sender_img": "",
+                "sender_name": [
+                    {
+                        "initials": "JM",
+                        "fullname": "James Miller"
+                    }
+                ],
+                "email_subject": "Lunch and Learn Series",
+                "email_body": "Join us for our monthly lunch and learn series.",
+                "timestamp": "2025-03-12T12:14:12+00:00",
+                "pinned": false
+            },
+            {
+                "sender_img": "",
+                "sender_name": [
+                    {
+                        "initials": "LG",
+                        "fullname": "Lucy Green"
+                    }
+                ],
+                "email_subject": "Employee Training Schedule Update",
+                "email_body": "The schedule for employee training has been updated.",
+                "timestamp": "2025-04-18T16:37:59+00:00",
+                "pinned": false
+            }
+        ]
+}

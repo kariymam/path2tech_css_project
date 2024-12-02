@@ -1,0 +1,150 @@
+@use "globals" as *;
+:root {
+    --display: "Bricolage Grotesque", system-ui, -apple-system, sans-serif;
+    --body: "Inter", system-ui, -apple-system, sans-serif;
+    --text-color: rgba(var(--dark-gray), 0.8);
+    --text-base: 1rem;
+    --text-sm: 0.875rem; // 14px
+    --text-xs: 0.75rem; // 12px
+}
+/* -----------
+  TYPOGRAPHY
+/----------- */ 
+
+body {
+    color: var(--text-color);
+    font-family: var(--body);
+    text-wrap: balance;
+}
+  
+.display-font {
+font-family: var(--display);
+font-style: normal;
+font-variation-settings:
+    "wdth" 100;
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: rgba(var(--dark-gray));
+}
+
+h1,
+h2,
+h3 {
+  display: inline-flex;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 1rem;
+  white-space: wrap;
+  color: rgb(var(--dark-gray));
+}
+
+h2 {
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: var(--body);
+  
+}
+
+.badge {
+  max-height: 1.5rem;
+  align-items: baseline;
+  font-weight: 600;
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--text-xs);
+}
+
+h3 {
+  font-size: var(--text-xs);
+  font-family: var(--body);
+  flex-grow: 1;
+}
+
+p, textarea::placeholder {
+  font-optical-sizing: auto;
+  font-size: var(--text-base);
+  flex-grow: 1;
+  font-family: var(--body);
+}
+
+a {
+  text-decoration: none;
+  font-family: var(--body);
+}
+
+a:visited {
+  color: inherit;
+}
+
+time.email__datetime {
+    font-size: var(--theme-h3);
+}
+
+.label, input::placeholder {
+    font-size: var(--text-sm);
+}
+
+time, .label, input::placeholder {
+    font-family: var(--body);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+
+span {
+  font-family: var(--body);
+}
+
+.email__unread {
+  font-weight: 700!important;
+  color: rgb(var(--dark-gray));
+}
+
+.email__actions .email__initials {
+  font-size: 0.75rem;
+}
+
+.email__details h3 {
+  @include text-truncate;
+  font-size: var(--theme-h3);
+  font-weight: 600;
+}
+
+.home__list .email__details p > span {
+  font-weight: 500;
+  color: rgb(var(--dark-gray));
+}
+
+.email__details p, .email__details p > span {
+  max-width: 900px;
+  border-radius: 0;
+  @include text-truncate;
+}
+
+.email__details p > span {
+  transform: translateY(4px)
+}
+
+main[data-theme="long"] .email__details {
+    --theme-h3: var(--text-sm);
+    --lineh: 1.2;
+  }
+  
+  main[data-theme="compact"] .email__details {
+    --theme-h3: var(--text-xs);
+    --lineh: 1.4;
+  }
+
+@include responsize("tablet") {
+  h1, h2 {
+    font-weight: 700;
+    align-items: center;
+  }
+  p {
+    font-size: 1rem;
+    flex-grow: 1;
+  }
+}
+

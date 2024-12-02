@@ -1,13 +1,13 @@
 {% assign count = 0 %}
-{% for email in emails %}
+{% for email in emails.emails %}
   {% assign count = count | plus: 1 %}
 <li class="email" id="email-{{ count }}">
     <div class="card">
       <div class="email__actions" aria-describedby="author-{{ count }}">
         <span class="email__initials" aria-hidden="true">
-          {% for name in email.sender %}
-          {% if email.profileImg == "" %}
-            {{ name.initials }}</h3>
+          {% for name in email.sender_name %}
+          {% if email.sender_img == "" %}
+            {{ name.initials }}
             {% else %}
             <img
             alt="{{ name.fullname }} profile picture"
@@ -29,16 +29,16 @@
         <a href="#">
           <span class="visually-hidden">Link</span>
         </a>
-        {% for name in email.sender %}
+        {% for name in email.sender_name %}
         <h3 id="author-{{ count }}">{{ name.fullname }}</h3>
         {% endfor %}
         <p>
-          <span>{{ email.subject }}</span> - {{ email.body }}
+          <span>{{ email.email_subject }}</span> - {{ email.email_body }}
         </p>
         <div class="email__priority">
           <div>
-            <time class="email__datetime" datetime="2024-11-18 19:00">
-              {{ email.timestamp }}
+            <time class="email__datetime" datetime="{{ email.timestamp }}">
+              {{ email.timestamp | sentDate }}
             </time>
             {% if email.pinned %}
               <img

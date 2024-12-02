@@ -1,187 +1,7 @@
 @use "components/globals" as *;
+@use "components/grid";
+@use "components/typography";
 @use "sass:map";
-@import url("reset.css");
-
-body {
-  display: grid;
-  height: 100vh;
-  text-wrap: balance;
-}
-
-/* -----------
-  GRID
-/----------- */ 
-
-/*- min-width: 375px -*/
-
-@include responsize("mobile") {
-  body {
-    grid-template: auto 1fr / 0 1fr;
-  }
-  main {
-    grid-column: 2 / span 2;
-    grid-row: span 1;
-  }
-  nav#primary-nav{
-    grid-row: span 2 / 2;
-  }
-  header#main-header {
-    grid-row: span 1 / 1;
-    grid-column: 2;
-  }
-  aside {
-    grid-row: 3 / span 2;
-    grid-column: 2;
-  }
-  footer {
-    grid-column: 2;
-    grid-row: 2;
-  }
-}
-
-/*- min-width: 768px -*/
-
-@include responsize("tablet") {
-  body {
-    grid-template: min-content max-content / min-content auto calc(100vw * 56 / 128.0);
-  }
-  main {
-    grid-row: 2 / span 2;
-    grid-column: 2 / span 2;
-    // height: calc(100vh - 100px);
-    // overflow-y: scroll;
-  }
-  nav#primary-nav {
-    grid-row: 1 / span 3;
-    grid-column: 1;
-  }
-  header#main-header {
-    grid-column: 2 / span 2;
-    grid-row: 1;
-  }
-  aside {
-    grid-row: 1 / span 3;
-    grid-column: 3;
-  }
-  footer {
-    grid-column: 1 / span 3;
-    grid-row: 3 / span 1;
-  }
-}
-
-// header, main {
-//   max-width: map.get($breakpoints, "laptop");
-// }
-
-/* -----------
-  TYPOGRAPHY
-/----------- */ 
-
-h1,
-h2,
-h3 {
-  display: inline-flex;
-  font-weight: 500;
-}
-
-h1 {
-  font-size: 1rem;
-  white-space: wrap;
-  color: rgb(var(--dark-gray));
-}
-
-h2 {
-  align-items: baseline;
-  gap: 0.5rem;
-  font-family: var(--body);
-  
-}
-
-h2 > #unread-count {
-  font-size: 0.75rem;
-  max-height: 1.5rem;
-  align-items: baseline;
-  font-weight: 600;
-  text-align: center;
-}
-
-h3 {
-  font-size: 0.75rem;
-  font-family: var(--body);
-  flex-grow: 1;
-}
-
-p, textarea::placeholder {
-  font-size: 0.875rem;
-  flex-grow: 1;
-  font-family: var(--body);
-}
-
-a {
-  text-decoration: none;
-  font-family: var(--body);
-}
-
-a:visited {
-  color: inherit;
-}
-
-ul {
-  overflow: hidden;
-}
-
-time.email__datetime, .label, span#unread-count, input::placeholder {
-  font-size: 0.75rem;
-  font-family: var(--body);
-  font-weight: 600;
-  line-height: 1.5;
-}
-
-span {
-  font-family: var(--body);
-}
-
-.email__unread {
-  font-weight: 700!important;
-  color: rgb(var(--dark-gray));
-}
-
-.email__actions .email__initials {
-  font-size: 0.75rem;
-}
-
-.email__details h3 {
-  @include text-truncate;
-  font-size: var(--theme-h3);
-  font-weight: 600;
-}
-
-.home__list .email__details p > span {
-  font-weight: 500;
-  color: rgb(var(--dark-gray));
-}
-
-.email__details p, .email__details p > span {
-  max-width: 900px;
-  line-height: 1.2;
-  border-radius: 0;
-  @include text-truncate;
-}
-
-.email__details p > span {
-  transform: translateY(4px)
-}
-
-@include responsize("tablet") {
-  h1, h2 {
-    font-weight: 700;
-    align-items: center;
-  }
-  p {
-    font-size: 1rem;
-    flex-grow: 1;
-  }
-}
 
 /* -----------
   LAYOUT
@@ -189,10 +9,14 @@ span {
 /----------- */ 
 
 .card {
-  gap: 0.5rem;
-  height: $card-h;
   margin: auto 0;
+  width: 100%;
   @include list-item;
+}
+
+.card * {
+  align-items: center;
+  justify-content: center;
 }
 
 header#main-header, main{
@@ -247,12 +71,9 @@ textarea {
 #unread-count::before {
   content: "1";
   display: inline-flex;
-  font-weight: 700;
   align-items: center;
   justify-content: center;
-  text-align: center;
   margin: 0 0.25rem;
-  font-size: 0.75rem;
 }
 
 #greeting {
@@ -300,10 +121,6 @@ h2, section > :first-child {
   }
   h2, section > :first-child {
     margin: 1rem 0 0.5rem 1rem;
-  }
-  .card * {
-    align-items: center;
-    justify-content: center;
   }
   #clock {
     height: 18px;
@@ -398,9 +215,8 @@ form.search-bar button {
 .email {
   flex-grow: 1;
   position: relative;
-  padding: 0.5rem 1rem;
-  // max-height: 64px;
-  max-height: $card-h;
+  padding: 0.5rem;
+  display: inline-flex;
   &:hover > .card {
     transition: background-color 300ms ease-out;
     background-color: var(--hover-bg);
@@ -463,8 +279,9 @@ form.search-bar button {
     bottom: 0;
     left: 0;
     right: 0;
-    width: $card-h;
-    height: $card-h;
+    width: 100%;
+    height: 100%;
+    margin: 0;
   }
   & label > img {
     max-width: 100%;
@@ -475,13 +292,14 @@ form.search-bar button {
 */ 
 
 .email__actions {
-  align-items: center;
-  justify-content: center;
   height: 100%;
   width: $card-h;
+  & .checkmark {
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
   & .checkmark::before {
     content: " ";
-    border-radius: 0.5rem;
     pointer-events: none;
     width: 100%;
     height: 100%;
@@ -492,10 +310,7 @@ form.search-bar button {
       var(--active);
   }
   & input[type="checkbox"].email__checkbox + span {
-    border: 1px solid var(--border);
     background-color: var(--bg-checkbox);
-    width: 1.8rem;
-    height: 1.8rem;
   }
   & > :is(input[type="checkbox"]:checked) ~ label {
     opacity: 0;
@@ -504,9 +319,12 @@ form.search-bar button {
 
 .email__initials {
   overflow: hidden;
-  width: 30px;
-  height: 30px;
   border-radius: 0.5rem;
+}
+
+.email__initials, .email__actions input[type=checkbox].email__checkbox + span {
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 .email__initials > img {
@@ -519,14 +337,18 @@ form.search-bar button {
 .email__actions .email__initials {
   position: absolute;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* EMAIL | Priority ------
 */ 
 
 .email__priority {
+  align-items: center;
+  height: 18px;
+  & .star-icon {
+    width: 1rem;
+    height: 1rem;
+  }
   & input[type="checkbox"].star__checkbox:checked + span {
     background: var(--gold);
   }
@@ -582,8 +404,7 @@ time.email__datetime::before {
 .email__details {
   display: grid;
   width: 100%;
-  height: 60%;
-  padding: 0.25rem 0;
+  // padding: 0.25rem 0;
   & > * {
     border-radius: 0;
   }
@@ -986,7 +807,7 @@ nav#primary-nav.slide-in {
 
 @each $name, $svg in $icons {
   .#{$name}-icon {
-    display: block;
+    display: inline-flex;
     background: rgb(var(--dark-gray));
     width: 1.5rem;
     height: 1.5rem;

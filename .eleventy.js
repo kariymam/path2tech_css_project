@@ -1,5 +1,6 @@
 const sass = require("sass");
 const path = require("path");
+const { DateTime } = require("luxon");
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('./src/assets');
@@ -30,6 +31,12 @@ module.exports = function (eleventyConfig) {
 			};
 		}
 	});
+
+	// Add SASS support
+	eleventyConfig.addFilter("sentDate", (dateStr) => {
+		// return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
+		return DateTime.fromISO(dateStr).toLocaleString(DateTime.DATE_MED);
+	  });
 
 
     return {

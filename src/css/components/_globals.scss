@@ -15,9 +15,6 @@
   --bg-card: var(--offwhite);
   --badge: #c8c8d8;
   --bg-checkbox: var(--light-gray);
-  --display: "Bricolage Grotesque", system-ui, -apple-system, sans-serif;
-  --body: "Inter", system-ui, -apple-system, sans-serif;
-  --text-color: rgba(var(--dark-gray), 0.8);
   --hover-bg: #dddeea;
 }
 
@@ -85,35 +82,14 @@ table {
 
 /**  End of resets  **/
 
-body {
-  background-color: var(--offwhite);
-  color: var(--text-color);
-  font-family: var(--body);
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-.display-font {
-  font-family: var(--display);
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-    font-weight: 300;
-    font-size: 1.5rem;
-    color: rgba(var(--dark-gray));
-}
-
 main[data-theme="long"] .email__details {
   --compact-grid: 1fr / 0 25% minmax(auto, 948px) min-content;
   --compact-flow: row;
-  --theme-h3: 0.875rem;
 }
 
 main[data-theme="compact"] .email__details {
-  --compact-grid: 0 1fr 1fr / 1fr min-content;
+  --compact-grid: 0 1fr auto / 1fr min-content;
   --compact-flow: column;
-  --theme-h3: 0.75rem;
 }
 
 // @debug color.mix(#eaecf2, #fff6e7);
@@ -192,10 +168,10 @@ $icons: "star" $star-icon, "search" $search-icon, "checkmark" $checkmark-icon,
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  line-height: 1.2;
+  line-height: var(--lineh);
 }
 
-$card-h: 68px;
+$card-h: 60px;
 
 @mixin list-item {
   display: flex;
@@ -205,9 +181,9 @@ $card-h: 68px;
   gap: 0.5rem;
   height: 100%;
   & * {
-    border-radius: 0.5rem;
+    // border-radius: 0.5rem;
     display: flex;
-    align-items: flex-start;
+    // align-items: flex-start;
   }
 }
 
